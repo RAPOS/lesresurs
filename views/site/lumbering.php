@@ -14,9 +14,9 @@ $this->title = "Продажа леса";
         <div></div>
     </div>
     <div class="page-desc clearfix">
-        <div class="square left"></div>
-        <div class="square left"></div>
-        <div class="square left"></div>
+        <img class="img-responsive square left" src="/images/0-2-1.png"/>
+        <img class="img-responsive square left" src="/images/0-2-1.png"/>
+        <img class="img-responsive square left" src="/images/0-2-1.png"/>
         <div class="block left hidden-xs">
             <h3>Предложение</h3>
             <p>
@@ -30,7 +30,7 @@ $this->title = "Продажа леса";
             </p>
         </div>
     </div>
-    <div class="block left visible-xs">
+    <div class="block left visible-xs small-xs">
         <h3>Предложение</h3>
         <p>
             Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса кругляка в больших объёмах на<br>
@@ -46,5 +46,20 @@ $this->title = "Продажа леса";
         <h2>Продукция</h2>
         <h6>Описание деятельности нашей компании</h6>
         <div></div>
+    </div>
+    <div class="page-offer">
+        <div class="item clearfix">
+            <img class="img-responsive left" src="/images/0-2-2.png"/>
+            <div class="item-desc left">
+                <h3>Лес кругляк</h3>
+                <p>
+                    Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса<br>
+                    кругляка в больших объёмах на постоянной основе.<br>
+                    Продажа кругляка из отборных хвойных пород<br>
+                    древесины производится партиями любого объёма по<br>
+                    привлекательным ценам.
+                </p>
+            </div>
+        </div>
     </div>
 </div>
