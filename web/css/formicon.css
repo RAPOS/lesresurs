@@ -26,3 +26,39 @@
 .form-icon-pencil:before {
     content: url("../images/Contacts-12.png");
 }
+
+.footer-icon {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+}
+
+.icon-instagram {
+    content: url("../images/Social-14.png");
+}
+.icon-instagram:active {
+    content: url("../images/Social-17.png")!important;;
+}
+.icon-instagram:hover {
+    content: url("../images/Social-20.png");
+}
+
+.icon-vk {
+    content: url("../images/Social-15.png");
+}
+.icon-vk:active {
+    content: url("../images/Social-18.png")!important;
+}
+.icon-vk:hover {
+    content: url("../images/Social-21.png");
+}
+
+.icon-twitter {
+    content: url("../images/Social-16.png");
+}
+.icon-twitter:active {
+    content: url("../images/Social-19.png")!important;;
+}
+.icon-twitter:hover {
+    content: url("../images/Social-22.png");
+}

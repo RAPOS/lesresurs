@@ -55,9 +55,19 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">ООО &laquo;ЛЕСРЕСУРС&raquo; <?= date('Y') ?></p>
-
-        <p class="pull-right">МЫ В СОЦСЕТЯХ</p>
+        <div class="row">
+            <div style="text-align: center;" class="col-xs-12 col-md-2">
+                ООО &laquo;ЛЕСРЕСУРС&raquo; <?= date('Y') ?>
+            </div>
+            <div class="col-xs-12 col-md-3 col-md-offset-7">
+                <div style="width: 194px;margin: 0 auto;text-align: center;" class="clearfix">
+                    <div style="float: left;margin-right: 10px;">МЫ В СОЦСЕТЯХ</div>
+                    <a class="footer-icon icon-instagram" href="#" onclick="return false;"></a>
+                    <a class="footer-icon icon-vk" href="#" onclick="return false;"></a>
+                    <a class="footer-icon icon-twitter" href="#" onclick="return false;"></a>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 

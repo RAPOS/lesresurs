@@ -84,7 +84,7 @@ h3 {
 }
 
 .footer {
-    height: 60px;
+    min-height: 60px;
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
     padding-top: 20px;
@@ -342,4 +342,75 @@ a.desc:after {
     margin-top: 8px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.page .page-article {
+    max-width: 756px;
+    margin: 0 auto;
+    margin-top: 43px;
+    text-align: left;
+}
+
+.page .page-article h3 {
+    text-transform: uppercase;
+}
+
+.page .page-article img {
+    margin-top: 25px;
+    margin-bottom: 47px;
+}
+
+.page .page-article .share {
+    margin-top: 33px;
+    margin-bottom: 39px;
+    text-align: center;
+    position: relative;
+}
+
+.page .page-article .share button {
+    width: 190px;
+    font-size: 16px;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.bubble {
+    position: relative;
+    display: none;
+    width: 300px;
+    height: 50px;
+    padding-top: 12px;
+    margin: 0 auto;
+    top: 20px;
+    background: #FFFFFF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: #7F7F7F solid 1px;
+}
+
+.bubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 0 15px 15px;
+    border-color: #FFFFFF transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    top: -15px;
+    left: 135px;
+}
+
+.bubble:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 0 16px 16px;
+    border-color: #7F7F7F transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    top: -16px;
+    left: 134px;
 }
