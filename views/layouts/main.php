@@ -36,10 +36,10 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Продажа леса', 'url' => ['/site/lumbering']],
             ['label' => 'Спецпредложения', 'url' => ['/site/specials']],
-            '<li><img class="nav-logo" src="/images/logo.png"/></li>',
+            '<li><a class="a-logo" href="/"><img class="nav-logo" src="/images/logo.png"/></a></li>',
             ['label' => 'Галлерея', 'url' => ['/site/gallery']],
             ['label' => 'Статьи', 'url' => ['/site/articles']],
-            ['label' => 'Контакты', 'url' => ['/site/contact']],
+            ['label' => 'Контакты', 'url' => ['/site/contacts']],
         ],
     ]);
     NavBar::end();

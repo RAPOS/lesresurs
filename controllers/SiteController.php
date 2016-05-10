@@ -3,11 +3,13 @@
 namespace app\controllers;
 
 use Yii;
+use yii\captcha\CaptchaValidator;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\LFeedback;
+use app\models\LContacts;
 
 class SiteController extends Controller
 {
@@ -42,7 +44,7 @@ class SiteController extends Controller
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                'fixedVerifyCode' => null,
             ],
         ];
     }
@@ -72,6 +74,16 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionSpecials()
+    {
+        return $this->render('specials');
+    }
+
+    public function actionGallery()
+    {
+        return $this->render('gallery');
+    }
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -79,16 +91,46 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionContact()
+    public function actionContacts()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+        $LContacts = LContacts::find()->where(['site' => 1])->one();
+        $LFeedback = new LFeedback();
+        if (Yii::$app->request->post()) {
+            $validator = new CaptchaValidator();
+            if (!$validator->validate($_POST['LFeedback']['verifyCode'])) {
+                Yii::$app->getSession()->setFlash('captcha', 'false');
 
-            return $this->refresh();
+                return $this->redirect(['contacts']);
+            }
+
+            if ($LFeedback->load(Yii::$app->request->post()) && $LFeedback->validate()){
+                $LFeedback->date = time();
+                $LFeedback->ip = $_SERVER['REMOTE_ADDR'];
+                if ($LFeedback->save()) {
+                    Yii::$app->getSession()->setFlash('save', 'true');
+
+                    return $this->redirect(['contacts']);
+                }
+            }
         }
-        return $this->render('contact', [
-            'model' => $model,
+
+        if (Yii::$app->getSession()->getFlash('captcha')) {
+            $captcha = false;
+        } else {
+            $captcha = true;
+        }
+
+        if (Yii::$app->getSession()->getFlash('save')) {
+            $save = true;
+        } else {
+            $save = false;
+        }
+
+        return $this->render('contacts', [
+            'contacts' => $LContacts,
+            'feedback' => $LFeedback,
+            'captcha' => $captcha,
+            'save' => $save,
         ]);
     }
 }
