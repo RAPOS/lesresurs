@@ -26,7 +26,7 @@ $this->title = 'Статьи';
                 </div>
                 <div class="col-xs-12 col-md-6 button">
                     <button class="lbutton"
-                            onclick="location.href='/articles/'<?=$value->id?>"
+                            onclick="location.href='/articles/<?=$value->id?>'"
                             onmouseover="this.style.background = '#12b154'"
                             onmouseout="this.style.background = '#0b9444'"
                             onmousedown="this.style.background = '#067333'"

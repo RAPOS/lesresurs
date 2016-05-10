@@ -302,6 +302,7 @@ a.desc:after {
 
 .page .actions .item-action h3, .page .articles .item-article h3 {
     margin-top: 16px;
+    font-size: 28px;
 }
 
 .page .actions .left, .page .articles .left {
