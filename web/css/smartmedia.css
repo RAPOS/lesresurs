@@ -84,3 +84,23 @@
         max-width: 368px!important;
     }
 }
+
+@media (max-width: 1198px) {
+    .page .actions, .page .articles {
+        max-width: 760px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    .page .actions .item-action:nth-child(even), .page .articles .item-article:nth-child(even) {
+        margin-right: 0!important;
+    }
+    .page .actions .item-action:nth-child(odd), .page .articles .item-article:nth-child(odd) {
+        margin-right: 20px!important;
+    }
+}
+
+@media (max-width: 999px) {
+    .page .actions, .page .articles {
+        max-width: 368px;
+    }
+}

@@ -8,6 +8,17 @@ body {
     font-size: 14px;
 }
 
+h2 {
+    color: #009444;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+
+h3 {
+    color: #77787a;
+    font-size: 30px;
+}
+
 .nav-green {
     background: #009444;
     border: none;
@@ -27,11 +38,11 @@ body {
 }
 
 .nav-logo {
-    width: 85px;
-    height: 65px;
+    width: 80px;
+    height: 60px;
     margin-top: -18px;
-    margin-left: 55px;
-    margin-right: 55px;
+    margin-left: 62px;
+    margin-right: 62px;
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -152,17 +163,6 @@ a.desc:after {
     margin-top: -60px;
 }
 
-.page .page-head h2 {
-    color: #009444;
-    text-transform: uppercase;
-    font-size: 36px;
-}
-
-.page .page-head h6 {
-    color: #77787a;
-    margin-top: 14px;
-}
-
 .page .page-head div {
     width: 124px;
     height: 20px;
@@ -189,10 +189,8 @@ a.desc:after {
     max-width: 542px;
 }
 
-.page .page-desc .block h3, .block h3{
-    color: #77787a;
+.page .page-desc .block h3, .block h3 {
     margin-top: 5px;
-    font-size: 30px;
 }
 
 .page .page-offer {
@@ -218,9 +216,7 @@ a.desc:after {
 }
 
 .page .page-offer .item h3 {
-    color: #77787a;
     margin-top: 25px;
-    font-size: 30px;
 }
 
 .page .page-offer .item .item-desc {
@@ -246,10 +242,8 @@ a.desc:after {
     text-align: left;
 }
 
-.page .block-head h3{
-    color: #77787a;
+.page .block-head h3 {
     margin-top: 5px;
-    font-size: 30px;
 }
 
 .page .block-head div {
@@ -302,28 +296,26 @@ a.desc:after {
     margin-right: 16px;
 }
 
-.page .actions {
+.page .actions, .page .articles {
     margin-top: 10px;
 }
 
-.page .actions .item-action h3{
-    color: #77787a;
+.page .actions .item-action h3, .page .articles .item-article h3 {
     margin-top: 16px;
-    font-size: 30px;
 }
 
-.page .actions .left {
+.page .actions .left, .page .articles .left {
     float: left;
 }
 
-.page .actions .item-action {
-    width: 368px;
+.page .actions .item-action, .page .articles .item-article {
+    max-width: 368px;
     margin-right: 20px;
     margin-bottom: 60px;
     text-align: left;
 }
 
-.page .actions .item-action .date {
+.page .actions .item-action .date, .page .articles .item-article .date {
     height: 40px;
     margin-top: 5px;
     padding-left: 0;
@@ -333,18 +325,18 @@ a.desc:after {
     border-bottom: 1px solid #6d6e71;
 }
 
-.page .actions .item-action .button {
+.page .actions .item-action .button, .page .articles .item-article .button {
     margin-top: 5px;
     padding-left: 0;
     padding-right: 0;
     text-align: right;
 }
 
-.page .actions .item-action .button button{
+.page .actions .item-action .button button, .page .articles .item-article .button button{
     margin-right: 0;
 }
 
-.page .actions .item-action .date p {
+.page .actions .item-action .date p, .page .articles .item-article .date p {
     color: #f7941e;
     margin-top: 8px;
     font-weight: bold;

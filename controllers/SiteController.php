@@ -8,8 +8,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\LFeedback;
+use app\models\LArticles;
 use app\models\LContacts;
+use app\models\LFeedback;
 
 class SiteController extends Controller
 {
@@ -82,6 +83,17 @@ class SiteController extends Controller
     public function actionGallery()
     {
         return $this->render('gallery');
+    }
+
+    public function actionArticles($id = null)
+    {
+        if ($id) {
+            $LArticles = LArticles::find()->where(['id' => $id])->one();
+            return $this->render('articles_item', ['articles' => $LArticles]);
+        }
+
+        $LArticles = LArticles::find()->orderBy('id DESC')->all();
+        return $this->render('articles', ['articles' => $LArticles]);
     }
 
     public function actionLogout()

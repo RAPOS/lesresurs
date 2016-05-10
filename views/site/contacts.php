@@ -53,11 +53,7 @@ if($save){
                 <div></div>
             </div>
             <p style="margin-top: 15px;">
-                Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса
-                кругляка в больших объёмах на постоянной основе.
-                Продажа кругляка из отборных хвойных пород
-                древесины производится партиями любого объёма по
-                выгодным ценам.
+                <?=$contacts->text_form?>
             </p>
             <div class="row">
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
@@ -108,22 +104,14 @@ if($save){
                 <div></div>
             </div>
             <p class="contact-right">
-                Свердловская область<br>
-                город Полевской<br>
-                Восточно промышленный район<br>
-                территория Северского завода ЖБИ
+                <?=$contacts->text_place?>
             </p>
             <div class="block-head" style="margin-top: 60px;">
                 <h3>Контактные данные</h3>
                 <div></div>
             </div>
             <p class="contact-right">
-                Продажа леса<br>
-                8(34350)34590<br>
-                <br>
-                Отдел продажи пиломатериалов<br>
-                (34350)35931<br>
-                (34350)34535
+                <?=$contacts->text_contact?>
             </p>
         </div>
     </div>

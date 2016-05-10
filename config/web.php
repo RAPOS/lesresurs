@@ -55,6 +55,7 @@ $config = [
                 ],
                 ''=>'site/index',
                 '<action:\w+>'=>'site/<action>',
+                '<action:\w+>/<id:\w+>'=>'site/<action>',
                 '<action:\w+>/<name:\w+>'=>'site/<action>',
             ],
         ],
