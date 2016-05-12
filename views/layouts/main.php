@@ -56,7 +56,7 @@ AppAsset::register($this);
                             <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
                             <button>Оставить заявку</button> <a href="#">Подробнее</a>
                         </div>
-                    </div>
+                    </div>  
                 </div>
                 <div class="col-xs-1 text-right" style="padding-right: 0;"><span class="icon-arrow icon-right-arrow"></span></div>
             </div>
