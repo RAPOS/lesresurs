@@ -89,11 +89,7 @@ if($save){
                     ])->label('Введите символы с картинки') ?>
                 </div>
                 <div class="col-xs-12 col-sm-6">
-                    <button type="submit" class="lbutton" style="margin-top: 25px;margin-bottom: 60px;"
-                        onmouseover="this.style.background = '#12b154'"
-                        onmouseout="this.style.background = '#0b9444'"
-                        onmousedown="this.style.background = '#067333'"
-                        onmouseup="this.style.background = '#12b154'">Отправить письмо</button>
+                    <button type="submit" class="lbutton">Отправить письмо</button>
                 </div>
                 <?php ActiveForm::end(); ?>
             </div>

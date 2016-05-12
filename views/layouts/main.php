@@ -47,6 +47,19 @@ AppAsset::register($this);
     ?>
     <?if ((Yii::$app->controller->id == 'site') and (Yii::$app->controller->action->id == 'index'))  {?>
         <div class="banner-main">
+            <div  class="container">
+                <div class="col-xs-1 text-left"><span class="icon-arrow icon-left-arrow"></span></div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <div class="col-sm-6 hidden-xs"></div>
+                        <div class="col-sm-6 banner-text">
+                            <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
+                            <button>Оставить заявку</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 text-right"><span class="icon-arrow icon-right-arrow"></span></div>
+            </div>
         </div>
         <div class="container">
             <?= Breadcrumbs::widget([
@@ -61,17 +74,13 @@ AppAsset::register($this);
             <div class="col-sm-6">
                 <div class="contact-form">
                     <h1>Лучшие лесозаготовки урала!</h1>
-                    <form id="contact-form">
+                    <form id="contactform">
                         <h3>Оставьте заявку прямо сейчас!</h3>
                         <input class="form-control" type="text" placeholder="ВВЕДИТЕ ВАШЕ ИМЯ" name="name"/>
                         <input class="form-control" type="text" placeholder="ВВЕДИТЕ НОМЕР ТЕЛЕФОНА" name="phone"/>
-                        <button class="lbutton"
-                                onclick="return false;"
-                                onmouseover="this.style.background = '#12b154'"
-                                onmouseout="this.style.background = '#0b9444'"
-                                onmousedown="this.style.background = '#067333'"
-                                onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                        <button class="lbutton" onclick="return false;">Оставить заявку</button>
                     </form>
+                    <small>* по версии журнала Forbes</small>
                 </div>
             </div>
         </div>

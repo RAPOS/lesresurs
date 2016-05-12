@@ -62,3 +62,28 @@
 .icon-twitter:hover {
     content: url("../images/Social-22.png");
 }
+
+.icon-left-arrow {
+    content: url("../images/Banner-arrows-30.png");
+}
+.icon-left-arrow:active {
+    content: url("../images/Banner-arrows-34.png")!important;;
+}
+.icon-left-arrow:hover {
+    content: url("../images/Banner-arrows-33.png");
+}
+
+.icon-right-arrow {
+    content: url("../images/Banner-arrows-31.png");
+}
+.icon-right-arrow:active {
+    content: url("../images/Banner-arrows-35.png")!important;;
+}
+.icon-right-arrow:hover {
+    content: url("../images/Banner-arrows-32.png");
+}
+
+.icon-arrow {
+    margin-top: 325px;
+    cursor: pointer;
+}

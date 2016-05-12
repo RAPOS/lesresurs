@@ -28,11 +28,7 @@ $this->title = 'Спецпредложения';
                 <p>Действует до 10.05.2016</p>
             </div>
             <div class="col-xs-12 col-md-6 button">
-                <button type="submit" class="lbutton"
-                        onmouseover="this.style.background = '#12b154'"
-                        onmouseout="this.style.background = '#0b9444'"
-                        onmousedown="this.style.background = '#067333'"
-                        onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button type="submit" class="lbutton">Оставить заявку</button>
             </div>
         </div>
         <div class="item-action left">
@@ -49,11 +45,7 @@ $this->title = 'Спецпредложения';
                 <p>Действует до 10.05.2016</p>
             </div>
             <div class="col-xs-12 col-md-6 button">
-                <button type="submit" class="lbutton"
-                        onmouseover="this.style.background = '#12b154'"
-                        onmouseout="this.style.background = '#0b9444'"
-                        onmousedown="this.style.background = '#067333'"
-                        onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button type="submit" class="lbutton">Оставить заявку</button>
             </div>
         </div>
         <div style="margin-right: 0;" class="item-action left">
@@ -70,11 +62,7 @@ $this->title = 'Спецпредложения';
                 <p style="color: red;">Акция закончена</p>
             </div>
             <div class="col-xs-12 col-md-6 button">
-                <button type="submit" class="lbutton"
-                        onmouseover="this.style.background = '#12b154'"
-                        onmouseout="this.style.background = '#0b9444'"
-                        onmousedown="this.style.background = '#067333'"
-                        onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button type="submit" class="lbutton">Оставить заявку</button>
             </div>
         </div>
         <div class="item-action left">
@@ -91,11 +79,7 @@ $this->title = 'Спецпредложения';
                 <p>Действует до 10.05.2016</p>
             </div>
             <div class="col-xs-12 col-md-6 button">
-                <button type="submit" class="lbutton"
-                        onmouseover="this.style.background = '#12b154'"
-                        onmouseout="this.style.background = '#0b9444'"
-                        onmousedown="this.style.background = '#067333'"
-                        onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button type="submit" class="lbutton">Оставить заявку</button>
             </div>
         </div>
         <div class="item-action left">
@@ -112,11 +96,7 @@ $this->title = 'Спецпредложения';
                 <p>Действует до 10.05.2016</p>
             </div>
             <div class="col-xs-12 col-md-6 button">
-                <button type="submit" class="lbutton"
-                        onmouseover="this.style.background = '#12b154'"
-                        onmouseout="this.style.background = '#0b9444'"
-                        onmousedown="this.style.background = '#067333'"
-                        onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button type="submit" class="lbutton">Оставить заявку</button>
             </div>
         </div>
         <div style="margin-right: 0;" class="item-action left">
@@ -133,11 +113,7 @@ $this->title = 'Спецпредложения';
                 <p>Действует до 10.05.2016</p>
             </div>
             <div class="col-xs-12 col-md-6 button">
-                <button type="submit" class="lbutton"
-                        onmouseover="this.style.background = '#12b154'"
-                        onmouseout="this.style.background = '#0b9444'"
-                        onmousedown="this.style.background = '#067333'"
-                        onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button type="submit" class="lbutton">Оставить заявку</button>
             </div>
         </div>
     </div>

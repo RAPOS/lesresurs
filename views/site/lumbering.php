@@ -59,11 +59,7 @@ $this->title = "Продажа леса";
                     древесины производится партиями любого объёма по
                     привлекательным ценам.
                 </p>
-                <button
-                    onmouseover="this.style.background = '#12b154'"
-                    onmouseout="this.style.background = '#0b9444'"
-                    onmousedown="this.style.background = '#067333'"
-                    onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button class="lbutton">Оставить заявку</button>
             </div>
         </div>
         <div class="item clearfix">
@@ -77,11 +73,7 @@ $this->title = "Продажа леса";
                     древесины производится партиями любого объёма по
                     привлекательным ценам.
                 </p>
-                <button
-                    onmouseover="this.style.background = '#12b154'"
-                    onmouseout="this.style.background = '#0b9444'"
-                    onmousedown="this.style.background = '#067333'"
-                    onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button class="lbutton">Оставить заявку</button>
             </div>
         </div>
         <div class="item clearfix">
@@ -95,11 +87,7 @@ $this->title = "Продажа леса";
                     древесины производится партиями любого объёма по
                     привлекательным ценам.
                 </p>
-                <button
-                    onmouseover="this.style.background = '#12b154'"
-                    onmouseout="this.style.background = '#0b9444'"
-                    onmousedown="this.style.background = '#067333'"
-                    onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button class="lbutton">Оставить заявку</button>
             </div>
         </div>
         <div class="item clearfix">
@@ -113,11 +101,7 @@ $this->title = "Продажа леса";
                     древесины производится партиями любого объёма по
                     привлекательным ценам.
                 </p>
-                <button
-                    onmouseover="this.style.background = '#12b154'"
-                    onmouseout="this.style.background = '#0b9444'"
-                    onmousedown="this.style.background = '#067333'"
-                    onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                <button class="lbutton">Оставить заявку</button>
             </div>
         </div>
     </div>
