@@ -116,6 +116,13 @@ h3 {
     background: rgba(255, 255, 255, 1);
     color: #3a3a3c;
 }
+.banner-text a {
+    color: #fff;
+    font-size: 14px;
+    margin-left: 25px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
 
 .footer {
     background-color: #009444!important;

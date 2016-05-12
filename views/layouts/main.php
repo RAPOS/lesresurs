@@ -48,17 +48,17 @@ AppAsset::register($this);
     <?if ((Yii::$app->controller->id == 'site') and (Yii::$app->controller->action->id == 'index'))  {?>
         <div class="banner-main">
             <div  class="container">
-                <div class="col-xs-1 text-left"><span class="icon-arrow icon-left-arrow"></span></div>
+                <div class="col-xs-1 text-left" style="padding-left: 0;"><span class="icon-arrow icon-left-arrow"></span></div>
                 <div class="col-xs-10">
                     <div class="row">
                         <div class="col-sm-6 hidden-xs"></div>
                         <div class="col-sm-6 banner-text">
                             <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
-                            <button>Оставить заявку</button>
+                            <button>Оставить заявку</button> <a href="#">Подробнее</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-1 text-right"><span class="icon-arrow icon-right-arrow"></span></div>
+                <div class="col-xs-1 text-right" style="padding-right: 0;"><span class="icon-arrow icon-right-arrow"></span></div>
             </div>
         </div>
         <div class="container">
