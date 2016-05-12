@@ -14,7 +14,15 @@
     }
 }
 
-@media (max-width: 760px)  {
+@media (max-width: 767px)  {
+    .navbar-brand {
+        display: block;
+        margin-top: -10px;
+    }
+    .brand-logo {
+        width: auto;
+        height: 40px;
+    }
     .nav-logo {
         display: none;
     }
@@ -26,7 +34,7 @@
     }
 }
 
-@media (min-width: 760px) and (max-width: 989px) {
+@media (min-width: 767px) and (max-width: 989px) {
     .navbar-center {
         margin-left: -50px;
     }

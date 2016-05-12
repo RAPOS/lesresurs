@@ -27,6 +27,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
+        'brandLabel' => Html::img('/images/logo.png', ['class' => 'brand-logo']),
         'options' => [
             'class' => 'navbar-inverse  nav-green', // navbar-fixed-top
         ],
@@ -44,13 +45,23 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
-    </div>
+    <?if ((Yii::$app->controller->id == 'site') and (Yii::$app->controller->action->id == 'index'))  {?>
+        <div class="banner-main">
+            <div class="container">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+                <?= $content ?>
+            </div>
+        </div>
+    <?} else {?>
+        <div class="container">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= $content ?>
+        </div>
+    <?}?>
 </div>
 
 <footer class="footer">
