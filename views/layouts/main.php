@@ -47,12 +47,14 @@ AppAsset::register($this);
     ?>
     <?if ((Yii::$app->controller->id == 'site') and (Yii::$app->controller->action->id == 'index'))  {?>
         <div class="banner-main">
-            <div class="container">
-                <?= Breadcrumbs::widget([
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                ]) ?>
-                <?= $content ?>
-            </div>
+        </div>
+        <div class="container">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= $content ?>
+        </div>
+        <div class="banner-contact">
         </div>
     <?} else {?>
         <div class="container">

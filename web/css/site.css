@@ -73,8 +73,14 @@ h3 {
 .banner-main {
     margin-top: -20px;
     background: url("../images/banner-main.jpg") no-repeat top center;
-    background-size: contain;
-    min-height: 620px;
+    background-size: cover;
+    min-height: 700px;
+}
+
+.banner-contact {
+    background: url("../images/Contact-us-background.jpg") no-repeat top center;
+    background-size: cover;
+    min-height: 700px;
 }
 
 .footer {
@@ -414,4 +420,26 @@ a.desc:after {
     z-index: 0;
     top: -16px;
     left: 134px;
+}
+
+.products {
+    margin-bottom: 86px;
+}
+
+.production-item {
+    max-width: 244px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.production-item p {
+    margin-top: 20px;
+}
+
+.production-item button {
+    margin-top: 5px;
+}
+
+.company {
+    margin-bottom: 80px;
 }
