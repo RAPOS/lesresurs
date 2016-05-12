@@ -54,7 +54,26 @@ AppAsset::register($this);
             ]) ?>
             <?= $content ?>
         </div>
-        <div class="banner-contact">
+        <div class="banner-contact" id="banner-contact">
+            <div class="col-sm-6 hidden-xs text-right">
+                <img style="margin-top: 99px;" src="/images/Man.png"/>
+            </div>
+            <div class="col-sm-6">
+                <div class="contact-form">
+                    <h1>Лучшие лесозаготовки урала!</h1>
+                    <form id="contact-form">
+                        <h3>Оставьте заявку прямо сейчас!</h3>
+                        <input class="form-control" type="text" placeholder="ВВЕДИТЕ ВАШЕ ИМЯ" name="name"/>
+                        <input class="form-control" type="text" placeholder="ВВЕДИТЕ НОМЕР ТЕЛЕФОНА" name="phone"/>
+                        <button class="lbutton"
+                                onclick="return false;"
+                                onmouseover="this.style.background = '#12b154'"
+                                onmouseout="this.style.background = '#0b9444'"
+                                onmousedown="this.style.background = '#067333'"
+                                onmouseup="this.style.background = '#12b154'">Оставить заявку</button>
+                    </form>
+                </div>
+            </div>
         </div>
     <?} else {?>
         <div class="container">

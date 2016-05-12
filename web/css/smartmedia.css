@@ -32,6 +32,10 @@
     .navbar-center {
         margin-top: 0!important;
     }
+    .contact-form {
+        margin: 0 auto;
+        padding-top: 1px;
+    }
 }
 
 @media (min-width: 767px) and (max-width: 989px) {
