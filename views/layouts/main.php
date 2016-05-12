@@ -48,17 +48,35 @@ AppAsset::register($this);
     <?if ((Yii::$app->controller->id == 'site') and (Yii::$app->controller->action->id == 'index'))  {?>
         <div class="banner-main">
             <div  class="container">
-                <div class="col-xs-1 text-left" style="padding-left: 0;"><span class="icon-arrow icon-left-arrow"></span></div>
+                <div class="col-xs-1 text-left" style="padding-left: 0;">
+                    <span class="icon-arrow icon-left-arrow" onclick="prevBanner();"></span>
+                </div>
                 <div class="col-xs-10">
-                    <div class="row">
+                    <div class="row active" data-id="1" data-prev="3" data-next="2">
                         <div class="col-sm-6 hidden-xs"></div>
                         <div class="col-sm-6 banner-text">
                             <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
                             <button>Оставить заявку</button> <a href="#">Подробнее</a>
                         </div>
-                    </div>  
+                    </div>
+                    <div class="row" data-id="2" data-prev="1" data-next="3">
+                        <div class="col-sm-6 hidden-xs"></div>
+                        <div class="col-sm-6 banner-text">
+                            <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
+                            <button>Оставить заявку</button> <a href="#">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="row" data-id="3" data-prev="2" data-next="1">
+                        <div class="col-sm-6 hidden-xs"></div>
+                        <div class="col-sm-6 banner-text">
+                            <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
+                            <button>Оставить заявку</button> <a href="#">Подробнее</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-1 text-right" style="padding-right: 0;"><span class="icon-arrow icon-right-arrow"></span></div>
+                <div class="col-xs-1 text-right" style="padding-right: 0;">
+                    <span class="icon-arrow icon-right-arrow" onclick="nextBanner();"></span>
+                </div>
             </div>
         </div>
         <div class="container">

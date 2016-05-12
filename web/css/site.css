@@ -78,7 +78,7 @@ h3 {
 
 .banner-main {
     margin-top: -20px;
-    background: url("../images/banner-main.jpg") no-repeat top center;
+    background: url("../images/banner-main-1.jpg") no-repeat top center;
     background-size: cover;
     min-height: 700px;
 }
@@ -122,6 +122,13 @@ h3 {
     margin-left: 25px;
     text-decoration: underline;
     text-transform: uppercase;
+}
+
+.banner-main > div > div:nth-child(2) > div {
+    display: none;
+}
+.banner-main > div > div:nth-child(2) > .active {
+    display: block;
 }
 
 .footer {
