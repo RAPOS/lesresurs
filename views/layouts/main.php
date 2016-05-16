@@ -48,10 +48,10 @@ AppAsset::register($this);
     <?if ((Yii::$app->controller->id == 'site') and (Yii::$app->controller->action->id == 'index'))  {?>
         <div class="banner-main">
             <div  class="container">
-                <div class="col-xs-1 text-left" style="padding-left: 0;">
+                <div class="col-xs-1 col-sm-1 text-left" style="padding-left: 0;">
                     <span class="icon-arrow icon-left-arrow" onclick="prevBanner();"></span>
                 </div>
-                <div class="col-xs-10">
+                <div class="col-xs-9 col-sm-10">
                     <div class="row active" data-id="1" data-prev="3" data-next="2">
                         <div class="col-sm-6 hidden-xs"></div>
                         <div class="col-sm-6 banner-text">
@@ -74,7 +74,7 @@ AppAsset::register($this);
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-1 text-right" style="padding-right: 0;">
+                <div class="col-xs-1 col-sm-1 text-right" style="padding-right: 0;">
                     <span class="icon-arrow icon-right-arrow" onclick="nextBanner();"></span>
                 </div>
             </div>

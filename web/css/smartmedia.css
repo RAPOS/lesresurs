@@ -32,9 +32,17 @@
     .navbar-center {
         margin-top: 0!important;
     }
+    .banner-text h1 {
+        margin-top: 140px;
+        margin-bottom: 140px;
+        font-size: 32px;
+    }
     .contact-form {
         margin: 0 auto;
         padding-top: 1px;
+    }
+    .contact-form h1 {
+        font-size: 40px;
     }
 }
 
