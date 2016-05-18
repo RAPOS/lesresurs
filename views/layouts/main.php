@@ -28,6 +28,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => Html::img('/images/logo.png', ['class' => 'brand-logo']),
+        'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse  nav-green', // navbar-fixed-top
         ],

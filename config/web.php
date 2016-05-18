@@ -23,8 +23,10 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\LAdmins',
             'enableAutoLogin' => true,
+            'loginUrl' => ['/admin/login'],
+            'returnUrl' => ['/admin'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -56,16 +58,23 @@ $config = [
                     'controller' => ['api' => 'api']
                 ],
                 ''=>'site/index',
+                'admin' => 'admin/default/index',
+                'admin/<action:\w+>'=>'admin/default/<action>',
                 '<action:\w+>'=>'site/<action>',
                 '<action:\w+>/<id:\w+>'=>'site/<action>',
                 '<action:\w+>/<name:\w+>'=>'site/<action>',
             ],
         ],
     ],
+    'modules'=> [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+        ],
+    ],
     'params' => $params,
 ];
 
-/*if (YII_ENV_DEV) {
+if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
@@ -76,6 +85,6 @@ $config = [
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
-}*/
+}
 
 return $config;
