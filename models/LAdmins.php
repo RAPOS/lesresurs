@@ -11,7 +11,7 @@ use Yii;
  * @property string $name
  * @property string $password
  */
-class LAdmins extends \yii\db\ActiveRecord
+class LAdmins extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     public $rememberMe = true;
 
@@ -49,6 +49,17 @@ class LAdmins extends \yii\db\ActiveRecord
             'rememberMe' => 'Запомнить меня',
         ];
     }
+    public static function findIdentity($id)
+    {
+        return static::findOne($id);
+    }
+    /**
+     * @inheritdoc
+     */
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        return findOne(['access_token' => $token]);
+    }
     /**
      * Finds user by name
      *
@@ -65,6 +76,21 @@ class LAdmins extends \yii\db\ActiveRecord
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAuthKey()
+    {
+        return $this->authKey;
+    }
+    /**
+     * @inheritdoc
+     */
+    public function validateAuthKey($authKey)
+    {
+        return $this->getAuthKey() === $authKey;
     }
     /**
      * Finds user by [[username]]

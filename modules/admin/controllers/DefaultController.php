@@ -10,7 +10,6 @@ use app\models\LMainpage;
 
 class DefaultController extends Controller
 {
-	public $layout = 'dark';
 	
     public function actionIndex()
     {
@@ -21,27 +20,29 @@ class DefaultController extends Controller
 	
 	public function actionLogin()
 	{
+		$error = null;
 		$model = new LAdmins();
-		if(Yii::$app->request->post()){
-			$model->attributes = Yii::$app->request->post('BAdmins');
-			if($model->validate()) {
+		if (Yii::$app->request->post()) {
+			$model->attributes = Yii::$app->request->post('LAdmins');
+			if ($model->validate()) {
 				$LAdmins = LAdmins::find()->where(["name" => $model->name])->one();
-				if($LAdmins){
+				if ($LAdmins) {
 					if($LAdmins->password === md5(md5($model->password))){
 						if($LAdmins->login()) $this->redirect(Yii::$app->user->returnUrl);
 					} else {
-						return print "Не верный пароль.";
+						$error = "Не верный пароль.";
 					}
 				} else {
-					return "Не верный логин.";
+					$error = "Не верный логин.";
 				}
 			} else {
-				return "Не прошло валидацию.";
+				$error = "Не прошло валидацию.";
 			}
 		}
 
 		return $this->render('login', [
 			'model' => $model,
+			'error' => $error,
 		]);
 	}
 	

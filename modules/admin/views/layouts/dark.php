@@ -6,7 +6,6 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\bootstrap\ButtonDropdown;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\models\LAdmins;
@@ -36,83 +35,110 @@ AppAsset::register($this);
             'class' => 'navbar-inverse  nav-green',
         ],
     ]);
-	if(!Yii::$app->user->isGuest){
-		echo ButtonDropdown::widget([
-			'label' => $LAdmins->name,
-			'options' => [
-				'class' => 'btn-link',
-				'style' => 'margin: 8px'
-			],
-			/* 'dropdown' => [
-				'items' => [
-					['label' => 'Изменить данные', 'url' => '/admin/userchange'],
-				],
-			], */
-		]);
-		echo Nav::widget([
-			'options' => ['class' => 'navbar-nav navbar-right'],
-			'items' => [
-				[
-					'label' => 'Вернуться на сайт',
-					'url' => Yii::$app->homeUrl,
-				],
-				[
-					'label' => 'Выйти',
-					'url' => ['/admin/logout'],
-					'linkOptions' => ['data-method' => 'post']
+	echo Nav::widget([
+		'options' => ['class' => 'navbar-nav navbar-center'],
+		'items' => [
+			[
+				'label' => 'Продажа леса',
+				'url' => ['/site/lumbering'],
+				'linkOptions' => [
+					'class' => 'hidden-xs',
 				],
 			],
-		]);
-	}
+			[
+				'label' => 'Спецпредложения',
+				'url' => ['/site/specials'],
+				'linkOptions' => [
+					'class' => 'hidden-xs',
+				],
+			],
+			'<li><a class="a-logo hidden-xs" href="/"><img class="nav-logo" src="/images/logo.png"/></a></li>',
+			[
+				'label' => 'Галлерея',
+				'url' => ['/site/gallery'],
+				'linkOptions' => [
+					'class' => 'hidden-xs',
+				],
+			],
+			[
+				'label' => 'Статьи',
+				'url' => ['/site/articles'],
+				'linkOptions' => [
+					'class' => 'hidden-xs',
+				],
+			],
+			[
+				'label' => 'Контакты',
+				'url' => ['/site/contacts'],
+				'linkOptions' => [
+					'class' => 'hidden-xs',
+				],
+			],
+			[
+				'label' => 'Главная страница',
+				'url' => ['/admin/mainpage'],
+				'linkOptions' => [
+					'class' => 'visible-xs',
+				],
+			],
+			[
+				'label' => 'Спецпредложения',
+				'url' => ['/admin/actions'],
+				'linkOptions' => [
+					'class' => 'visible-xs',
+				],
+			],
+			[
+				'label' => 'Продукция',
+				'url' => ['/admin/productions'],
+				'linkOptions' => [
+					'class' => 'visible-xs',
+				],
+			],
+			[
+				'label' => 'Галерея',
+				'url' => ['/admin/gallery'],
+				'linkOptions' => [
+					'class' => 'visible-xs',
+				],
+			],
+			[
+				'label' => 'Статьи',
+				'url' => ['/admin/articles'],
+				'linkOptions' => [
+					'class' => 'visible-xs',
+				],
+			],
+			[
+				'label' => 'Обратная связь',
+				'url' => ['/admin/feedback'],
+				'linkOptions' => [
+					'class' => 'visible-xs',
+				],
+			],
+			[
+				'label' => 'Изменить данные входа',
+				'url' => ['/admin/userchange'],
+				'linkOptions' => [
+					'class' => 'visible-xs',
+				],
+			],
+		],
+	]);
     NavBar::end();
     ?>
     <div class="container">
-		<?if(!Yii::$app->user->isGuest){?>
-			<div class="row">
-				<div class="col-md-2 hidden-xs">
-					<?echo Nav::widget([
-						'options' => ['class' => 'navbar-left'],
-						'items' => [
-							[
-								'label' => 'Главная страница',
-								'url' => ['/admin/mainpage'],
-							],
-							[
-								'label' => 'Спецпредложения',
-								'url' => ['/admin/actions'],
-							],
-							[
-								'label' => 'Продукция',
-								'url' => ['/admin/productions'],
-							],
-							[
-								'label' => 'Галерея',
-								'url' => ['/admin/gallery'],
-							],
-							[
-								'label' => 'Статьи',
-								'url' => ['/admin/articles'],
-							],
-							[
-								'label' => 'Обратная связь',
-								'url' => ['/admin/feedback'],
-							],
-							[
-								'label' => 'Изменить данные входа',
-								'url' => ['/admin/userchange'],
-							],
-						],
-					]);?>
-				</div>
-				<div class="col-md-10">
-					<?= Breadcrumbs::widget([
-						'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-						'homeLink'=>['label' => 'Панель управления', 'url' => '/admin'],
-					]) ?>
-					<?= $content ?>
-				</div>
+		<div class="row">
+			<div class="col-sm-2 hidden-xs"></div>
+			<div class="col-sm-8">
+				<?= Breadcrumbs::widget([
+					'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+					'homeLink'=>['label' => 'Панель управления', 'url' => '/admin'],
+				]) ?>
+				<?= $content ?>
 			</div>
-		<?}?>
+			<div class="col-sm-2 hidden-xs"></div>
+		</div>
     </div>
 </div>
 <footer class="footer">
