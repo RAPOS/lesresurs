@@ -541,3 +541,30 @@ a.desc:after {
 .contact-form #contactform {
     margin-bottom: 5px;
 }
+
+/*Admins*/
+.icon_panel {
+    text-decoration: none!important;
+}
+.icon_panel:hover h3, .icon_panel:focus h3 {
+    color: #de7047;
+}
+.icon_panel:hover div, .icon_panel:focus div {
+    border-color: #de7047;
+    width: 150px;
+}
+.icon_panel img {
+    width: 150px;
+}
+.icon_panel h3 {
+    font-size: 20px;
+    margin-top: 5px;
+}
+.icon_panel div {
+    width: 124px;
+    height: 20px;
+    margin: 0 auto;
+    margin-top: -12px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #000;
+}

@@ -5,7 +5,6 @@
  * Date: 08.05.2016
  * Time: 01:07
  */
-use kartik\widgets\Alert;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
@@ -13,32 +12,7 @@ Yii::$app->assetManager->forceCopy = true;
 
 $this->title = 'Контакты';
 
-if(!$captcha){
-    echo Alert::widget([
-        'type' => Alert::TYPE_DANGER,
-        'title' => 'Ошибка! Сообщение не отправлено!',
-        'icon' => 'glyphicon glyphicon-remove-sign',
-        'body' => 'Вы не верно ввели проверочный код!',
-        'showSeparator' => true,
-        'delay' => 5000,
-        'options' => [
-            'style' => 'position: absolute;top: 0;right: 0;width: 400px;',
-        ],
-    ]);
-}
-if($save){
-    echo Alert::widget([
-        'type' => Alert::TYPE_SUCCESS,
-        'title' => 'Сообщение отравлено!',
-        'icon' => 'glyphicon glyphicon-remove-sign',
-        'body' => 'Администрация обязательно вам ответит!',
-        'showSeparator' => true,
-        'delay' => 5000,
-        'options' => [
-            'style' => 'position: absolute;top: 0;right: 0;width: 400px;',
-        ],
-    ]);
-}
+if (!is_null($save)) print $this->render('_alert', ['save' => $save, 'captcha' => $captcha]);
 ?>
 <div class="page text-center">
     <div class="page-head">

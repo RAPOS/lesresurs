@@ -1,8 +1,8 @@
 <?php
 use app\modules\admin\models\BImages;
 use dosamigos\tinymce\TinyMce;
-use kartik\widgets\FileInput;
-use kartik\widgets\SwitchInput;
+use kartik\file\FileInput;
+use kartik\switchinput\SwitchInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 

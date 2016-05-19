@@ -8,9 +8,6 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-use app\models\LAdmins;
-
-$LAdmins = LAdmins::findOne(Yii::$app->user->id);
 
 AppAsset::register($this);
 ?>
@@ -39,6 +36,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-center'],
         'items' => [
+            // Desctop view
             [
                 'label' => 'Продажа леса',
                 'url' => ['/site/lumbering'],
@@ -75,6 +73,7 @@ AppAsset::register($this);
                     'class' => 'hidden-xs',
                 ],
             ],
+            // Mobile view
             [
                 'label' => 'Главная страница',
                 'url' => ['/admin/mainpage'],
@@ -118,7 +117,7 @@ AppAsset::register($this);
                 ],
             ],
             [
-                'label' => 'Изменить данные входа',
+                'label' => 'Личные данные',
                 'url' => ['/admin/userchange'],
                 'linkOptions' => [
                     'class' => 'visible-xs',
@@ -128,21 +127,7 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-    <?if (Yii::$app->module->id == 'admin') {?>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2 hidden-xs"></div>
-                <div class="col-sm-8">
-                    <?= Breadcrumbs::widget([
-                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                        'homeLink'=>['label' => 'Панель управления', 'url' => '/admin'],
-                    ]) ?>
-                    <?= $content ?>
-                </div>
-                <div class="col-sm-2 hidden-xs"></div>
-            </div>
-        </div>
-    <?} else if ((Yii::$app->controller->id == 'site') && (Yii::$app->controller->action->id == 'index'))  {?>
+    <?if ((Yii::$app->controller->id == 'site') && (Yii::$app->controller->action->id == 'index'))  {?>
         <div class="banner-main">
             <div  class="container">
                 <div class="col-xs-1 col-sm-1 text-left" style="padding-left: 0;">
@@ -201,9 +186,16 @@ AppAsset::register($this);
         </div>
     <?} else {?>
         <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
+            <?if (Yii::$app->controller->module->id == 'admin') {?>
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    'homeLink'=>['label' => 'Панель управления', 'url' => '/admin/'],
+                ]) ?>
+            <?} else {?>
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+            <?}?>
             <?= $content ?>
         </div>
     <?}?>

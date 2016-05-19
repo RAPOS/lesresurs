@@ -11,6 +11,7 @@ use Yii;
  * @property string $name
  * @property string $path
  * @property string $extension
+ * @property boolean $status
  */
 class LImages extends \yii\db\ActiveRecord
 {
@@ -28,7 +29,8 @@ class LImages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'path', 'extension'], 'required'],
+            [['name', 'extension'], 'required'],
+            [['status'], 'boolean'],
             [['name'], 'string', 'max' => 64],
             [['path'], 'string', 'max' => 256],
             [['extension'], 'string', 'max' => 5]
@@ -45,6 +47,7 @@ class LImages extends \yii\db\ActiveRecord
             'name' => 'Name',
             'path' => 'Path',
             'extension' => 'Extension',
+            'status' => 'Status',
         ];
     }
 }

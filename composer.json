@@ -18,7 +18,11 @@
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "kartik-v/yii2-widget-alert": "*"
+        "kartik-v/yii2-widget-alert": "*",
+		"yurkinx/yii2-image": "dev-master",
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "2amigos/yii2-tinymce-widget": "^1.1",
+        "kartik-v/yii2-widget-switchinput": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

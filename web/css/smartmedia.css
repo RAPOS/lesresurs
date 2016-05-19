@@ -44,11 +44,26 @@
     .gallery-img {
         margin-right: 15px!important;
     }
+    .icon_panel img {
+        width: 100px;
+    }
+    .icon_panel h3 {
+        font-size: 14px;
+    }
+    .file-preview-image {
+        height: 185px!important;
+    }
 }
 
-@media (min-width: 767px) and (max-width: 989px) {
+@media (min-width: 767px) and (max-width: 991px) {
     .navbar-center {
         margin-left: -50px;
+    }
+    .icon_panel img {
+        width: 150px;
+    }
+    .icon_panel h3 {
+        font-size: 20px;
     }
 }
 

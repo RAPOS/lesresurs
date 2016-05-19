@@ -32,7 +32,7 @@ class LMainpage extends \yii\db\ActiveRecord
         return [
             [['site', 'text_activity', 'text_production'], 'required'],
             [['site'], 'integer'],
-            [['images', 'text_activity', 'text_production', 'keywords', 'description'], 'string'],
+            [['text_activity', 'text_production', 'keywords', 'description'], 'string'],
             [['site'], 'unique']
         ];
     }
@@ -44,11 +44,10 @@ class LMainpage extends \yii\db\ActiveRecord
     {
         return [
             'site' => 'Site',
-            'images' => 'Images',
-            'text_activity' => 'Text Activity',
-            'text_production' => 'Text Production',
-            'keywords' => 'Keywords',
-            'description' => 'Description',
+            'text_activity' => 'Деятельность',
+            'text_production' => 'Продукция',
+            'keywords' => 'Ключевые слова, через запятую',
+            'description' => 'Описание',
         ];
     }
 }

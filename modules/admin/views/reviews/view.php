@@ -1,7 +1,7 @@
 <?php
 use app\modules\admin\models\BMasters;
 use app\modules\admin\models\BTypesOfMassage;
-use kartik\widgets\SwitchInput;
+use kartik\switchinput\SwitchInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 

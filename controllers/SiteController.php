@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\LArticles;
 use app\models\LContacts;
 use app\models\LFeedback;
+use app\models\LMainpage;
 
 class SiteController extends Controller
 {
@@ -52,7 +53,11 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $LMainpage = LMainpage::find()->where(['site' => 1])->one();
+        
+        return $this->render('index', [
+            'model' => $LMainpage,
+        ]);
     }
 
     public function actionLumbering()
@@ -111,7 +116,6 @@ class SiteController extends Controller
             $validator = new CaptchaValidator();
             if (!$validator->validate($_POST['LFeedback']['verifyCode'])) {
                 Yii::$app->getSession()->setFlash('captcha', 'false');
-
                 return $this->redirect(['contacts']);
             }
 
@@ -119,23 +123,28 @@ class SiteController extends Controller
                 $LFeedback->date = time();
                 $LFeedback->ip = $_SERVER['REMOTE_ADDR'];
                 if ($LFeedback->save()) {
-                    Yii::$app->getSession()->setFlash('save', 'true');
-
+                    Yii::$app->getSession()->setFlash('save', true);
                     return $this->redirect(['contacts']);
                 }
             }
         }
-
-        if (Yii::$app->getSession()->getFlash('captcha')) {
-            $captcha = false;
-        } else {
-            $captcha = true;
+        
+        $captcha = null;
+        if (Yii::$app->getSession()->has('captcha')) {
+            if (Yii::$app->getSession()->getFlash('captcha')) {
+                $captcha = true;
+            } else {
+                $captcha = false;
+            }
         }
 
-        if (Yii::$app->getSession()->getFlash('save')) {
-            $save = true;
-        } else {
-            $save = false;
+        $save = null;
+        if (Yii::$app->getSession()->has('save')) {
+            if (Yii::$app->getSession()->getFlash('save')) {
+                $save = true;
+            } else {
+                $save = false;
+            }
         }
 
         return $this->render('contacts', [

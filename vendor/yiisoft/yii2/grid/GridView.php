@@ -50,7 +50,6 @@ class GridView extends BaseListView
     const FILTER_POS_FOOTER = 'footer';
     const FILTER_POS_BODY = 'body';
 
-	public $tBodyAttr;
     /**
      * @var string the default data column class if the class name is not explicitly specified when configuring a data column.
      * Defaults to 'yii\grid\DataColumn'.
@@ -261,7 +260,7 @@ class GridView extends BaseListView
     public function init()
     {
         parent::init();
-        if ($this->formatter == null) {
+        if ($this->formatter === null) {
             $this->formatter = Yii::$app->getFormatter();
         } elseif (is_array($this->formatter)) {
             $this->formatter = Yii::createObject($this->formatter);
@@ -308,7 +307,7 @@ class GridView extends BaseListView
     public function renderSection($name)
     {
         switch ($name) {
-            case "{errors}":
+            case '{errors}':
                 return $this->renderErrors();
             default:
                 return parent::renderSection($name);
@@ -357,7 +356,7 @@ class GridView extends BaseListView
 
     /**
      * Renders the caption element.
-     * @return bool|string the rendered caption element or `false` if no caption element should be rendered.
+     * @return boolean|string the rendered caption element or `false` if no caption element should be rendered.
      */
     public function renderCaption()
     {
@@ -370,7 +369,7 @@ class GridView extends BaseListView
 
     /**
      * Renders the column group HTML.
-     * @return bool|string the column group HTML or `false` if no column group should be rendered.
+     * @return boolean|string the column group HTML or `false` if no column group should be rendered.
      */
     public function renderColumnGroup()
     {
@@ -406,9 +405,9 @@ class GridView extends BaseListView
             $cells[] = $column->renderHeaderCell();
         }
         $content = Html::tag('tr', implode('', $cells), $this->headerRowOptions);
-        if ($this->filterPosition == self::FILTER_POS_HEADER) {
+        if ($this->filterPosition === self::FILTER_POS_HEADER) {
             $content = $this->renderFilters() . $content;
-        } elseif ($this->filterPosition == self::FILTER_POS_BODY) {
+        } elseif ($this->filterPosition === self::FILTER_POS_BODY) {
             $content .= $this->renderFilters();
         }
 
@@ -427,7 +426,7 @@ class GridView extends BaseListView
             $cells[] = $column->renderFooterCell();
         }
         $content = Html::tag('tr', implode('', $cells), $this->footerRowOptions);
-        if ($this->filterPosition == self::FILTER_POS_FOOTER) {
+        if ($this->filterPosition === self::FILTER_POS_FOOTER) {
             $content .= $this->renderFilters();
         }
 
@@ -484,9 +483,9 @@ class GridView extends BaseListView
         if (empty($rows)) {
             $colspan = count($this->columns);
 
-            return "<tbody ".$this->tBodyAttr.">\n<tr><td colspan=\"$colspan\">" . $this->renderEmpty() . "</td></tr>\n</tbody>";
+            return "<tbody>\n<tr><td colspan=\"$colspan\">" . $this->renderEmpty() . "</td></tr>\n</tbody>";
         } else {
-            return "<tbody ".$this->tBodyAttr.">\n" . implode("\n", $rows) . "\n</tbody>";
+            return "<tbody>\n" . implode("\n", $rows) . "\n</tbody>";
         }
     }
 
@@ -570,7 +569,7 @@ class GridView extends BaseListView
         $model = reset($models);
         if (is_array($model) || is_object($model)) {
             foreach ($model as $name => $value) {
-                $this->columns[] = $name;
+                $this->columns[] = (string) $name;
             }
         }
     }
