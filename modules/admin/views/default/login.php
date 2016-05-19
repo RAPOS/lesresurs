@@ -1,5 +1,5 @@
 <?php
-use kartik\widgets\Alert;
+use kartik\alert\Alert;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
