@@ -542,6 +542,27 @@ a.desc:after {
     margin-bottom: 5px;
 }
 
+.map {
+	margin-top: -140px; 
+	height:400px;
+}
+
+.map .ymaps-2-1-38-search .ymaps-2-1-38-search_layout_normal {	
+	display:none;
+}
+
+.map .ymaps-2-1-38-controls__control_toolbar.ymaps-2-1-38-user-selection-none {	
+	display:none;
+}
+
+.map .ymaps-2-1-38-listbox.ymaps-2-1-38-listbox_opened_no.ymaps-2-1-38-listbox_align_right {	
+	display:none;
+}
+
+.map .ymaps-2-1-38-listbox.ymaps-2-1-38-listbox_opened_no.ymaps-2-1-38-listbox_align_right {	
+	display:none;
+} 
+
 /*Admins*/
 .icon_panel {
     text-decoration: none!important;
