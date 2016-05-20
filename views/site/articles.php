@@ -16,7 +16,7 @@ $this->title = 'Статьи';
     <div class="row articles">
         <?foreach ($articles as $key => $value) {?>
             <div class="item-article left">
-                <img class="img-responsive" src="/images/0-2-4.png"/>
+                <img class="img-responsive" src="/images/articlesimage.jpeg"/>
                 <h3><?=$value->header?></h3>
                 <p>
                     <?=mb_truncate($value->text, 250)?>

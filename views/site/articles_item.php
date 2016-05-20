@@ -15,7 +15,7 @@ $this->title = 'Статьи - ' . $articles->header;
     </div>
     <div class="page-article">
         <h3><?=$articles->header?></h3>
-        <img class="img-responsive" src="/images/0-2-5.png" />
+        <img class="img-responsive" src="/images/articlesimage.jpeg" />
         <p><?=$articles->text?></p>
         <div class="share">
             <button class="btn btn-primary" onclick="$('.bubble').css('display', ($('.bubble').css('display') == 'none') ? 'block' : 'none')">Поелиться статьей</button>

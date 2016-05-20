@@ -5,6 +5,7 @@
  * Date: 02.05.2016
  * Time: 15:59
  */
+use app\models\LImages;
 $this->title = 'Спецпредложения';
 ?>
 <div class="page text-center">
@@ -14,26 +15,43 @@ $this->title = 'Спецпредложения';
         <div></div>
     </div>
     <div class="row actions">
-        <?$count = 0;
-        foreach ($model as $key => $value){
-            $count++;?>
-            <div <?=$count == 3? 'style="margin-right: 0;"' : ''?> class="item-action left">
-                <img class="img-responsive" src="/images/0-2-4.png"/>
-                <h3><?=$value->header?></h3>
-                <p>
-                    <?=$value->text?>
-                </p>
-                <div class="col-xs-12 col-md-6 date">
-                    <?if ($value->status) {?>
-                        <p>Действует до <?=$value->date?></p>
-                    <?} else {?>
-                        <p style="color: red;">Акция закончена</p>
-                    <?}?>
-                </div>
-                <div class="col-xs-12 col-md-6 button">
-                    <button type="submit" class="lbutton">Оставить заявку</button>
-                </div>
-            </div>
-        <?}?>
+        <?
+		$count = 0;
+		if($model){
+			foreach ($model as $key => $value){
+				$count++;
+				?>
+				
+				<div <?=$count == 3? 'style="margin-right: 0;"' : ''?> class="item-action left">
+					<?
+					$model_images = json_decode($value->id_image);
+					$LImages = LImages::findOne($model_images);
+					if($LImages->path && file_exists(Yii::getAlias('@webroot/'.$LImages->path))){
+						$image = Yii::$app->image->load(Yii::getAlias('@webroot/'.$LImages->path));
+						$image->resize(400, 300);
+						$image->save(Yii::getAlias('@webroot/assets/'.$LImages->name.'.'.$LImages->extension));
+						?>			
+						<img class="img-responsive" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
+					<?} else {?>
+						<img class="img-responsive" src="/images/0-2-4.png" alt="">
+					<?}?>				
+					
+					<h3><?=$value->header?></h3>
+					<p>
+						<?=$value->text?>
+					</p>
+					<div class="col-xs-12 col-md-6 date">
+						<?if ($value->status) {?>
+							<p>Действует до <?=$value->date?></p>
+						<?} else {?>
+							<p style="color: red;">Акция закончена</p>
+						<?}?>
+					</div>
+					<div class="col-xs-12 col-md-6 button">
+						<button type="submit" class="lbutton">Оставить заявку</button>
+					</div>
+				</div>
+			<?}				
+		}?>
     </div>
 </div>

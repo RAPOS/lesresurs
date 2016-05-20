@@ -68,7 +68,7 @@ class SiteController extends Controller
 
     public function actionSpecials()
     {
-        return $this->render('specials', ['model', LActions::find()->all()]);
+        return $this->render('specials', ['model' => LActions::find()->all()]);
     }
 
     public function actionGallery()

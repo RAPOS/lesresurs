@@ -380,6 +380,7 @@ a.desc:after {
 
 .page .page-article h3 {
     text-transform: uppercase;
+	text-align:center;
 }
 
 .page .page-article img {
