@@ -17,6 +17,8 @@ return array(
     'kartik\\switchinput\\' => array($vendorDir . '/kartik-v/yii2-widget-switchinput'),
     'kartik\\plugins\\fileinput\\' => array($vendorDir . '/kartik-v/bootstrap-fileinput'),
     'kartik\\file\\' => array($vendorDir . '/kartik-v/yii2-widget-fileinput'),
+    'kartik\\field\\' => array($vendorDir . '/kartik-v/yii2-field-range'),
+    'kartik\\date\\' => array($vendorDir . '/kartik-v/yii2-widget-datepicker'),
     'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base'),
     'kartik\\alert\\' => array($vendorDir . '/kartik-v/yii2-widget-alert'),
     'dosamigos\\tinymce\\' => array($vendorDir . '/2amigos/yii2-tinymce-widget/src'),

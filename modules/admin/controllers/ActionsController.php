@@ -2,7 +2,7 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\BActions;
+use app\models\LActions;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -13,8 +13,6 @@ use yii\filters\VerbFilter;
  */
 class ActionsController extends Controller
 {
-	public $layout = 'dark';
-	
     public function behaviors()
     {
         return [
@@ -33,12 +31,10 @@ class ActionsController extends Controller
      */
     public function actionIndex()
     {
-		if(Yii::$app->user->isGuest){
-			$this->redirect(Yii::$app->user->loginUrl);
-		}
+        if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 		
         $dataProvider = new ActiveDataProvider([
-            'query' => BActions::find(),
+            'query' => LActions::find(),
 			'sort' => [
 				'defaultOrder' => ['id' => SORT_DESC],
 			],
@@ -56,22 +52,17 @@ class ActionsController extends Controller
      */
     public function actionCreate()
     {
-		if(Yii::$app->user->isGuest){
-			$this->redirect(Yii::$app->user->loginUrl);
-		}
+        if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 		
-        $model = new BActions();
+        $model = new LActions();
 
-        if ($model->load(Yii::$app->request->post())) {
-			$model->date = time();
-			$model->save();
-			//print_r($model->getErrors());
-            return $this->redirect(['/admin/actions']);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['/admin/actions/']);
         }
+        
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -82,19 +73,17 @@ class ActionsController extends Controller
      */
     public function actionUpdate($id)
     {
-		if(Yii::$app->user->isGuest){
-			$this->redirect(Yii::$app->user->loginUrl);
-		}
+        if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 		
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-             return $this->redirect(['/admin/actions']);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+             return $this->redirect(['/admin/actions/']);
         }
+        
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -105,9 +94,7 @@ class ActionsController extends Controller
      */
     public function actionDelete($id)
     {
-		if(Yii::$app->user->isGuest){
-			$this->redirect(Yii::$app->user->loginUrl);
-		}
+        if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 		
         $this->findModel($id)->delete();
 
@@ -123,7 +110,7 @@ class ActionsController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = BActions::findOne($id)) !== null) {
+        if (($model = LActions::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -45,10 +45,10 @@ class LActions extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_image' => 'Id Image',
-            'header' => 'Header',
-            'text' => 'Text',
-            'date' => 'Date',
-            'status' => 'Status',
+            'header' => 'Заголовок',
+            'text' => 'Описание',
+            'date' => 'Дата',
+            'status' => 'Статус',
         ];
     }
 }

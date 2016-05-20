@@ -7,19 +7,7 @@ Yii::$app->assetManager->forceCopy = true;
 
 $this->title = 'Вход в панель управления';
 
-if ($error) {
-    echo Alert::widget([
-        'type' => Alert::TYPE_DANGER,
-        'title' => 'Ошибка авторизации!',
-        'icon' => 'glyphicon glyphicon-ok-sign',
-        'body' => $error,
-        'showSeparator' => true,
-        'delay' => 10000,
-        'options' => [
-            'style' => 'position: absolute;top: 0;right: 0;width: 400px;',
-        ],
-    ]);
-}
+if (!is_null($error_login)) print $this->render('_alert', ['error' => $error_login]);
 ?>
 <div class="page text-center">
     <div class="page-head">

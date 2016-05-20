@@ -111,4 +111,22 @@ return array (
       '@kartik/switchinput' => $vendorDir . '/kartik-v/yii2-widget-switchinput',
     ),
   ),
+  'kartik-v/yii2-widget-datepicker' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-datepicker',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/date' => $vendorDir . '/kartik-v/yii2-widget-datepicker',
+    ),
+  ),
+  'kartik-v/yii2-field-range' => 
+  array (
+    'name' => 'kartik-v/yii2-field-range',
+    'version' => '1.3.0.0',
+    'alias' => 
+    array (
+      '@kartik/field' => $vendorDir . '/kartik-v/yii2-field-range',
+    ),
+  ),
 );

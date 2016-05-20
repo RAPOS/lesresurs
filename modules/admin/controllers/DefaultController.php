@@ -31,19 +31,24 @@ class DefaultController extends Controller
 					if($LAdmins->password === md5(md5($model->password))){
 						if($LAdmins->login()) $this->redirect(Yii::$app->user->returnUrl);
 					} else {
-						$error = "Не верный пароль.";
+						Yii::$app->getSession()->setFlash('error_login', 'Не верный пароль.');
+						return $this->redirect(['login']);
 					}
 				} else {
-					$error = "Не верный логин.";
+					Yii::$app->getSession()->setFlash('error_login', 'Не верный логин.');
+					return $this->redirect(['login']);
 				}
-			} else {
-				$error = "Не прошло валидацию.";
 			}
+		}
+
+		$error_login = null;
+		if (Yii::$app->getSession()->has('error_login')) {
+			$error_login = Yii::$app->getSession()->getFlash('error_login');
 		}
 
 		return $this->render('login', [
 			'model' => $model,
-			'error' => $error,
+			'error_login' => $error_login,
 		]);
 	}
 	
