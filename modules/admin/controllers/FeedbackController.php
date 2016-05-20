@@ -76,17 +76,17 @@ class FeedbackController extends Controller
 		$model = $this->findModel($id);
 		if(Yii::$app->request->post()){
 			$model->verifyCode = rand(1, 100);
-			$model->response = $_POST['BFeedback']['response'];	
+			$model->response = $_POST['LFeedback']['response'];	
 			if ($model->save()) {
-				Yii::$app->mail->compose()
+				/*Yii::$app->mail->compose()
 					->setTo($model->email)
 					->setFrom(['baron-nt@yandex.ru' => "Мужской спа-салон «Барон»"])
 					->setSubject($model->subject)
 					->setHtmlBody('Вам отправлен ответ с сайта:	http://'.$_SERVER['SERVER_NAME'].' <br>'.$model->response)
-					->send();
+					->send();*/
 				Yii::$app->getSession()->setFlash('request_feedback', 'true');
 				
-				return $this->redirect(['index']);
+				return $this->redirect('/admin/feedback/');
 			}
         }
 

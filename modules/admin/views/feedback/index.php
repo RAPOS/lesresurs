@@ -4,7 +4,7 @@ use yii\grid\GridView;
 
 $this->title = 'Контакты';
 
-if (!is_null($request_feedback) || !is_null($delete)) print $this->render('_alert', ['request_feedback' => $request_feedback, 'delete' => $delete]);
+if (!is_null($request_feedback) || !is_null($delete)) print $this->render('@app/modules/admin/views/default/_alert', ['request_feedback' => $request_feedback, 'delete' => $delete]);
 ?>
 <div class="page text-center">
 	<div class="page-head">
