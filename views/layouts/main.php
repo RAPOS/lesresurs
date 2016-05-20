@@ -53,7 +53,7 @@ AppAsset::register($this);
             ],
             '<li><a class="a-logo hidden-xs" href="/"><img class="nav-logo" src="/images/logo.png"/></a></li>',
             [
-                'label' => 'Галлерея',
+                'label' => 'Галерея',
                 'url' => ['/site/gallery'],
                 'linkOptions' => [
                     'class' => 'hidden-xs',
