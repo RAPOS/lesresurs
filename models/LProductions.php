@@ -12,8 +12,6 @@ use Yii;
  * @property string $text
  * @property integer $id_image
  * @property integer $date
- * @property integer $keywords
- * @property integer $description
  */
 class LProductions extends \yii\db\ActiveRecord
 {
@@ -31,10 +29,10 @@ class LProductions extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['header', 'text', 'id_image'], 'required'],
-            [['text', 'date', 'keywords', 'description'], 'string'],
+            [['header', 'text', 'text', 'date'], 'required'],
+            [['text'], 'string'],
             [['id_image'], 'integer'],
-            [['header'], 'string', 'max' => 64]
+            [['header', 'date'], 'string', 'max' => 64]
         ];
     }
 
@@ -45,12 +43,10 @@ class LProductions extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'id_image' => 'Id Image',
             'header' => 'Заголовок',
             'text' => 'Описание',
             'date' => 'Дата добавления',
-            'keywords' => 'Ключевые слова, через запятую',
-            'description' => 'Описание',
-            'id_image' => 'Id Image',
         ];
     }
 }

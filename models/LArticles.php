@@ -12,6 +12,8 @@ use Yii;
  * @property string $header
  * @property string $text
  * @property string $date
+ * @property integer $keywords
+ * @property integer $description
  */
 class LArticles extends \yii\db\ActiveRecord
 {
@@ -31,7 +33,7 @@ class LArticles extends \yii\db\ActiveRecord
         return [
             [['id_image', 'header', 'text', 'date'], 'required'],
             [['id_image'], 'integer'],
-            [['text'], 'string'],
+            [['text', 'keywords', 'description'], 'string'],
             [['header', 'date'], 'string', 'max' => 64]
         ];
     }
@@ -47,6 +49,8 @@ class LArticles extends \yii\db\ActiveRecord
             'header' => 'Заголовок',
             'text' => 'Описание',
             'date' => 'Дата добавления',
+            'keywords' => 'Ключевые слова, через запятую',
+            'description' => 'Описание',
         ];
     }
 }
