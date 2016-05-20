@@ -3,7 +3,7 @@ use dosamigos\tinymce\TinyMce;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Контакты - Редактировать';
+$this->title = 'Информация на странице';
 
 if (!is_null($save)) print $this->render('_alert', ['save' => $save]);
 ?>
@@ -17,8 +17,8 @@ if (!is_null($save)) print $this->render('_alert', ['save' => $save]);
 		<div class="col-sm-10 text-left">
 			<ul class="breadcrumb">
 				<li><?=Html::a('Панель управления', '/admin/')?></li>
-				<li><?=Html::a('Панель управления', '/admin/feadback')?></li>
-				<li class="active">Информация на странице</li>
+				<li><?=Html::a('Контакты', '/admin/feedback/')?></li>
+				<li class="active"><?=$this->title?></li>
 			</ul>
 			<?php $form = ActiveForm::begin(); ?>
 				<h3>Основное</h3>
