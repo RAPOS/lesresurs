@@ -33,98 +33,128 @@ AppAsset::register($this);
             'class' => 'navbar-inverse  nav-green',
         ],
     ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-center'],
-        'items' => [
-            // Desctop view
-            [
-                'label' => 'Продажа леса',
-                'url' => ['/site/lumbering'],
-                'linkOptions' => [
-                    'class' => 'hidden-xs',
+    if (Yii::$app->controller->id == 'site') {
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-center'],
+            'items' => [
+                // Desctop view
+                [
+                    'label' => 'Продажа леса',
+                    'url' => ['/site/lumbering'],
+                ],
+                [
+                    'label' => 'Спецпредложения',
+                    'url' => ['/site/specials'],
+                ],
+                '<li><a class="a-logo hidden-xs" href="/"><img class="nav-logo" src="/images/logo.png"/></a></li>',
+                [
+                    'label' => 'Галерея',
+                    'url' => ['/site/gallery'],
+                ],
+                [
+                    'label' => 'Статьи',
+                    'url' => ['/site/articles'],
+                ],
+                [
+                    'label' => 'Контакты',
+                    'url' => ['/site/contacts'],
+                ],
+            ]
+        ]);
+    } else {
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-center'],
+            'items' => [
+                // Desctop view
+                [
+                    'label' => 'Продажа леса',
+                    'url' => ['/site/lumbering'],
+                    'linkOptions' => [
+                        'class' => 'hidden-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Спецпредложения',
+                    'url' => ['/site/specials'],
+                    'linkOptions' => [
+                        'class' => 'hidden-xs',
+                    ],
+                ],
+                '<li><a class="a-logo hidden-xs" href="/"><img class="nav-logo" src="/images/logo.png"/></a></li>',
+                [
+                    'label' => 'Галерея',
+                    'url' => ['/site/gallery'],
+                    'linkOptions' => [
+                        'class' => 'hidden-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Статьи',
+                    'url' => ['/site/articles'],
+                    'linkOptions' => [
+                        'class' => 'hidden-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Контакты',
+                    'url' => ['/site/contacts'],
+                    'linkOptions' => [
+                        'class' => 'hidden-xs',
+                    ],
+                ],
+                // Mobile view
+                [
+                    'label' => 'Главная страница',
+                    'url' => ['/admin/mainpage'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Спецпредложения',
+                    'url' => ['/admin/specials'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Продукция',
+                    'url' => ['/admin/productions'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Галерея',
+                    'url' => ['/admin/gallery'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Статьи',
+                    'url' => ['/admin/articles'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Обратная связь',
+                    'url' => ['/admin/feedback'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Личные данные',
+                    'url' => ['/admin/userchange'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
                 ],
             ],
-            [
-                'label' => 'Спецпредложения',
-                'url' => ['/site/specials'],
-                'linkOptions' => [
-                    'class' => 'hidden-xs',
-                ],
-            ],
-            '<li><a class="a-logo hidden-xs" href="/"><img class="nav-logo" src="/images/logo.png"/></a></li>',
-            [
-                'label' => 'Галерея',
-                'url' => ['/site/gallery'],
-                'linkOptions' => [
-                    'class' => 'hidden-xs',
-                ],
-            ],
-            [
-                'label' => 'Статьи',
-                'url' => ['/site/articles'],
-                'linkOptions' => [
-                    'class' => 'hidden-xs',
-                ],
-            ],
-            [
-                'label' => 'Контакты',
-                'url' => ['/site/contacts'],
-                'linkOptions' => [
-                    'class' => 'hidden-xs',
-                ],
-            ],
-            // Mobile view
-            [
-                'label' => 'Главная страница',
-                'url' => ['/admin/mainpage'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
-                ],
-            ],
-            [
-                'label' => 'Спецпредложения',
-                'url' => ['/admin/actions'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
-                ],
-            ],
-            [
-                'label' => 'Продукция',
-                'url' => ['/admin/productions'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
-                ],
-            ],
-            [
-                'label' => 'Галерея',
-                'url' => ['/admin/gallery'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
-                ],
-            ],
-            [
-                'label' => 'Статьи',
-                'url' => ['/admin/articles'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
-                ],
-            ],
-            [
-                'label' => 'Обратная связь',
-                'url' => ['/admin/feedback'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
-                ],
-            ],
-            [
-                'label' => 'Личные данные',
-                'url' => ['/admin/userchange'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
-                ],
-            ],
-        ],
-    ]);
+        ]);
+    }
     NavBar::end();
     ?>
     <?if ((Yii::$app->controller->id == 'site') && (Yii::$app->controller->action->id == 'index'))  {?>
