@@ -10,9 +10,8 @@ use kartik\alert\Alert;
 if (isset($captcha) && !$captcha) {
     echo Alert::widget([
         'type' => Alert::TYPE_DANGER,
-        'title' => 'Ошибка! Сообщение не отправлено!',
         'icon' => 'glyphicon glyphicon-remove-sign',
-        'body' => 'Вы не верно ввели проверочный код!',
+        'body' => 'Вы, неверно ввели проверочный код.',
         'showSeparator' => true,
         'delay' => 5000,
         'options' => [
@@ -25,7 +24,7 @@ if($save){
     echo Alert::widget([
         'type' => Alert::TYPE_SUCCESS,
         'icon' => 'glyphicon glyphicon-ok-sign',
-        'body' => 'Изменения успешно сохранены!',
+        'body' => 'Изменения успешно сохранены.',
         'showSeparator' => true,
         'delay' => 5000,
         'options' => [
@@ -36,7 +35,7 @@ if($save){
     echo Alert::widget([
         'type' => Alert::TYPE_DANGER,
         'icon' => 'glyphicon glyphicon-remove-sign',
-        'body' => 'Не удалось сохранить!',
+        'body' => 'Не удалось сохранить.',
         'showSeparator' => true,
         'delay' => 5000,
         'options' => [
@@ -48,7 +47,6 @@ if($save){
 if ($error_login) {
     echo Alert::widget([
         'type' => Alert::TYPE_DANGER,
-        'title' => 'Ошибка авторизации!',
         'icon' => 'glyphicon glyphicon-remove-sign',
         'body' => $error_login,
         'showSeparator' => true,
@@ -59,6 +57,34 @@ if ($error_login) {
     ]);
 }
 
+if (!is_null($request_feedback)) {
+    echo Alert::widget([
+        'type' => Alert::TYPE_SUCCESS,
+        'icon' => 'glyphicon glyphicon-ok-sign',
+        'body' => 'Сообщение успешно отправлено.',
+        'showSeparator' => true,
+        'delay' => 5000,
+        'options' => [
+            'style' => 'position: absolute;top: 0;right: 0;width: 400px;',
+        ],
+    ]);
+}
+
+if (!is_null($delete)) {
+    echo Alert::widget([
+        'type' => Alert::TYPE_SUCCESS,
+        'icon' => 'glyphicon glyphicon-ok-sign',
+        'body' => 'Запись успешно удалена.',
+        'showSeparator' => true,
+        'delay' => 5000,
+        'options' => [
+            'style' => 'position: absolute;top: 0;right: 0;width: 400px;',
+        ],
+    ]);
+}
+
+if (Yii::$app->getSession()->has('request_feedback')) Yii::$app->getSession()->remove('request_feedback');
+if (Yii::$app->getSession()->has('delete')) Yii::$app->getSession()->remove('delete');
 if (Yii::$app->getSession()->has('captcha')) Yii::$app->getSession()->remove('captcha');
 if (Yii::$app->getSession()->has('save')) Yii::$app->getSession()->remove('save');
 if (Yii::$app->getSession()->has('error_login')) Yii::$app->getSession()->remove('error_login');

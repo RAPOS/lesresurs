@@ -51,7 +51,7 @@ $this->title = 'Панель управления';
 				<div class="col-xs-6 col-sm-4 col-md-3 text-center">
 					<a class="icon_panel" href="/admin/feedback/">
 						<img src="/images/panel/speech_bubble.png"/>
-						<h3>Обратная связь</h3>
+						<h3>Контакты</h3>
 						<div></div>
 					</a>
 				</div>

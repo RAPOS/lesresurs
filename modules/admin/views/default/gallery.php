@@ -38,7 +38,7 @@ if (!$array_image && !$array_image_cfg) {
 		<div class="col-sm-1 hidden-xs"></div>
 		<div class="col-sm-10 text-left">
 			<ul class="breadcrumb">
-				<li><a href="/admin/">Панель управления</a></li>
+				<li><?=Html::a('Панель управления', '/admin/')?></li>
 				<li class="active">Галерея</li>
 			</ul>
 			<?php $form = ActiveForm::begin(); ?>

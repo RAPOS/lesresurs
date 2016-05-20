@@ -43,11 +43,11 @@ class LContacts extends \yii\db\ActiveRecord
     {
         return [
             'site' => 'Site',
-            'text_form' => 'Text Form',
-            'text_place' => 'Text Place',
-            'text_contact' => 'Text Contact',
-            'keywords' => 'Keywords',
-            'description' => 'Description',
+            'text_form' => 'Текст формы',
+            'text_place' => 'Местоположение',
+            'text_contact' => 'Контактные данные',
+            'keywords' => 'Ключевые слова, через запятую',
+            'description' => 'Описание',
         ];
     }
 }

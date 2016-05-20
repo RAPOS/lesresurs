@@ -149,6 +149,8 @@ class DefaultController extends Controller
 	
 	public function actionUpload()
 	{
+		if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
+		
 		if ($_FILES)  {
 			for ($i=0;$i<count($_FILES);$i++) {
 				if(!in_array(exif_imagetype($_FILES['image']['tmp_name'][$i]), array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG))){

@@ -1,67 +1,56 @@
 <?php
-use kartik\widgets\Alert;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-$this->title = 'Обратная связь';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Контакты';
+
+if (!is_null($request_feedback) || !is_null($delete)) print $this->render('_alert', ['request_feedback' => $request_feedback, 'delete' => $delete]);
 ?>
-<div class="bfeedback-index" style="width: 700px;">
-	<?if($save){
-		echo Alert::widget([
-			'type' => Alert::TYPE_SUCCESS,
-			'icon' => 'glyphicon glyphicon-remove-sign',
-			'body' => 'Ответ успешно отправлен!',
-			'showSeparator' => true,
-			'delay' => 5000,
-			'options' => [
-				'style' => 'position: fixed;top: 50px;right: 0;width: 400px;',
-			],
-		]);
-	}?>
-	<?if($delete){
-		echo Alert::widget([
-			'type' => Alert::TYPE_SUCCESS,
-			'icon' => 'glyphicon glyphicon-remove-sign',
-			'body' => 'Запись успешно удалена!',
-			'showSeparator' => true,
-			'delay' => 5000,
-			'options' => [
-				'style' => 'position: fixed;top: 50px;right: 0;width: 400px;',
-			],
-		]);
-	}?>
-	<p>
-		<?= Html::a('Описание страницы', ['description'], ['class' => 'btn btn-primary']) ?>
-	</p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            [
-				'class' => 'yii\grid\SerialColumn'
-			],
-            'id',
-			[
-				'attribute' => 'date',
-				'format' => ['date', 'php:d.m.Y']
-			],
-			[
-				'attribute' => 'email',
-				'format' => 'text',
-				'contentOptions' => ['style' => 'width: 155px;'],
-			],
-			[
-				'attribute' => 'name',
-				'contentOptions' => ['style' => 'width: 155px;'],
-			],
-			[
-				'attribute' => 'subject',
-				'contentOptions' => ['style' => 'width: 155px;'],
-			],
-            [
-				'class' => 'yii\grid\ActionColumn',
-				'buttons' => ['update' => function ($url, $model, $key) {return false;}]
-			],
-        ],
-    ]); ?>
+<div class="page text-center">
+	<div class="page-head">
+		<h2>Контакты</h2>
+		<div></div>
+	</div>
+	<div class="row" style="margin-top: 5px;">
+		<div class="col-sm-1 hidden-xs"></div>
+		<div class="col-sm-10 text-left">
+			<ul class="breadcrumb">
+				<li><?=Html::a('Панель управления', '/admin/')?></li>
+				<li class="active">Контакты</li>
+			</ul>
+			<p>
+				<?= Html::a('Информация на странице', ['description'], ['class' => 'btn btn-primary']) ?>
+			</p>
+			<?= GridView::widget([
+				'dataProvider' => $dataProvider,
+				'columns' => [
+					[
+						'class' => 'yii\grid\SerialColumn'
+					],
+					'id',
+					[
+						'attribute' => 'date',
+						'format' => ['date', 'php:d.m.Y']
+					],
+					[
+						'attribute' => 'email',
+						'format' => 'text',
+						'contentOptions' => ['style' => 'width: 155px;'],
+					],
+					[
+						'attribute' => 'name',
+						'contentOptions' => ['style' => 'width: 155px;'],
+					],
+					[
+						'attribute' => 'subject',
+						'contentOptions' => ['style' => 'width: 155px;'],
+					],
+					[
+						'class' => 'yii\grid\ActionColumn',
+						'buttons' => ['update' => function ($url, $model, $key) {return false;}]
+					],
+				],
+			]); ?>
+		</div>
+	</div>
 </div>

@@ -1,48 +1,72 @@
 <?php
 use dosamigos\tinymce\TinyMce;
-use kartik\widgets\Alert;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Описание страницы';
-$this->params['breadcrumbs'][] = ['label' => 'Обратная связь', 'url' => ['/admin/feedback']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Контакты - Редактировать';
+
+if (!is_null($save)) print $this->render('_alert', ['save' => $save]);
 ?>
-<div class="bhello" style="width: 700px;">
-	<?if($success){
-		echo Alert::widget([
-			'type' => Alert::TYPE_SUCCESS,
-			'icon' => 'glyphicon glyphicon-remove-sign',
-			'body' => 'Изменения успешно сохранены!',
-			'showSeparator' => true,
-			'delay' => 5000,
-			'options' => [
-				'style' => 'position: fixed;top: 50px;right: 0;width: 400px;',
-			],
-		]);
-	}?>
-    <?php $form = ActiveForm::begin(); ?>
-        <?= $form->field($model, 'title') ?>
-		<?= $form->field($model, 'text')->widget(TinyMce::className(), [
-			'options' => ['rows' => 6],
-			'language' => 'ru',
-			'clientOptions' => [
-				'plugins' => [
-					"advlist autolink lists link charmap print preview anchor",
-					"searchreplace visualblocks code fullscreen",
-					"insertdatetime media table contextmenu paste"
-				],
-				'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-			]
-		]);?>
-		<div class="breadcrumb">
-			<p class="active">Для поисковых систем</p>
+<div class="page text-center">
+	<div class="page-head">
+		<h2>Информация на странице</h2>
+		<div></div>
+	</div>
+	<div class="row" style="margin-top: 5px;">
+		<div class="col-sm-1 hidden-xs"></div>
+		<div class="col-sm-10 text-left">
+			<ul class="breadcrumb">
+				<li><?=Html::a('Панель управления', '/admin/')?></li>
+				<li><?=Html::a('Панель управления', '/admin/feadback')?></li>
+				<li class="active">Информация на странице</li>
+			</ul>
+			<?php $form = ActiveForm::begin(); ?>
+				<h3>Основное</h3>
+				<?= $form->field($model, 'text_form')->widget(TinyMce::className(), [
+					'options' => ['rows' => 6],
+					'language' => 'ru',
+					'clientOptions' => [
+						'plugins' => [
+							"advlist autolink lists link charmap print preview anchor",
+							"searchreplace visualblocks code fullscreen",
+							"insertdatetime media table contextmenu paste"
+						],
+						'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+					]
+				]);?>
+				<?= $form->field($model, 'text_place')->widget(TinyMce::className(), [
+					'options' => ['rows' => 6],
+					'language' => 'ru',
+					'clientOptions' => [
+						'plugins' => [
+							"advlist autolink lists link charmap print preview anchor",
+							"searchreplace visualblocks code fullscreen",
+							"insertdatetime media table contextmenu paste"
+						],
+						'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+					]
+				]);?>
+				<?= $form->field($model, 'text_contact')->widget(TinyMce::className(), [
+					'options' => ['rows' => 6],
+					'language' => 'ru',
+					'clientOptions' => [
+						'plugins' => [
+							"advlist autolink lists link charmap print preview anchor",
+							"searchreplace visualblocks code fullscreen",
+							"insertdatetime media table contextmenu paste"
+						],
+						'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+					]
+				]);?>
+				<h3>Для продвижения</h3>
+				<?= $form->field($model, 'keywords')->textInput() ?>
+				<?= $form->field($model, 'description')->textarea(['rows' => 6])?>
+				<br>
+				<div class="form-group">
+					<?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+					<?= Html::a('Назад', ['/admin/feedback/'], ['class'=>'btn btn-primary']) ?>
+				</div>
+			<?php ActiveForm::end(); ?>
 		</div>
-		<?= $form->field($model, 'keywords')->textInput() ?>
-		<?= $form->field($model, 'description')->textarea(['rows' => 6])?>
-        <div class="form-group">
-			<?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
-			<?= Html::a('Назад', ['/admin/feedback'], ['class'=>'btn btn-primary']) ?>
-        </div>
-    <?php ActiveForm::end(); ?>
+	</div>
 </div>

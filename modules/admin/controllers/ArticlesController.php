@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ActionsController implements the CRUD articles for BActions model.
+ * ActionsController implements the CRUD articles for LArticles model.
  */
 class ArticlesController extends Controller
 {
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Lists all BActions models.
+     * Lists all LArticles models.
      * @return mixed
      */
     public function actionIndex()
@@ -47,7 +47,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Creates a new BActions model.
+     * Creates a new LArticles model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -71,7 +71,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Updates an existing BActions model.
+     * Updates an existing LArticles model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Deletes an existing BActions model.
+     * Deletes an existing LArticles model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,10 +111,10 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Finds the BActions model based on its primary key value.
+     * Finds the LArticles model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return BActions the loaded model
+     * @return LArticles the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
