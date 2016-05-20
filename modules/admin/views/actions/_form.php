@@ -13,17 +13,14 @@ use yii\widgets\ActiveForm;
 $array_image = array();
 $array_image_cfg = array();
 if (!$model->isNewRecord) {
-	$array_id_images = json_decode($model->images);
-	for($i=0;$i<count($array_id_images);$i++){
-		$LImages = LImages::findOne($array_id_images[$i]);
-		$array_image[] = Html::img('/'.$LImages->path, ['class'=>'file-preview-image', 'alt'=>$LImages->name, 'title'=>$LImages->name, 'style'=>'width:auto;height:210px;']);
-		$array_image_cfg[] = [
-			'caption' => $LImages->name,
-			'url' => '/admin/deleteimages/',
-			'key' =>  $LImages->id_image,
-			'extra' => ['delete_id_img' => $LImages->id_image, 'delete_path' => $LImages->path, 'id_images' => $array_id_images, 'page' => 'sertificate'],
-		];
-	}
+	$LImages = LImages::findOne($model->id_image);
+	$array_image[] = Html::img('/'.$LImages->path, ['class'=>'file-preview-image', 'alt'=>$LImages->name, 'title'=>$LImages->name, 'style'=>'width:auto;height:210px;']);
+	$array_image_cfg[] = [
+		'caption' => $LImages->name,
+		'url' => '/admin/deleteimages/',
+		'key' =>  $LImages->id_image,
+		'extra' => ['delete_id_img' => $LImages->id_image, 'delete_path' => $LImages->path, 'id_images' => $array_id_images, 'page' => 'sertificate'],
+	];
 }
 if (!$array_image && !$array_image_cfg) {
 	$array_image = array();
@@ -41,6 +38,7 @@ if (!$array_image && !$array_image_cfg) {
 			<?= DatePicker::widget([
 				'name' => 'LActions[date]',
 				'language' => 'ru',
+				'value' => $model->date,
 				'type' => DatePicker::TYPE_COMPONENT_PREPEND,
 				'pluginOptions' => [
 					'autoclose'=>true,
@@ -104,7 +102,7 @@ if (!$array_image && !$array_image_cfg) {
 			}',
 			'fileuploaded' => 'function(event, data, previewId, index){
 				var form = data.form, files = data.files, extra = data.extra, response = data.response, reader = data.reader;
-				$(".file-input").append(\'<input style="display: none;" type="text" data-name="\'+files[0]["name"]+\'" name="id_image" value="\'+response.id_image+\'"/>\');
+				$(".file-input").append(\'<input style="display: none;" type="text" data-name="\'+files[0]["name"]+\'" name="LActions[id_image]" value="\'+response.id_image+\'"/>\');
 				if($(".file-input .file-preview-frame").length == 1){
 					$(".file-input .input-group").hide();
 				}

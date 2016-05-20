@@ -55,7 +55,7 @@ class ActionsController extends Controller
         if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 		
         $model = new LActions();
-
+        //dd(Yii::$app->request->post());
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['/admin/actions/']);
         }
