@@ -14,7 +14,7 @@ $array_image = array();
 $array_image_cfg = array();
 if (!$model->isNewRecord) {
 	for ($i = 0; $i < count($model); $i++) {
-		$LImages = LImages::findOne($model[$i]->id_photo);
+		$LImages = LImages::findOne($model[$i]->id_image);
 		$array_image[] = Html::img('/'.$LImages->path, ['class'=>'file-preview-image img-responsive', 'alt'=>$LImages->name, 'title'=>$LImages->name, 'style'=>'width: auto;height: 200px;']);
 		$array_image_cfg[] = [
 			'caption' => $LImages->name,
@@ -68,9 +68,7 @@ if (!$array_image && !$array_image_cfg) {
 					'pluginEvents' => [
 						'fileuploaded' => 'function(event, data, previewId, index) {
 							var form = data.form, files = data.files, extra = data.extra, response = data.response, reader = data.reader;
-							for (var i = 0; i < files.length; i++) {
-								$(".file-input").append(\'<input style="display: none;" type="text" data-name="\'+files[i]["name"]+\'" name="id_images[]" value="\'+response.id_image+\'"/>\');
-							}
+							$(".file-input").append(\'<input style="display: none;" data-name="\'+response["name"]+\'" class="hidden-id" type="text" name="id_images[]" value="\'+response.id_image+\'"/>\');
 						}',
 					]
 				]);?>

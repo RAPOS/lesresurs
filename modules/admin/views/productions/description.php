@@ -94,10 +94,7 @@ if (!$array_image && !$array_image_cfg) {
 						}',
 						'fileuploaded' => 'function(event, data, previewId, index) {
 							var form = data.form, files = data.files, extra = data.extra, response = data.response, reader = data.reader;
-							$(".file-input").append(\'<input style="display: none;" class="hidden-id" type = "text" name = "id_images[]" value = "\'+response["id_image"]+\'" />\');
-							$(".file-input .hidden-id").each(function(i, value){
-								$(this).attr("data-name", files[i]["name"]);
-							});
+							$(".file-input").append(\'<input style="display: none;" data-name="\'+response["name"]+\'" class="hidden-id" type = "text" name = "id_images[]" value = "\'+response["id_image"]+\'" />\');
 							if ($(".file-input .file-preview-frame").length == 3) {
 								$(".file-input .input-group").hide();
 							}

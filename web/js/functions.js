@@ -10,22 +10,17 @@ $(document).ready(function() {
     }
 	
 	$(".zoomimage").fancybox();
-	
- 	$('.order').click(function(){
-		$('.order_form_wrapper').fadeIn('slow');
-	});
-	
+
 	$('.order_form_close').click(function(){
 		$('.order_form_wrapper').fadeOut('slow');
 	});	
 });
 
 function delete_preview(element){
-    name = element.parents('.file-specials').siblings('.file-caption-name').text();
-    if($('.file-input input[data-name="'+name+'"]').length){
-        for(i=0;i<$('.file-input input[data-name="'+name+'"]').length;i++){
-            $('.file-input input[data-name="'+name+'"]').eq(i).remove();
-        }
+    name = element.parents('.file-thumbnail-footer').find('.file-footer-caption').text();
+    input = $('input[data-name="' + name + '"]');
+    if (input.length) {
+        input.remove();
     }
 }
 

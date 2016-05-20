@@ -94,7 +94,7 @@ class DefaultController extends Controller
 		if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 
 		if (Yii::$app->request->post()) {
-			for ($i=0; $i<count($_POST['id_images']); $i++) {
+			for ($i = 0; $i < count($_POST['id_images']); $i++) {
 				$model = new LGallery();
 				$model->id_image = $_POST['id_images'][$i];
 				if ($model->save()) {
@@ -195,7 +195,7 @@ class DefaultController extends Controller
 						$image->save(Yii::getAlias('@webroot/'.$LImages->path));
 						
 						unlink($_SERVER['DOCUMENT_ROOT'].'/files/uploads/'.$name.'.'.$path_info['extension']);
-						print json_encode(array('id_image' => $LImages->id_image));
+						print json_encode(array('id_image' => $LImages->id_image, 'name' => $_FILES['image']['name']));
 					}
 				} else {
 					dd($LImages->getErrors());
