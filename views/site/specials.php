@@ -38,14 +38,14 @@ $this->title = 'Спецпредложения';
 					<p>
 						<?=$value->text?>
 					</p>
-					<div class="col-xs-12 col-md-6 date">
+					<div class="col-xs-6 date">
 						<?if ($value->status) {?>
 							<p>Действует до <?=$value->date?></p>
 						<?} else {?>
 							<p style="color: red;">Акция закончена</p>
 						<?}?>
 					</div>
-					<div class="col-xs-12 col-md-6 button">
+					<div class="col-xs-6 button">
 						<button type="submit" class="lbutton">Оставить заявку</button>
 					</div>
 				</div>

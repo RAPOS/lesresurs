@@ -15,6 +15,9 @@
 }
 
 @media (max-width: 767px)  {
+    h1 {
+        font-size: 32px;
+    }
     .navbar-brand {
         display: block;
         margin-top: -10px;
@@ -32,14 +35,10 @@
     .banner-text h1 {
         margin-top: 140px;
         margin-bottom: 140px;
-        font-size: 32px;
     }
     .contact-form {
         margin: 0 auto;
         padding-top: 1px;
-    }
-    .contact-form h1 {
-        font-size: 40px;
     }
     .gallery-img {
         margin-right: 15px!important;
@@ -52,6 +51,9 @@
     }
     .file-preview-image {
         height: 185px!important;
+    }
+    .item-action .date, .item-action button {
+        font-size: 12px!important;
     }
 }
 

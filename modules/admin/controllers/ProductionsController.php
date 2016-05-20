@@ -107,7 +107,7 @@ class ProductionsController extends Controller
         if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 
         $model = $this->findModel($id);
-        //dd(Yii::$app->request->post());
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $LImages = LImages::findOne(['id_image' => $model->id_image]);
             $LImages->status = 1;
@@ -167,7 +167,7 @@ class ProductionsController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if($_POST['id_images']){
-                $array_id_img = json_decode($_POST['id_images']);
+                $array_id_img = json_decode($model->images);
                 if(is_array($array_id_img)){
                     $new_pre_images = array_merge($array_id_img, $_POST['id_images']);
                     $model->images = json_encode(array_unique($new_pre_images));

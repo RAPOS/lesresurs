@@ -94,8 +94,8 @@ if (!$array_image && !$array_image_cfg) {
 						}',
 						'fileuploaded' => 'function(event, data, previewId, index) {
 							var form = data.form, files = data.files, extra = data.extra, response = data.response, reader = data.reader;
-							$(".file-input").append(\'<input style="display: none;" type = "text" name = "id_images[]" value = "\'+response["id_image"]+\'" />\');
-							$(".file-input input[name=\"id_images[]\"]").each(function(i, value){
+							$(".file-input").append(\'<input style="display: none;" class="hidden-id" type = "text" name = "id_images[]" value = "\'+response["id_image"]+\'" />\');
+							$(".file-input .hidden-id").each(function(i, value){
 								$(this).attr("data-name", files[i]["name"]);
 							});
 							if ($(".file-input .file-preview-frame").length == 3) {

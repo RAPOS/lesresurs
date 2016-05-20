@@ -74,55 +74,92 @@ AppAsset::register($this);
                 ],
             ],
             // Mobile view
+            Yii::$app->controller->id == 'site' ?
             [
-                'label' => 'Главная страница',
-                'url' => ['/admin/mainpage'],
+                'label' => 'Продажа леса',
+                'url' => ['/site/lumbering'],
                 'linkOptions' => [
                     'class' => 'visible-xs',
                 ],
             ],
             [
                 'label' => 'Спецпредложения',
-                'url' => ['/admin/actions'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
-                ],
-            ],
-            [
-                'label' => 'Продукция',
-                'url' => ['/admin/productions'],
+                'url' => ['/site/specials'],
                 'linkOptions' => [
                     'class' => 'visible-xs',
                 ],
             ],
             [
                 'label' => 'Галерея',
-                'url' => ['/admin/gallery'],
+                'url' => ['/site/gallery'],
                 'linkOptions' => [
                     'class' => 'visible-xs',
                 ],
             ],
             [
                 'label' => 'Статьи',
-                'url' => ['/admin/articles'],
+                'url' => ['/site/articles'],
                 'linkOptions' => [
                     'class' => 'visible-xs',
                 ],
             ],
             [
-                'label' => 'Обратная связь',
-                'url' => ['/admin/feedback'],
+                'label' => 'Контакты',
+                'url' => ['/site/contacts'],
                 'linkOptions' => [
                     'class' => 'visible-xs',
                 ],
             ],
-            [
-                'label' => 'Личные данные',
-                'url' => ['/admin/userchange'],
-                'linkOptions' => [
-                    'class' => 'visible-xs',
+            :
+                [
+                    'label' => 'Главная страница',
+                    'url' => ['/admin/mainpage'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
                 ],
-            ],
+                [
+                    'label' => 'Спецпредложения',
+                    'url' => ['/admin/specials'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Продукция',
+                    'url' => ['/admin/productions'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Галерея',
+                    'url' => ['/admin/gallery'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Статьи',
+                    'url' => ['/admin/articles'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Обратная связь',
+                    'url' => ['/admin/feedback'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
+                [
+                    'label' => 'Личные данные',
+                    'url' => ['/admin/userchange'],
+                    'linkOptions' => [
+                        'class' => 'visible-xs',
+                    ],
+                ],
         ],
     ]);
     NavBar::end();
