@@ -11,6 +11,10 @@ $(document).ready(function() {
 	
 	$(".zoomimage").fancybox();
 
+	$('.order').click(function(){
+		$('.order_form_wrapper').fadeIn('slow');
+	});		
+	
 	$('.order_form_close').click(function(){
 		$('.order_form_wrapper').fadeOut('slow');
 	});	
