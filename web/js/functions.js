@@ -15,9 +15,9 @@ $(document).ready(function() {
 		$('.order_form_wrapper').fadeIn('slow');
 	});
 	
-	$('.order_form_close').click(function(){
+/* 	$('.order_form_close').click(function(){
 		$('.order_form_wrapper').fadeOut('slow');
-	});	
+	});	 */
 });
 
 function delete_preview(element){
