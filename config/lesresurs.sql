@@ -26,10 +26,12 @@ CREATE TABLE IF NOT EXISTS `l_actions` (
   `date` varchar(64) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы lesresurs.l_actions: ~0 rows (приблизительно)
+-- Дамп данных таблицы lesresurs.l_actions: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `l_actions` DISABLE KEYS */;
+INSERT INTO `l_actions` (`id`, `id_image`, `header`, `text`, `date`, `status`) VALUES
+	(1, 37, '1 куб доска 50', '<p>Срочно продаём</p>', '17-05-2016', 0);
 /*!40000 ALTER TABLE `l_actions` ENABLE KEYS */;
 
 
@@ -39,13 +41,14 @@ CREATE TABLE IF NOT EXISTS `l_admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   `password` varchar(64) NOT NULL,
+  `email` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы lesresurs.l_admins: 1 rows
 /*!40000 ALTER TABLE `l_admins` DISABLE KEYS */;
-INSERT INTO `l_admins` (`id`, `name`, `password`) VALUES
-	(1, 'RAPOS', '49ca5bdc41b0ad3b828258875030e223');
+INSERT INTO `l_admins` (`id`, `name`, `password`, `email`) VALUES
+	(1, 'RAPOS', '49ca5bdc41b0ad3b828258875030e223', NULL);
 /*!40000 ALTER TABLE `l_admins` ENABLE KEYS */;
 
 
@@ -63,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `l_articles` (
 -- Дамп данных таблицы lesresurs.l_articles: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `l_articles` DISABLE KEYS */;
 INSERT INTO `l_articles` (`id`, `id_image`, `header`, `text`, `date`) VALUES
-	(1, 1, 'Экологические последствия лесозаготовок', 'Пиловочник - это прямые брёвна естественной влажности, пригодные для напила пиломатериалов. Пиловочником\r\nназывают бревна диаметром от 14 см до 45 см., для хвойных пород от 3,0 до 6,5 м.(ГОСТ 9463-88), для\r\nлиственных - длина от 1,0 до 6,0 м.(ГОСТ 9462-88). Простыми словами - это круглый лес, вывезенный\r\nлесовозом на пилораму, из которого можно пилить брус или доски.\r\n<br>\r\n<br>\r\nНижняя часть дерева (в основном березы) называется фанкряж - это фанерное сырье. Его разрезают на\r\nтонкий шпон толщиной 1,5-2мм. Это должна быть очень качественна древесина без сучков с диаметром больше\r\n20 см и менее 35 см. - примерно 5-6 метров из 30-ти метрового дерева. Остально идет на щепу или в баланс.\r\n<br>\r\n<br>\r\nБалансом называют верхнюю часть дерева или кривые бревна из которых не возможно выпилить\r\nкачественную прямую доску. Баланс как правило идет на целлюлозные комбинаты, или дробиться на щепу для\r\nдальнейшего использования.\r\n<br>\r\n<br>\r\nКомпания "Комплесоторг" занимается покупкой и продаже пиловочника с доставкой до вашего производства.', '10.05.2016');
+	(1, 41, 'Экологические последствия лесозаготовок', '<p>Пиловочник - это прямые брёвна естественной влажности, пригодные для напила пиломатериалов. Пиловочником называют бревна диаметром от 14 см до 45 см., для хвойных пород от 3,0 до 6,5 м.(ГОСТ 9463-88), для лиственных - длина от 1,0 до 6,0 м.(ГОСТ 9462-88). Простыми словами - это круглый лес, вывезенный лесовозом на пилораму, из которого можно пилить брус или доски. <br /> <br /> Нижняя часть дерева (в основном березы) называется фанкряж - это фанерное сырье. Его разрезают на тонкий шпон толщиной 1,5-2мм. Это должна быть очень качественна древесина без сучков с диаметром больше 20 см и менее 35 см. - примерно 5-6 метров из 30-ти метрового дерева. Остально идет на щепу или в баланс. <br /> <br /> Балансом называют верхнюю часть дерева или кривые бревна из которых не возможно выпилить качественную прямую доску. Баланс как правило идет на целлюлозные комбинаты, или дробиться на щепу для дальнейшего использования. <br /> <br /> Компания "Комплесоторг" занимается покупкой и продаже пиловочника с доставкой до вашего производства.</p>', '20.05.2016');
 /*!40000 ALTER TABLE `l_articles` ENABLE KEYS */;
 
 
@@ -98,10 +101,16 @@ CREATE TABLE IF NOT EXISTS `l_feedback` (
   `response` text,
   `ip` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы lesresurs.l_feedback: ~0 rows (приблизительно)
+-- Дамп данных таблицы lesresurs.l_feedback: ~5 rows (приблизительно)
 /*!40000 ALTER TABLE `l_feedback` DISABLE KEYS */;
+INSERT INTO `l_feedback` (`id`, `email`, `name`, `subject`, `text`, `date`, `response`, `ip`) VALUES
+	(1, 'hostmas@bk.ru', 'RAPOS', 'TEST', 'TEST', '1463737004', NULL, '127.0.0.1'),
+	(2, 'hostmas@bk.ru', 'RAPOS', 'sad', 'sadasd', '1463737213', NULL, '127.0.0.1'),
+	(3, 'hostmas@bk.ru', 'RAPOS', 'sadsadasd', 'sadasd', '1463737264', NULL, '127.0.0.1'),
+	(4, 'hostmas@bk.ru', 'RAPOS', 'asd asd asd ', 'sa das d', '1463737322', NULL, '127.0.0.1'),
+	(5, 'hostmas@bk.ru', 'RAPOS', 'dsadas', 'dsadasd', '1463737526', '<p>5456465464646464</p>', '127.0.0.1');
 /*!40000 ALTER TABLE `l_feedback` ENABLE KEYS */;
 
 
@@ -111,10 +120,12 @@ CREATE TABLE IF NOT EXISTS `l_gallery` (
   `id_photo` int(11) NOT NULL AUTO_INCREMENT,
   `id_image` int(11) NOT NULL,
   PRIMARY KEY (`id_photo`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы lesresurs.l_gallery: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `l_gallery` DISABLE KEYS */;
+INSERT INTO `l_gallery` (`id_photo`, `id_image`) VALUES
+	(6, 34);
 /*!40000 ALTER TABLE `l_gallery` ENABLE KEYS */;
 
 
@@ -127,9 +138,9 @@ CREATE TABLE IF NOT EXISTS `l_images` (
   `extension` varchar(5) NOT NULL,
   `status` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id_image`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы lesresurs.l_images: ~8 rows (приблизительно)
+-- Дамп данных таблицы lesresurs.l_images: ~44 rows (приблизительно)
 /*!40000 ALTER TABLE `l_images` DISABLE KEYS */;
 INSERT INTO `l_images` (`id_image`, `name`, `path`, `extension`, `status`) VALUES
 	(1, '97f9218c10810b108a6f93b5b4d5d395', 'files/images/1/97f9218c10810b108a6f93b5b4d5d395.jpg', 'jpg', b'0'),
@@ -157,7 +168,36 @@ INSERT INTO `l_images` (`id_image`, `name`, `path`, `extension`, `status`) VALUE
 	(23, 'b50ffbbf1ce08993aa339049887de814', 'files/images/23/b50ffbbf1ce08993aa339049887de814.jpg', 'jpg', b'0'),
 	(24, 'ccc1b508f6b76e6410c95629a5dd52e1', 'files/images/24/ccc1b508f6b76e6410c95629a5dd52e1.jpg', 'jpg', b'0'),
 	(25, '4777e47938223aea2c89da85b666fbb5', 'files/images/25/4777e47938223aea2c89da85b666fbb5.jpg', 'jpg', b'0'),
-	(26, '8aa5bfb3c0f5b41b40282b4b244ecf02', 'files/images/26/8aa5bfb3c0f5b41b40282b4b244ecf02.jpg', 'jpg', b'0');
+	(26, '8aa5bfb3c0f5b41b40282b4b244ecf02', 'files/images/26/8aa5bfb3c0f5b41b40282b4b244ecf02.jpg', 'jpg', b'0'),
+	(27, 'f0c3646526539f53c8ec83753c94e7b5', 'files/images/27/f0c3646526539f53c8ec83753c94e7b5.jpg', 'jpg', b'0'),
+	(28, '1c7564393de2e298516ec77d856c7478', 'files/images/28/1c7564393de2e298516ec77d856c7478.jpg', 'jpg', b'0'),
+	(29, 'cc0ea02433e24790c4d10fe47022a5ed', 'files/images/29/cc0ea02433e24790c4d10fe47022a5ed.jpg', 'jpg', b'0'),
+	(30, '6323d7573aa3a444899c4ecbbc6b744a', 'files/images/30/6323d7573aa3a444899c4ecbbc6b744a.jpg', 'jpg', b'0'),
+	(31, '19514f9dc9e26fcd643bcd2e4829a6be', 'files/images/31/19514f9dc9e26fcd643bcd2e4829a6be.jpg', 'jpg', b'0'),
+	(32, '44167a855e462f723e62cae75b6c8e0f', 'files/images/32/44167a855e462f723e62cae75b6c8e0f.jpg', 'jpg', b'0'),
+	(33, 'd9ca3c1d20f3e1fe7aebfe5c6481ed68', 'files/images/33/d9ca3c1d20f3e1fe7aebfe5c6481ed68.jpg', 'jpg', b'0'),
+	(34, '82e1c37a42854b08c22974ff04c70704', 'files/images/34/82e1c37a42854b08c22974ff04c70704.jpg', 'jpg', b'1'),
+	(35, '586803d9360675d03a4fbbe2f8e367f6', 'files/images/35/586803d9360675d03a4fbbe2f8e367f6.jpg', 'jpg', b'0'),
+	(36, '64c700d4958af11ae08c9825ce1aa00f', 'files/images/36/64c700d4958af11ae08c9825ce1aa00f.jpg', 'jpg', b'0'),
+	(37, '1a2f3d076b3994f19f8a2baf8c8b9462', 'files/images/37/1a2f3d076b3994f19f8a2baf8c8b9462.jpg', 'jpg', b'0'),
+	(38, '732b706a99f8b1f1fc48ae52dffa05da', 'files/images/38/732b706a99f8b1f1fc48ae52dffa05da.jpg', 'jpg', b'0'),
+	(40, '9775476faafa9ae3e8e6ac0b41c86e7b', 'files/images/40/9775476faafa9ae3e8e6ac0b41c86e7b.jpg', 'jpg', b'0'),
+	(41, '052009e702861ca222bbe16993be94ed', 'files/images/41/052009e702861ca222bbe16993be94ed.jpg', 'jpg', b'1'),
+	(42, '8216a98fb486272d7d3ddcdc69341071', 'files/images/42/8216a98fb486272d7d3ddcdc69341071.jpg', 'jpg', b'1'),
+	(44, 'aa3c6c20d3e714c15cd3a482a0cebf08', 'files/images/44/aa3c6c20d3e714c15cd3a482a0cebf08.jpg', 'jpg', b'0'),
+	(45, '815c75c237e2b0a8d525419470389804', 'files/images/45/815c75c237e2b0a8d525419470389804.jpg', 'jpg', b'0'),
+	(46, '05781784b9e213eeafc8db10f99293d2', 'files/images/46/05781784b9e213eeafc8db10f99293d2.jpg', 'jpg', b'0'),
+	(47, 'ee9bf8168be372555f0d652ced39c900', 'files/images/47/ee9bf8168be372555f0d652ced39c900.jpg', 'jpg', b'0'),
+	(48, '74d761b501715e9bddd46cd7f819f8f9', 'files/images/48/74d761b501715e9bddd46cd7f819f8f9.jpg', 'jpg', b'0'),
+	(49, '8d718c377419cf0d25a99921245333f7', 'files/images/49/8d718c377419cf0d25a99921245333f7.jpg', 'jpg', b'0'),
+	(50, 'a5d4a60a66e0b434877ad2787f49f301', 'files/images/50/a5d4a60a66e0b434877ad2787f49f301.jpg', 'jpg', b'0'),
+	(51, '79b142633655782de921d2a14f361192', 'files/images/51/79b142633655782de921d2a14f361192.jpg', 'jpg', b'0'),
+	(52, 'ff0e573087121f34dd0c4a76b3bc73be', 'files/images/52/ff0e573087121f34dd0c4a76b3bc73be.jpg', 'jpg', b'0'),
+	(53, 'f02b04d76e727ce2795da2f58b2644ca', 'files/images/53/f02b04d76e727ce2795da2f58b2644ca.jpg', 'jpg', b'0'),
+	(54, '0a7d2180511d88bc7006416720f325eb', 'files/images/54/0a7d2180511d88bc7006416720f325eb.jpg', 'jpg', b'0'),
+	(55, 'c160ac8a2818ceea748a7631652f71d4', 'files/images/55/c160ac8a2818ceea748a7631652f71d4.jpg', 'jpg', b'0'),
+	(56, '0e0e1a52de7b417cc754137fb707c471', 'files/images/56/0e0e1a52de7b417cc754137fb707c471.jpg', 'jpg', b'0'),
+	(57, '48c5837a2b34f05a44f9fa0afcccbf65', 'files/images/57/48c5837a2b34f05a44f9fa0afcccbf65.jpg', 'jpg', b'0');
 /*!40000 ALTER TABLE `l_images` ENABLE KEYS */;
 
 
@@ -184,14 +224,38 @@ DROP TABLE IF EXISTS `l_productions`;
 CREATE TABLE IF NOT EXISTS `l_productions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `header` varchar(64) NOT NULL,
-  `description` text NOT NULL,
+  `text` text NOT NULL,
   `id_image` int(11) NOT NULL,
+  `date` text NOT NULL,
+  `keywords` text,
+  `description` text,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы lesresurs.l_productions: ~1 rows (приблизительно)
+/*!40000 ALTER TABLE `l_productions` DISABLE KEYS */;
+INSERT INTO `l_productions` (`id`, `header`, `text`, `id_image`, `date`, `keywords`, `description`) VALUES
+	(1, 'Проверка', '<p>Описание продукта</p>', 42, '20.05.2016', '', '');
+/*!40000 ALTER TABLE `l_productions` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица lesresurs.l_productionspage
+DROP TABLE IF EXISTS `l_productionspage`;
+CREATE TABLE IF NOT EXISTS `l_productionspage` (
+  `site` int(2) NOT NULL,
+  `text_header` varchar(64) NOT NULL,
+  `text_block` text NOT NULL,
+  `images` text,
+  `keywords` text,
+  `description` text,
+  UNIQUE KEY `site` (`site`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы lesresurs.l_productions: ~0 rows (приблизительно)
-/*!40000 ALTER TABLE `l_productions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `l_productions` ENABLE KEYS */;
+-- Дамп данных таблицы lesresurs.l_productionspage: ~1 rows (приблизительно)
+/*!40000 ALTER TABLE `l_productionspage` DISABLE KEYS */;
+INSERT INTO `l_productionspage` (`site`, `text_header`, `text_block`, `images`, `keywords`, `description`) VALUES
+	(1, 'Предложение', '<p>Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса кругляка в больших объёмах на постоянной основе. Продажа кругляка из отборных хвойных пород древесины производится партиями любого объёма по привлекательным ценам. Заготовка и продажа леса высокого качества ведётся квалифицированными специалистами на базе современного оборудования. Производственный комплекс с мощной лесозаготовительной техникой позволяет компания &laquo;Лес Ресурс&raquo; качественно и быстро заготавливать лес строевой и пиловочник с высокой точностью обработки.</p>', '[]', '', '');
+/*!40000 ALTER TABLE `l_productionspage` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
