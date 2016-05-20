@@ -22,10 +22,12 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/smartmedia.css',
         'css/stylename.css',
+        'css/jquery.fancybox.css',
     ];
     public $js = [
         'js/banner.js',
-        'js/functions.js'
+        'js/functions.js',
+        'js/jquery.fancybox.js',
     ];
     public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
     public $depends = [

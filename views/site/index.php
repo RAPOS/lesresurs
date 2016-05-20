@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'ООО «ЛЕСРЕСУРС»';
+$this->title = 'ООО «ЛЕС РЕСУРС»';
 ?>
 <div style="margin-top: -23px;" class="page text-center">
     <div class="page-head">

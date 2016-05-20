@@ -31,7 +31,7 @@ if (!$array_image && !$array_image_cfg) {
 ?>
 <div class="page text-center">
 	<div class="page-head">
-		<h2>Галлерея</h2>
+		<h2>Галерея</h2>
 		<div></div>
 	</div>
 	<div class="row" style="margin-top: 5px;">
@@ -39,7 +39,7 @@ if (!$array_image && !$array_image_cfg) {
 		<div class="col-sm-10 text-left">
 			<ul class="breadcrumb">
 				<li><a href="/admin/">Панель управления</a></li>
-				<li class="active">Галлерея</li>
+				<li class="active">Галерея</li>
 			</ul>
 			<?php $form = ActiveForm::begin(); ?>
 				<?=FileInput::widget([

@@ -8,6 +8,8 @@ $(document).ready(function() {
             init_preview_file(page);
         }
     }
+	
+	$(".zoomimage").fancybox();
 });
 
 function delete_preview(element){

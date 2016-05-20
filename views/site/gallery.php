@@ -5,6 +5,7 @@
  * Date: 02.05.2016
  * Time: 16:00
  */
+use app\models\LImages;
 $this->title = 'Галерея';
 ?>
 <div class="page text-center">
@@ -14,13 +15,20 @@ $this->title = 'Галерея';
         <div></div>
     </div>
     <div class="row gallery">
-        <?for ($i = 0;$i < 4;$i++) {?>
-            <img class="gallery-img left" src="/images/0-2-3.png"/>
-            <img class="gallery-img left" src="/images/0-2-3.png"/>
-            <img class="gallery-img left" src="/images/0-2-3.png"/>
-            <img class="gallery-img left" src="/images/0-2-3.png"/>
-            <img class="gallery-img left" src="/images/0-2-3.png"/>
-            <img style="margin-right: 0;" class="gallery-img left" src="/images/0-2-3.png"/>
-        <?}?>
+		<?if($model){
+			for ($i = 0;$i < count($model);$i++) {
+				$model_images = json_decode($model[$i]->id_image);
+				$LImages = LImages::findOne($model_images);
+				if($LImages->path && file_exists(Yii::getAlias('@webroot/'.$LImages->path))){
+					$image = Yii::$app->image->load(Yii::getAlias('@webroot/'.$LImages->path));
+					$image->resize(173, 173);
+					$image->save(Yii::getAlias('@webroot/assets/'.$LImages->name.'.'.$LImages->extension));
+					?>			
+					<a class="zoomimage" rel="gallery-group" href="/<?=$LImages->path?>">
+						<img class="gallery-img left" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">
+					</a>					
+				<?}?>				
+			<?}
+		}?>
     </div>
 </div>

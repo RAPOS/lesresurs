@@ -5,6 +5,7 @@
  * Date: 02.05.2016
  * Time: 16:00
  */
+use app\models\LImages;
 $this->title = 'Статьи';
 ?>
 <div class="page text-center">
@@ -16,7 +17,18 @@ $this->title = 'Статьи';
     <div class="row articles">
         <?foreach ($articles as $key => $value) {?>
             <div class="item-article left">
-                <img class="img-responsive" src="/images/articlesimage.jpeg"/>
+				<?
+				$model_images = json_decode($value->id_image);
+				$LImages = LImages::findOne($model_images);
+				if($LImages->path && file_exists(Yii::getAlias('@webroot/'.$LImages->path))){
+					$image = Yii::$app->image->load(Yii::getAlias('@webroot/'.$LImages->path));
+					$image->resize(400, 300);
+					$image->save(Yii::getAlias('@webroot/assets/'.$LImages->name.'.'.$LImages->extension));
+					?>			
+					<img class="img-responsive" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
+				<?} else {?>
+					<img class="img-responsive" src="/images/0-2-4.png" alt="">
+				<?}?>	
                 <h3><?=$value->header?></h3>
                 <p>
                     <?=mb_truncate($value->text, 250)?>

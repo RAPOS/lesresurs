@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\LArticles;
 use app\models\LContacts;
+use app\models\LGallery;
 use app\models\LFeedback;
 use app\models\LMainpage;
 
@@ -73,7 +74,7 @@ class SiteController extends Controller
 
     public function actionGallery()
     {
-        return $this->render('gallery');
+		return $this->render('gallery', ['model' => LGallery::find()->all()]);
     }
 
     public function actionArticles($id = null)
