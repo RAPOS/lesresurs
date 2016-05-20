@@ -168,21 +168,21 @@ AppAsset::register($this);
                         <div class="col-sm-6 hidden-xs"></div>
                         <div class="col-sm-6 banner-text">
                             <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
-                            <button>Оставить заявку</button> <a href="#">Подробнее</a>
+                            <button class="order">Оставить заявку</button> <a href="#">Подробнее</a>
                         </div>
                     </div>
                     <div class="row" data-id="2" data-prev="1" data-next="3">
                         <div class="col-sm-6 hidden-xs"></div>
                         <div class="col-sm-6 banner-text">
                             <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
-                            <button>Оставить заявку</button> <a href="#">Подробнее</a>
+                            <button class="order">Оставить заявку</button> <a href="#">Подробнее</a>
                         </div>
                     </div>
                     <div class="row" data-id="3" data-prev="2" data-next="1">
                         <div class="col-sm-6 hidden-xs"></div>
                         <div class="col-sm-6 banner-text">
                             <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
-                            <button>Оставить заявку</button> <a href="#">Подробнее</a>
+                            <button class="order">Оставить заявку</button> <a href="#">Подробнее</a>
                         </div>
                     </div>
                 </div>

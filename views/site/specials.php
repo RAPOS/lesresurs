@@ -46,7 +46,7 @@ $this->title = 'Спецпредложения';
 						<?}?>
 					</div>
 					<div class="col-xs-6 button">
-						<button type="submit" class="lbutton">Оставить заявку</button>
+						<button type="submit" class="lbutton order">Оставить заявку</button>
 					</div>
 				</div>
 			<?}				

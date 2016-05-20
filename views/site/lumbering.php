@@ -5,6 +5,7 @@
  * Date: 02.05.2016
  * Time: 15:55
  */
+use app\models\LImages;
 $this->title = "Продажа леса";
 ?>
 <div class="page text-center">
@@ -13,96 +14,58 @@ $this->title = "Продажа леса";
         <span>Описание деятельности нашей компании</span>
         <div></div>
     </div>
-    <div class="page-desc clearfix">
-        <img class="img-responsive square left" src="/images/0-2-1.png"/>
-        <img class="img-responsive square left" src="/images/0-2-1.png"/>
-        <img class="img-responsive square left" src="/images/0-2-1.png"/>
-        <div class="block left hidden-xs">
-            <h3>Предложение</h3>
-            <p>
-                Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса кругляка в больших объёмах на
-                постоянной основе. Продажа кругляка из отборных хвойных пород древесины
-                производится партиями любого объёма по привлекательным ценам. Заготовка и
-                продажа леса высокого качества ведётся квалифицированными специалистами на
-                базе современного оборудования. Производственный комплекс с мощной
-                лесозаготовительной техникой позволяет компания &laquo;Лес Ресурс&raquo; качественно и
-                быстро заготавливать лес строевой и пиловочник с высокой точностью обработки.
-            </p>
-        </div>
-    </div>
-    <div class="block left visible-xs small-xs">
-        <h3>Предложение</h3>
-        <p>
-            Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса кругляка в больших объёмах на<br>
-            постоянной основе. Продажа кругляка из отборных хвойных пород древесины<br>
-            производится партиями любого объёма по привлекательным ценам. Заготовка и<br>
-            продажа леса высокого качества ведётся квалифицированными специалистами на<br>
-            базе современного оборудования. Производственный комплекс с мощной<br>
-            лесозаготовительной техникой позволяет компания &laquo;Лес Ресурс&raquo; качественно и<br>
-            быстро заготавливать лес строевой и пиловочник с высокой точностью обработки.
-        </p>
-    </div>
+	<?if($modelpage){?>
+		<div class="page-desc clearfix">
+			<?foreach ($modelpage as $key => $value) {?>
+				<?
+				$model_images = json_decode($value->images);
+				$LImages = LImages::findOne($model_images);
+				if($LImages->path && file_exists(Yii::getAlias('@webroot/'.$LImages->path))){
+					$image = Yii::$app->image->load(Yii::getAlias('@webroot/'.$LImages->path));
+					$image->resize(280, 280);
+					$image->save(Yii::getAlias('@webroot/assets/'.$LImages->name.'.'.$LImages->extension));
+					?>			
+					<img class="img-responsive square left" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
+				<?}?>
+				<div class="block left hidden-xs">
+					<h3><?=$value->text_header?></h3>
+					<p><?=$value->text_block?></p>
+				</div>
+			<?}?>
+		</div>
+		<?foreach ($modelpage as $key => $value) {?>
+			<div class="block left visible-xs small-xs">
+				<h3><?=$value->text_header?></h3>
+				<p><?=$value->text_block?></p>
+			</div>
+		<?}?>
+	<?}?>
     <div class="page-head">
         <h2>Продукция</h2>
         <h6>Описание деятельности нашей компании</h6>
         <div></div>
     </div>
     <div class="page-offer">
-        <div class="item clearfix">
-            <img class="img-responsive left" src="/images/0-2-2.png"/>
-            <div class="item-desc left">
-                <h3>Лес кругляк</h3>
-                <p>
-                    Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса
-                    кругляка в больших объёмах на постоянной основе.
-                    Продажа кругляка из отборных хвойных пород
-                    древесины производится партиями любого объёма по
-                    привлекательным ценам.
-                </p>
-                <button class="lbutton">Оставить заявку</button>
-            </div>
-        </div>
-        <div class="item clearfix">
-            <img class="img-responsive left" src="/images/0-2-2.png"/>
-            <div class="item-desc left">
-                <h3>Пиловочник</h3>
-                <p>
-                    Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса
-                    кругляка в больших объёмах на постоянной основе.
-                    Продажа кругляка из отборных хвойных пород
-                    древесины производится партиями любого объёма по
-                    привлекательным ценам.
-                </p>
-                <button class="lbutton">Оставить заявку</button>
-            </div>
-        </div>
-        <div class="item clearfix">
-            <img class="img-responsive left" src="/images/0-2-2.png"/>
-            <div class="item-desc left">
-                <h3>Тонкомер</h3>
-                <p>
-                    Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса
-                    кругляка в больших объёмах на постоянной основе.
-                    Продажа кругляка из отборных хвойных пород
-                    древесины производится партиями любого объёма по
-                    привлекательным ценам.
-                </p>
-                <button class="lbutton">Оставить заявку</button>
-            </div>
-        </div>
-        <div class="item clearfix">
-            <img class="img-responsive left" src="/images/0-2-2.png"/>
-            <div class="item-desc left">
-                <h3>Баланс</h3>
-                <p>
-                    Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса
-                    кругляка в больших объёмах на постоянной основе.
-                    Продажа кругляка из отборных хвойных пород
-                    древесины производится партиями любого объёма по
-                    привлекательным ценам.
-                </p>
-                <button class="lbutton">Оставить заявку</button>
-            </div>
-        </div>
+		<?if($modelproductions){?>
+			<?foreach ($modelproductions as $key => $value) {?>
+				<div class="item clearfix">
+				<?
+				$model_images = json_decode($value->id_image);
+				$LImages = LImages::findOne($model_images);
+				if($LImages->path && file_exists(Yii::getAlias('@webroot/'.$LImages->path))){
+					$image = Yii::$app->image->load(Yii::getAlias('@webroot/'.$LImages->path));
+					$image->resize(368, 240);
+					$image->save(Yii::getAlias('@webroot/assets/'.$LImages->name.'.'.$LImages->extension));
+					?>			
+					<img class="img-responsive left" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
+				<?}?>
+					<div class="item-desc left">
+						<h3><?=$value->header?></h3>
+						<p><?=$value->text?></p>
+						<button class="lbutton order">Оставить заявку</button>
+					</div>
+				</div>
+			<?}?>
+		<?}?>
     </div>
 </div>

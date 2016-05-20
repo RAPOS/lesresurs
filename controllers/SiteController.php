@@ -12,6 +12,8 @@ use app\models\LoginForm;
 use app\models\LArticles;
 use app\models\LContacts;
 use app\models\LGallery;
+use app\models\LProductions;
+use app\models\LProductionspage;
 use app\models\LFeedback;
 use app\models\LMainpage;
 
@@ -56,15 +58,17 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $LMainpage = LMainpage::find()->where(['site' => 1])->one();
+        $LProductions = LProductions::find()->limit(4)->all();
         
         return $this->render('index', [
             'model' => $LMainpage,
+            'modelproductions' =>  $LProductions,
         ]);
     }
 
     public function actionLumbering()
     {
-        return $this->render('lumbering');
+        return $this->render('lumbering', ['modelproductions' => LProductions::find()->all(), 'modelpage' => LProductionspage::find(['site' => 1])->all()]);
     }
 
     public function actionSpecials()
