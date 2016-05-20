@@ -41,8 +41,32 @@ class SpecialsController extends Controller
 			],
         ]);
 
+        $create = null;
+        if (Yii::$app->getSession()->has('delete')) {
+            if(Yii::$app->getSession()->getFlash('delete')){
+                $create = true;
+            }
+        }
+
+        $save = null;
+        if (Yii::$app->getSession()->has('delete')) {
+            if(Yii::$app->getSession()->getFlash('delete')){
+                $save = true;
+            }
+        }
+
+        $delete = null;
+        if (Yii::$app->getSession()->has('delete')) {
+            if(Yii::$app->getSession()->getFlash('delete')){
+                $delete = true;
+            }
+        }
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'create' => $create,
+            'save' => $save,
+            'delete' => $delete,
         ]);
     }
 
@@ -61,7 +85,8 @@ class SpecialsController extends Controller
             $LImages = LImages::findOne(['id_image' => $model->id_image]);
             $LImages->status = 1;
             $LImages->save();
-            
+
+            Yii::$app->getSession()->setFlash('create', 'true');
             return $this->redirect(['/admin/specials/']);
         }
         
@@ -86,7 +111,8 @@ class SpecialsController extends Controller
             $LImages = LImages::findOne(['id_image' => $model->id_image]);
             $LImages->status = 1;
             $LImages->save();
-            
+
+            Yii::$app->getSession()->setFlash('save', 'true');
             return $this->redirect(['/admin/specials/']);
         }
         
@@ -104,10 +130,12 @@ class SpecialsController extends Controller
     public function actionDelete($id)
     {
         if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
-		
-        $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        if( $this->findModel($id)->delete()){
+            Yii::$app->getSession()->setFlash('delete', 'true');
+        }
+
+        return $this->redirect(['/admin/specials/']);
     }
 
     /**

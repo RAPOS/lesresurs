@@ -136,7 +136,7 @@ class ProductionsController extends Controller
             Yii::$app->getSession()->setFlash('delete', 'true');
         }
 
-        return $this->redirect('/admin/productions/');
+        return $this->redirect(['/admin/productions/']);
     }
 
     /**

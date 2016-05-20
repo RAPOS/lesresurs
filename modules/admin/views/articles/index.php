@@ -3,6 +3,8 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 $this->title = 'Статьи';
+
+if (!is_null($create) || !is_null($save) || !is_null($delete)) print $this->render('@app/modules/admin/views/default/_alert', ['create' => $create, 'save' => $save, 'delete' => $delete]);
 ?>
 <div class="page text-center">
 	<div class="page-head">
