@@ -3,8 +3,10 @@
  */
 var page; //Объект
 $(document).ready(function() {
-    window.onload = function () {
-        init_preview_file(page);
+    if (page) {
+        window.onload = function () {
+            init_preview_file(page);
+        }
     }
 });
 

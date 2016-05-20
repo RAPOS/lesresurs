@@ -23,7 +23,7 @@ $this->title = 'Панель управления';
 				<div class="col-xs-6 col-sm-4 col-md-3 text-center">
 					<a class="icon_panel" href="/admin/actions/">
 						<img src="/images/panel/calendar.png"/>
-						<h3>Акции</h3>
+						<h3>Спецпредложения</h3>
 						<div></div>
 					</a>
 				</div>

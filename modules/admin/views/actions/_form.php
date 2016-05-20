@@ -3,6 +3,7 @@ use app\models\LImages;
 use dosamigos\tinymce\TinyMce;
 use kartik\date\DatePicker;
 use kartik\file\FileInput;
+use kartik\switchinput\SwitchInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
@@ -32,27 +33,31 @@ if (!$array_image && !$array_image_cfg) {
 <div class="lactions-form">
     <?php $form = ActiveForm::begin(); ?>
 	<div class="row">
-		<div class="col-xs-12 col-sm-6">
-			<?= $form->field($model, 'status')->dropDownList (
-				[
-					'1' => 'Действует',
-					'0' => 'Не действует',
-				]
-			)?>
+		<div class="col-xs-12 col-sm-4">
+			<?= $form->field($model, 'header')->input('text')?>
 		</div>
-		<div class="col-xs-12 col-sm-6">
-			<label class="control-label">Время акции</label>
+		<div class="col-xs-12 col-sm-4">
+			<label class="control-label">Действует до</label>
 			<?= DatePicker::widget([
-				'name' => 'from_date',
-				'value' => '01-Feb-1996',
-				'type' => DatePicker::TYPE_RANGE,
-				'name2' => 'to_date',
-				'value2' => '27-Feb-1996',
+				'name' => 'LActions[date]',
+				'language' => 'ru',
+				'type' => DatePicker::TYPE_COMPONENT_PREPEND,
 				'pluginOptions' => [
 					'autoclose'=>true,
-					'format' => 'dd-M-yyyy'
+					'format' => 'dd-mm-yyyy'
 				]
 			]);?>
+		</div>
+		<div class="col-xs-12 col-sm-4">
+			<?= $form->field($model, 'status')->widget(SwitchInput::classname(), [
+				'pluginOptions' => [
+					'size' => 'normal',
+					'onColor' => 'success',
+					'offColor' => 'danger',
+					'onText' => 'Вкл.',
+					'offText' => 'Выкл.',
+				],
+			])?>
 		</div>
 	</div>
 	<?= $form->field($model, 'text')->widget(TinyMce::className(), [

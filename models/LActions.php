@@ -47,7 +47,7 @@ class LActions extends \yii\db\ActiveRecord
             'id_image' => 'Id Image',
             'header' => 'Заголовок',
             'text' => 'Описание',
-            'date' => 'Дата',
+            'date' => 'Действует до',
             'status' => 'Статус',
         ];
     }

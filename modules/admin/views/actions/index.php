@@ -2,22 +2,22 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-$this->title = 'Акции';
+$this->title = 'Спецпредложения';
 ?>
 <div class="page text-center">
 	<div class="page-head">
-		<h2>Акции</h2>
+		<h2>Спецпредложения</h2>
 		<div></div>
 	</div>
 	<div class="row" style="margin-top: 5px;">
 		<div class="col-sm-1 hidden-xs"></div>
 		<div class="col-sm-10 text-left">
 			<ul class="breadcrumb">
-				<li><a href="/admin/">Панель управления</a></li>
-				<li class="active">Акции</li>
+				<li><?=Html::a('Панель управления', '/admin/')?></li>
+				<li class="active">Спецпредложения</li>
 			</ul>
 			<p>
-				<?= Html::a('Добавить акцию', ['create'], ['class' => 'btn btn-success']) ?>
+				<?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
 			</p>
 			<?= GridView::widget([
 				'dataProvider' => $dataProvider,
