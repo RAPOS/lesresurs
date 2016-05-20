@@ -196,21 +196,18 @@ class DefaultController extends Controller
 			$save = false;
 
 			if ($_POST['page'] == 'gallery') {
-				for ($i = 0; $i < count($_POST['id_images']); $i++) {
-					$model = LGallery::findOne(['id_image' => $_POST['id_images'][$i]]);
-					if ($model->delete()) {
-						$save = true;
-					}
+				$model = LGallery::findOne(['id_image' => $_POST['delete_id_img']]);
+				if ($model->delete()) {
+					$save = true;
 				}
 			} else if ($_POST['page'] == 'articles') {
-				dd($_POST['id_images']);
-				$model = LArticles::findOne(['id_image' => $_POST['id_images'][0]]);
+				$model = LArticles::findOne(['id_image' => $_POST['delete_id_img']]);
 				$model->id_image = 0;
 				if ($model->save()) {
 					$save = true;
 				}
 			} else if ($_POST['page'] == 'specials') {
-				$model = LActions::findOne(['id_image' => $_POST['id_images']][0]);
+				$model = LActions::findOne(['id_image' => $_POST['delete_id_img']]);
 				$model->id_image = 0;
 				if ($model->save()) {
 					$save = true;

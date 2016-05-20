@@ -19,7 +19,7 @@ if (!$model->isNewRecord && $model->id_image) {
 		'caption' => $LImages->name,
 		'url' => '/admin/deleteimages/',
 		'key' =>  $LImages->id_image,
-		'extra' => ['delete_id_img' => $LImages->id_image, 'delete_path' => $LImages->path, 'id_images' => $array_id_images, 'page' => 'specials'],
+		'extra' => ['delete_id_img' => $LImages->id_image, 'delete_path' => $LImages->path, 'page' => 'specials'],
 	];
 }
 if (!$array_image && !$array_image_cfg) {
