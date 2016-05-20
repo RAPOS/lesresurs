@@ -72,7 +72,7 @@ class Cors extends ActionFilter
      */
     public $response;
     /**
-     * @var array define specific CORS rules for specific actions
+     * @var array define specific CORS rules for specific specials
      */
     public $actions = [];
     /**

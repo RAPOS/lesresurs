@@ -51,7 +51,7 @@ class DbPanel extends Panel
     public function init()
     {
         $this->actions['db-explain'] = [
-            'class' => 'yii\\debug\\actions\\db\\ExplainAction',
+            'class' => 'yii\\debug\\specials\\db\\ExplainAction',
             'panel' => $this,
         ];
     }

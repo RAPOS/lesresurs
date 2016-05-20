@@ -5426,7 +5426,7 @@ L'aubergiste ne répondit rien. Homais continua:
 -- Croyez-vous qu'il faille, pour être agronome, avoir soi-même
 labouré la terre ou engraissé des volailles? Mais il faut
 connaître plutôt la constitution des substances dont il s'agit,
-les gisements géologiques, les actions atmosphériques, la qualité
+les gisements géologiques, les specials atmosphériques, la qualité
 des terrains, des minéraux, des eaux, la densité des différents
 corps et leur capillarité! que sais-je? Et il faut posséder à fond
 tous ses principes d'hygiène, pour diriger, critiquer la
@@ -8158,7 +8158,7 @@ il réfléchissait. Il pensait à louer une petite ferme aux
 environs, et qu'il surveillerait lui-même, tous les matins, en
 allant voir ses malades. Il en économiserait le revenu, il le
 placerait à la caisse d'épargne; ensuite il achèterait des
-actions, quelque part, n'importe où; d'ailleurs, la clientèle
+specials, quelque part, n'importe où; d'ailleurs, la clientèle
 augmenterait; il y comptait, car il voulait que Berthe fût bien
 élevée, qu'elle eût des talents, qu'elle apprît le piano. Ah!
 qu'elle serait jolie, plus tard, à quinze ans, quand, ressemblant
@@ -8891,7 +8891,7 @@ plus dodu, et gros à faire craquer le sac.
 
 Tout, d'ailleurs, lui réussissait. Il était adjudicataire d'une
 fourniture de cidre pour l'hôpital de Neufchâtel; M. Guillaumin
-lui promettait des actions dans les tourbières de Grumesnil, et il
+lui promettait des specials dans les tourbières de Grumesnil, et il
 rêvait d'établir un nouveau service de diligences entre Argueil et
 Rouen, qui ne tarderait pas, sans doute, à ruiner la guimbarde du
 Lion d'or, et qui, marchant plus vite, étant à prix plus bas et
@@ -12011,7 +12011,7 @@ sous la fascination du pharmacien qui répétait:
 -- Allons chez Bridoux! c'est à deux pas, rue Malpalu.
 
 Alors, par lâcheté, par bêtise, par cet inqualifiable sentiment
-qui nous entraîne aux actions les plus antipathiques, il se laissa
+qui nous entraîne aux specials les plus antipathiques, il se laissa
 conduire chez Bridoux; et ils le trouvèrent dans sa petite cour,
 surveillant trois garçons qui haletaient à tourner la grande roue
 d'une machine pour faire de l'eau de Seltz... Homais leur donna
@@ -13421,7 +13421,7 @@ Enfin il dit d'un air calme:
 
 Il ne mentait point. Il les eût eus qu'il les aurait donnés, sans
 doute, bien qu'il soit généralement désagréable de faire de si
-belles actions: une demande pécuniaire, de toutes les bourrasques
+belles specials: une demande pécuniaire, de toutes les bourrasques
 qui tombent sur l'amour, étant la plus froide et la plus
 déracinante.
 

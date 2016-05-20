@@ -12,10 +12,10 @@ use yii\base\Model;
 use yii\web\ForbiddenHttpException;
 
 /**
- * ActiveController implements a common set of actions for supporting RESTful access to ActiveRecord.
+ * ActiveController implements a common set of specials for supporting RESTful access to ActiveRecord.
  *
  * The class of the ActiveRecord should be specified via [[modelClass]], which must implement [[\yii\db\ActiveRecordInterface]].
- * By default, the following actions are supported:
+ * By default, the following specials are supported:
  *
  * - `index`: list of models
  * - `view`: return the details of a model
@@ -24,9 +24,9 @@ use yii\web\ForbiddenHttpException;
  * - `delete`: delete an existing model
  * - `options`: return the allowed HTTP methods
  *
- * You may disable some of these actions by overriding [[actions()]] and unsetting the corresponding actions.
+ * You may disable some of these specials by overriding [[specials()]] and unsetting the corresponding specials.
  *
- * To add a new action, either override [[actions()]] by appending a new action class or write a new action method.
+ * To add a new action, either override [[specials()]] by appending a new action class or write a new action method.
  * Make sure you also override [[verbs()]] to properly declare what HTTP methods are allowed by the new action.
  *
  * You should usually override [[checkAccess()]] to check whether the current user has the privilege to perform

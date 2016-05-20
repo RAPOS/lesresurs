@@ -57,8 +57,10 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api' => 'api']
                 ],
-                'admin/actions/<action:\w+>'=>'admin/actions/<action>',
-                'admin/actions'=>'admin/actions/index',
+                'admin/specials/<action:\w+>'=>'admin/specials/<action>',
+                'admin/specials'=>'admin/specials/index',
+                'admin/articles/<action:\w+>'=>'admin/articles/<action>',
+                'admin/articles'=>'admin/articles/index',
                 'admin/<action:\w+>'=>'admin/default/<action>',
                 'admin' => 'admin/default/index',
                 '<action:\w+>'=>'site/<action>',

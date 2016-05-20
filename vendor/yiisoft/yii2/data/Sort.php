@@ -19,7 +19,7 @@ use yii\web\Request;
  *
  * When data needs to be sorted according to one or several attributes,
  * we can use Sort to represent the sorting information and generate
- * appropriate hyperlinks that can lead to sort actions.
+ * appropriate hyperlinks that can lead to sort specials.
  *
  * A typical usage example is as follows,
  *
@@ -53,7 +53,7 @@ use yii\web\Request;
  * View:
  *
  * ```php
- * // display links leading to sort actions
+ * // display links leading to sort specials
  * echo $sort->link('name') . ' | ' . $sort->link('age');
  *
  * foreach ($models as $model) {
@@ -112,7 +112,7 @@ class Sort extends Object
      * The "name" attribute is a composite attribute:
      *
      * - The "name" key represents the attribute name which will appear in the URLs leading
-     *   to sort actions.
+     *   to sort specials.
      * - The "asc" and "desc" elements specify how to sort by the attribute in ascending
      *   and descending orders, respectively. Their values represent the actual columns and
      *   the directions by which the data should be sorted by.

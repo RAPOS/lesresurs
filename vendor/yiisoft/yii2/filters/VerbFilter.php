@@ -21,7 +21,7 @@ use yii\web\MethodNotAllowedHttpException;
  *
  * To use VerbFilter, declare it in the `behaviors()` method of your controller class.
  * For example, the following declarations will define a typical set of allowed
- * request methods for REST CRUD actions.
+ * request methods for REST CRUD specials.
  *
  * ```php
  * public function behaviors()
@@ -29,7 +29,7 @@ use yii\web\MethodNotAllowedHttpException;
  *     return [
  *         'verbs' => [
  *             'class' => \yii\filters\VerbFilter::className(),
- *             'actions' => [
+ *             'specials' => [
  *                 'index'  => ['get'],
  *                 'view'   => ['get'],
  *                 'create' => ['get', 'post'],
@@ -54,7 +54,7 @@ class VerbFilter extends Behavior
      * allowed methods (e.g. GET, HEAD, PUT) as the value.
      * If an action is not listed all request methods are considered allowed.
      *
-     * You can use `'*'` to stand for all actions. When an action is explicitly
+     * You can use `'*'` to stand for all specials. When an action is explicitly
      * specified, it takes precedence over the specification given by `'*'`.
      *
      * For example,

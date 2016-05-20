@@ -37,7 +37,7 @@ abstract class AuthMethod extends ActionFilter implements AuthInterface
     public $response;
     /**
      * @var array list of action IDs that this filter will be applied to, but auth failure will not lead to error.
-     * It may be used for actions, that are allowed for public, but return some additional data for authenticated users.
+     * It may be used for specials, that are allowed for public, but return some additional data for authenticated users.
      * Defaults to empty, meaning authentication is not optional for any action.
      * @see isOptional
      * @since 2.0.7

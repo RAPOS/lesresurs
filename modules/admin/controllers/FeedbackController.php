@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FeeadbackController implements the CRUD actions for BFeedback model.
+ * FeeadbackController implements the CRUD specials for BFeedback model.
  */
 class FeedbackController extends Controller
 {
@@ -22,7 +22,7 @@ class FeedbackController extends Controller
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'actions' => [
+                'specials' => [
                     'delete' => ['post'],
                 ],
             ],

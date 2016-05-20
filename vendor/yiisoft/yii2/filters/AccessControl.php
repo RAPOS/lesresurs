@@ -24,7 +24,7 @@ use yii\web\ForbiddenHttpException;
  *
  * To use AccessControl, declare it in the `behaviors()` method of your controller class.
  * For example, the following declarations will allow authenticated users to access the "create"
- * and "update" actions and deny all other users from accessing these two actions.
+ * and "update" specials and deny all other users from accessing these two specials.
  *
  * ```php
  * public function behaviors()

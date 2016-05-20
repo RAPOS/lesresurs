@@ -85,8 +85,8 @@ class Controller extends Component implements ViewContextInterface
     }
 
     /**
-     * Declares external actions for the controller.
-     * This method is meant to be overwritten to declare external actions for the controller.
+     * Declares external specials for the controller.
+     * This method is meant to be overwritten to declare external specials for the controller.
      * It should return an array, with array keys being action IDs, and array values the corresponding
      * action class names or action configuration arrays. For example,
      *
@@ -203,7 +203,7 @@ class Controller extends Component implements ViewContextInterface
 
     /**
      * Creates an action based on the given action ID.
-     * The method first checks if the action ID has been declared in [[actions()]]. If so,
+     * The method first checks if the action ID has been declared in [[specials()]]. If so,
      * it will use the configuration declared there to create the action object.
      * If not, it will look for a controller method whose name is in the format of `actionXyz`
      * where `Xyz` stands for the action ID. If found, an [[InlineAction]] representing that

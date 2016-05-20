@@ -1,6 +1,7 @@
 <?php
 namespace app\modules\admin\controllers;
 
+use app\models\LImages;
 use Yii;
 use app\models\LActions;
 use yii\data\ActiveDataProvider;
@@ -9,9 +10,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ActionsController implements the CRUD actions for BActions model.
+ * ActionsController implements the CRUD specials for BActions model.
  */
-class ActionsController extends Controller
+class SpecialsController extends Controller
 {
     public function behaviors()
     {
@@ -57,7 +58,11 @@ class ActionsController extends Controller
         $model = new LActions();
         //dd(Yii::$app->request->post());
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['/admin/actions/']);
+            $LImages = LImages::findOne(['id_image' => $model->id_image]);
+            $LImages->status = 1;
+            $LImages->save();
+            
+            return $this->redirect(['/admin/specials/']);
         }
         
         return $this->render('create', [
@@ -78,7 +83,11 @@ class ActionsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-             return $this->redirect(['/admin/actions/']);
+            $LImages = LImages::findOne(['id_image' => $model->id_image]);
+            $LImages->status = 1;
+            $LImages->save();
+            
+            return $this->redirect(['/admin/specials/']);
         }
         
         return $this->render('update', [

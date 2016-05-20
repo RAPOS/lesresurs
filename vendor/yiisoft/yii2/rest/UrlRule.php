@@ -79,19 +79,19 @@ class UrlRule extends CompositeUrlRule
      */
     public $controller;
     /**
-     * @var array list of acceptable actions. If not empty, only the actions within this array
+     * @var array list of acceptable specials. If not empty, only the specials within this array
      * will have the corresponding URL rules created.
      * @see patterns
      */
     public $only = [];
     /**
-     * @var array list of actions that should be excluded. Any action found in this array
+     * @var array list of specials that should be excluded. Any action found in this array
      * will NOT have its URL rules created.
      * @see patterns
      */
     public $except = [];
     /**
-     * @var array patterns for supporting extra actions in addition to those listed in [[patterns]].
+     * @var array patterns for supporting extra specials in addition to those listed in [[patterns]].
      * The keys are the patterns and the values are the corresponding action IDs.
      * These extra patterns will take precedence over [[patterns]].
      */
@@ -105,8 +105,8 @@ class UrlRule extends CompositeUrlRule
         '{id}' => '<id:\\d[\\d,]*>',
     ];
     /**
-     * @var array list of possible patterns and the corresponding actions for creating the URL rules.
-     * The keys are the patterns and the values are the corresponding actions.
+     * @var array list of possible patterns and the corresponding specials for creating the URL rules.
+     * The keys are the patterns and the values are the corresponding specials.
      * The format of patterns is `Verbs Pattern`, where `Verbs` stands for a list of HTTP verbs separated
      * by comma (without space). If `Verbs` is not specified, it means all verbs are allowed.
      * `Pattern` is optional. It will be prefixed with [[prefix]]/[[controller]]/,

@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
 $array_image = array();
 $array_image_cfg = array();
-if (!$model->isNewRecord) {
+if (!$model->isNewRecord && $model->id_image) {
 	$LImages = LImages::findOne($model->id_image);
 	$array_image[] = Html::img('/'.$LImages->path, ['class'=>'file-preview-image', 'alt'=>$LImages->name, 'title'=>$LImages->name, 'style'=>'width:auto;height:210px;']);
 	$array_image_cfg[] = [
@@ -34,28 +34,10 @@ if (!$array_image && !$array_image_cfg) {
 			<?= $form->field($model, 'header')->input('text')?>
 		</div>
 		<div class="col-xs-12 col-sm-4">
-			<label class="control-label">Действует до</label>
-			<?= DatePicker::widget([
-				'name' => 'LActions[date]',
-				'language' => 'ru',
-				'value' => $model->date,
-				'type' => DatePicker::TYPE_COMPONENT_PREPEND,
-				'pluginOptions' => [
-					'autoclose'=>true,
-					'format' => 'dd-mm-yyyy'
-				]
-			]);?>
-		</div>
-		<div class="col-xs-12 col-sm-4">
-			<?= $form->field($model, 'status')->widget(SwitchInput::classname(), [
-				'pluginOptions' => [
-					'size' => 'normal',
-					'onColor' => 'success',
-					'offColor' => 'danger',
-					'onText' => 'Вкл.',
-					'offText' => 'Выкл.',
-				],
-			])?>
+			<?= $form->field($model, 'date')->input('text', [
+				'style' => 'display: none;',
+				'value' => date('d.m.Y')
+			])->label(false)?>
 		</div>
 	</div>
 	<?= $form->field($model, 'text')->widget(TinyMce::className(), [
@@ -117,7 +99,7 @@ if (!$array_image && !$array_image_cfg) {
 	<br>
 	<div class="form-group">
 		<?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['class' => 'btn btn-success']) ?>
-		<?= Html::a('Назад', ['/admin/actions/'], ['class'=>'btn btn-primary']) ?>
+		<?= Html::a('Назад', ['/admin/articles/'], ['class'=>'btn btn-primary']) ?>
 	</div>
     <?php ActiveForm::end(); ?>
 </div>

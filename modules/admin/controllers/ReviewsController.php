@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ReviewsController implements the CRUD actions for BReviews model.
+ * ReviewsController implements the CRUD specials for BReviews model.
  */
 class ReviewsController extends Controller
 {
@@ -21,7 +21,7 @@ class ReviewsController extends Controller
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'actions' => [
+                'specials' => [
                     'delete' => ['post'],
                 ],
             ],

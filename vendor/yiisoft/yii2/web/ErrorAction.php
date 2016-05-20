@@ -17,11 +17,11 @@ use yii\base\UserException;
  *
  * To use ErrorAction, you need to do the following steps:
  *
- * First, declare an action of ErrorAction type in the `actions()` method of your `SiteController`
+ * First, declare an action of ErrorAction type in the `specials()` method of your `SiteController`
  * class (or whatever controller you prefer), like the following:
  *
  * ```php
- * public function actions()
+ * public function specials()
  * {
  *     return [
  *         'error' => ['class' => 'yii\web\ErrorAction'],

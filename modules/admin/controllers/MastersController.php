@@ -12,7 +12,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MastersController implements the CRUD actions for BMasters model.
+ * MastersController implements the CRUD specials for BMasters model.
  */
 class MastersController extends Controller
 {
@@ -23,7 +23,7 @@ class MastersController extends Controller
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'actions' => [
+                'specials' => [
                     'delete' => ['post'],
                 ],
             ],

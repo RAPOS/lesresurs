@@ -16,7 +16,7 @@ use yii\helpers\Console;
 /**
  * Controller is the base class of console command classes.
  *
- * A console controller consists of one or several actions known as sub-commands.
+ * A console controller consists of one or several specials known as sub-commands.
  * Users call a console command by specifying the corresponding route which identifies a controller action.
  * The `yii` program is used when calling a console command, like the following:
  *

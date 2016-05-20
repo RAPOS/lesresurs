@@ -12,7 +12,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProgramsController implements the CRUD actions for BTypesOfMassage model.
+ * ProgramsController implements the CRUD specials for BTypesOfMassage model.
  */
 class ProgramsController extends Controller
 {
@@ -23,7 +23,7 @@ class ProgramsController extends Controller
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'actions' => [
+                'specials' => [
                     'delete' => ['post'],
                 ],
             ],

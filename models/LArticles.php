@@ -44,9 +44,9 @@ class LArticles extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_image' => 'Id Image',
-            'header' => 'Header',
-            'text' => 'Text',
-            'date' => 'Date',
+            'header' => 'Заголовок',
+            'text' => 'Описание',
+            'date' => 'Дата добавления',
         ];
     }
 }

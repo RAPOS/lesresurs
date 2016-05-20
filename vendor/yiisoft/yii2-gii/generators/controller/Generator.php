@@ -58,7 +58,7 @@ class Generator extends \yii\gii\Generator
     public function getDescription()
     {
         return 'This generator helps you to quickly generate a new controller class with
-            one or several controller actions and their corresponding views.';
+            one or several controller specials and their corresponding views.';
     }
 
     /**
@@ -67,12 +67,12 @@ class Generator extends \yii\gii\Generator
     public function rules()
     {
         return array_merge(parent::rules(), [
-            [['controllerClass', 'actions', 'baseClass'], 'filter', 'filter' => 'trim'],
+            [['controllerClass', 'specials', 'baseClass'], 'filter', 'filter' => 'trim'],
             [['controllerClass', 'baseClass'], 'required'],
             ['controllerClass', 'match', 'pattern' => '/^[\w\\\\]*Controller$/', 'message' => 'Only word characters and backslashes are allowed, and the class name must end with "Controller".'],
             ['controllerClass', 'validateNewClass'],
             ['baseClass', 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => 'Only word characters and backslashes are allowed.'],
-            ['actions', 'match', 'pattern' => '/^[a-z][a-z0-9\\-,\\s]*$/', 'message' => 'Only a-z, 0-9, dashes (-), spaces and commas are allowed.'],
+            ['specials', 'match', 'pattern' => '/^[a-z][a-z0-9\\-,\\s]*$/', 'message' => 'Only a-z, 0-9, dashes (-), spaces and commas are allowed.'],
             ['viewPath', 'safe'],
         ]);
     }
@@ -86,7 +86,7 @@ class Generator extends \yii\gii\Generator
             'baseClass' => 'Base Class',
             'controllerClass' => 'Controller Class',
             'viewPath' => 'View Path',
-            'actions' => 'Action IDs',
+            'specials' => 'Action IDs',
         ];
     }
 
@@ -119,7 +119,7 @@ class Generator extends \yii\gii\Generator
                 provide a fully qualified namespaced class (e.g. <code>app\controllers\PostController</code>),
                 and class name should be in CamelCase ending with the word <code>Controller</code>. Make sure the class
                 is using the same namespace as specified by your application\'s controllerNamespace property.',
-            'actions' => 'Provide one or multiple action IDs to generate empty action method(s) in the controller. Separate multiple action IDs with commas or spaces.
+            'specials' => 'Provide one or multiple action IDs to generate empty action method(s) in the controller. Separate multiple action IDs with commas or spaces.
                 Action IDs should be in lower case. For example:
                 <ul>
                     <li><code>index</code> generates <code>actionIndex()</code></li>
@@ -171,7 +171,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
-     * Normalizes [[actions]] into an array of action IDs.
+     * Normalizes [[specials]] into an array of action IDs.
      * @return array an array of action IDs entered by the user
      */
     public function getActionIDs()

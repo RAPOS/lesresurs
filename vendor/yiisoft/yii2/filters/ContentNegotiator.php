@@ -55,7 +55,7 @@ use yii\web\UnsupportedMediaTypeHttpException;
  *
  * The following code shows how you can use ContentNegotiator as an action filter in either a controller or a module.
  * In this case, the content negotiation result only applies to the corresponding controller or module, or even
- * specific actions if you configure the `only` or `except` property of the filter.
+ * specific specials if you configure the `only` or `except` property of the filter.
  *
  * ```php
  * use yii\web\Response;
@@ -66,7 +66,7 @@ use yii\web\UnsupportedMediaTypeHttpException;
  *         [
  *             'class' => 'yii\filters\ContentNegotiator',
  *             'only' => ['view', 'index'],  // in a controller
- *             // if in a module, use the following IDs for user actions
+ *             // if in a module, use the following IDs for user specials
  *             // 'only' => ['user/view', 'user/index']
  *             'formats' => [
  *                 'application/json' => Response::FORMAT_JSON,

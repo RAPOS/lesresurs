@@ -78,7 +78,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public $historySize = 50;
     /**
-     * @var boolean whether to enable message logging for the requests about debug module actions.
+     * @var boolean whether to enable message logging for the requests about debug module specials.
      * You normally do not want to keep these logs because they may distract you from the logs about your applications.
      * You may want to enable the debug logs if you want to investigate how the debug module itself works.
      */

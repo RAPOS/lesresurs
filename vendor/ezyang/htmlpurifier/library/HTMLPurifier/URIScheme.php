@@ -54,7 +54,7 @@ abstract class HTMLPurifier_URIScheme
 
     /**
      * Public interface for validating components of a URI.  Performs a
-     * bunch of default actions. Don't overload this method.
+     * bunch of default specials. Don't overload this method.
      * @param HTMLPurifier_URI $uri Reference to a HTMLPurifier_URI object
      * @param HTMLPurifier_Config $config
      * @param HTMLPurifier_Context $context

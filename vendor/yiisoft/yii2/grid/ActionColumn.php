@@ -37,9 +37,9 @@ class ActionColumn extends Column
      */
     public $headerOptions = ['class' => 'action-column'];
     /**
-     * @var string the ID of the controller that should handle the actions specified here.
+     * @var string the ID of the controller that should handle the specials specified here.
      * If not set, it will use the currently active controller. This property is mainly used by
-     * [[urlCreator]] to create URLs for different actions. The value of this property will be prefixed
+     * [[urlCreator]] to create URLs for different specials. The value of this property will be prefixed
      * to each action name to form the route of the action.
      */
     public $controller;

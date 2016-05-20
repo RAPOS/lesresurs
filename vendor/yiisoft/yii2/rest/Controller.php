@@ -55,7 +55,7 @@ class Controller extends \yii\web\Controller
             ],
             'verbFilter' => [
                 'class' => VerbFilter::className(),
-                'actions' => $this->verbs(),
+                'specials' => $this->verbs(),
             ],
             'authenticator' => [
                 'class' => CompositeAuth::className(),
@@ -77,7 +77,7 @@ class Controller extends \yii\web\Controller
 
     /**
      * Declares the allowed HTTP verbs.
-     * Please refer to [[VerbFilter::actions]] on how to declare the allowed verbs.
+     * Please refer to [[VerbFilter::specials]] on how to declare the allowed verbs.
      * @return array the allowed HTTP verbs.
      */
     protected function verbs()

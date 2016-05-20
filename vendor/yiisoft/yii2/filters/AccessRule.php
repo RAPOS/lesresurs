@@ -27,7 +27,7 @@ class AccessRule extends Component
     public $allow;
     /**
      * @var array list of action IDs that this rule applies to. The comparison is case-sensitive.
-     * If not set or empty, it means this rule applies to all actions.
+     * If not set or empty, it means this rule applies to all specials.
      */
     public $actions;
     /**
