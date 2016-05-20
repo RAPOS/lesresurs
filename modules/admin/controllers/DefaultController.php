@@ -135,16 +135,30 @@ class DefaultController extends Controller
 		if (!$model) {
 			$model = new LAdmins;
 		}
+		
 		if ($model->load(Yii::$app->request->post())) {
 			if ($model->validate()) {
 				$model->password = md5(md5($model->password));
 				$model->save();
-				
-				return $this->render('userchange', ['model' => $model, 'success' => true]);
+
+				Yii::$app->getSession()->setFlash('save', true);
+				return $this->redirect(['userchange']);
 			}
 		}
 
-		return $this->render('userchange', ['model' => $model]);
+		$save = null;
+		if (Yii::$app->getSession()->has('save')) {
+			if (Yii::$app->getSession()->getFlash('save')) {
+				$save = true;
+			} else {
+				$save = false;
+			}
+		}
+		
+		return $this->render('userchange', [
+			'model' => $model,
+			'save' => $save,
+		]);
 	}
 	
 	public function actionUpload()

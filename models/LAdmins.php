@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ * @property string $email
  * @property string $password
  */
 class LAdmins extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
@@ -31,7 +32,7 @@ class LAdmins extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             [['name', 'password'], 'required'],
-            [['name'], 'string', 'max' => 32],
+            [['name', 'email'], 'string', 'max' => 32],
             [['password'], 'string', 'max' => 64],
             ['rememberMe', 'boolean'],
         ];
@@ -45,6 +46,7 @@ class LAdmins extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return [
             'id' => 'ID',
             'name' => 'Логин',
+            'email' => 'E-mail',
             'password' => 'Пароль',
             'rememberMe' => 'Запомнить меня',
         ];
