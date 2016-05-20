@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\LActions;
 use Yii;
 use yii\captcha\CaptchaValidator;
 use yii\filters\AccessControl;
@@ -67,7 +68,7 @@ class SiteController extends Controller
 
     public function actionSpecials()
     {
-        return $this->render('specials');
+        return $this->render('specials', ['model', LActions::find()->all()]);
     }
 
     public function actionGallery()
