@@ -251,7 +251,7 @@ AppAsset::register($this);
 		<div class="form-group field-name required">
 			<label class="control-label" for="phone">Телефон*</label>
 			<input type="text" id="phone" class="form-control" name="LOrder[phone]">
-			<span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>	
+			<span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>
 		</div>				
 		<div class="form-group field-name required">
 			<button class="lbutton">Отправить заявку</button>				
