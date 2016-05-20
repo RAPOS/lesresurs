@@ -24,7 +24,7 @@ class SiteController extends Controller
                 'only' => ['logout'],
                 'rules' => [
                     [
-                        'specials' => ['logout'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -32,7 +32,7 @@ class SiteController extends Controller
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'specials' => [
+                'actions' => [
                     'logout' => ['post'],
                 ],
             ],

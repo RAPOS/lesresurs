@@ -19,7 +19,7 @@ if (!$model->isNewRecord && $model->id_image) {
 		'caption' => $LImages->name,
 		'url' => '/admin/deleteimages/',
 		'key' =>  $LImages->id_image,
-		'extra' => ['delete_id_img' => $LImages->id_image, 'delete_path' => $LImages->path, 'id_images' => $array_id_images, 'page' => 'sertificate'],
+		'extra' => ['delete_id_img' => $LImages->id_image, 'delete_path' => $LImages->path, 'id_images' => $array_id_images, 'page' => 'articles'],
 	];
 }
 if (!$array_image && !$array_image_cfg) {
@@ -84,7 +84,7 @@ if (!$array_image && !$array_image_cfg) {
 			}',
 			'fileuploaded' => 'function(event, data, previewId, index){
 				var form = data.form, files = data.files, extra = data.extra, response = data.response, reader = data.reader;
-				$(".file-input").append(\'<input style="display: none;" type="text" data-name="\'+files[0]["name"]+\'" name="LActions[id_image]" value="\'+response.id_image+\'"/>\');
+				$(".file-input").append(\'<input style="display: none;" type="text" data-name="\'+files[0]["name"]+\'" name="LArticles[id_image]" value="\'+response.id_image+\'"/>\');
 				if($(".file-input .file-preview-frame").length == 1){
 					$(".file-input .input-group").hide();
 				}

@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\LActions;
+use app\models\LArticles;
 use Yii;
 use yii\web\Controller;
 use app\models\LGallery;
@@ -194,13 +196,26 @@ class DefaultController extends Controller
 			$save = false;
 
 			if ($_POST['page'] == 'gallery') {
-				for ($i=0; $i<count($_POST['id_images']); $i++) {
+				for ($i = 0; $i < count($_POST['id_images']); $i++) {
 					$model = LGallery::findOne(['id_image' => $_POST['id_images'][$i]]);
 					if ($model->delete()) {
 						$save = true;
 					}
 				}
-			} else if($_POST['page'] == 'mainpage') {
+			} else if ($_POST['page'] == 'articles') {
+				dd($_POST['id_images']);
+				$model = LArticles::findOne(['id_image' => $_POST['id_images'][0]]);
+				$model->id_image = 0;
+				if ($model->save()) {
+					$save = true;
+				}
+			} else if ($_POST['page'] == 'specials') {
+				$model = LActions::findOne(['id_image' => $_POST['id_images']][0]);
+				$model->id_image = 0;
+				if ($model->save()) {
+					$save = true;
+				}
+			} else if ($_POST['page'] == 'mainpage') {
 				$new_array_images = array();
 				for ($i=0; $i<count($_POST['id_images']); $i++) {
 					if ($_POST['delete_id_img'] != $_POST['id_images'][$i]) {

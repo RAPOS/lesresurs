@@ -56,7 +56,7 @@ class SpecialsController extends Controller
         if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 		
         $model = new LActions();
-        //dd(Yii::$app->request->post());
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $LImages = LImages::findOne(['id_image' => $model->id_image]);
             $LImages->status = 1;
@@ -81,7 +81,7 @@ class SpecialsController extends Controller
         if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 		
         $model = $this->findModel($id);
-
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $LImages = LImages::findOne(['id_image' => $model->id_image]);
             $LImages->status = 1;
