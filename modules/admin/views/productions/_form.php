@@ -24,6 +24,7 @@ if (!$array_image && !$array_image_cfg) {
 ?>
 <div class="lactions-form">
     <?php $form = ActiveForm::begin(); ?>
+	<h3>Основное</h3>
 	<div class="row">
 		<div class="col-xs-12 col-sm-4">
 			<?= $form->field($model, 'header')->input('text')?>
@@ -79,7 +80,7 @@ if (!$array_image && !$array_image_cfg) {
 			}',
 			'fileuploaded' => 'function(event, data, previewId, index){
 				var form = data.form, files = data.files, extra = data.extra, response = data.response, reader = data.reader;
-				$(".file-input").append(\'<input style="display: none;" type="text" data-name="\'+files[0]["name"]+\'" name="LArticles[id_image]" value="\'+response.id_image+\'"/>\');
+				$(".file-input").append(\'<input style="display: none;" type="text" data-name="\'+files[0]["name"]+\'" name="LProductions[id_image]" value="\'+response.id_image+\'"/>\');
 				if($(".file-input .file-preview-frame").length == 1){
 					$(".file-input .input-group").hide();
 				}
@@ -91,10 +92,13 @@ if (!$array_image && !$array_image_cfg) {
 			}',
 		]
 	]);?>
+	<h3>Для продвижения</h3>
+	<?= $form->field($model, 'keywords')->textInput() ?>
+	<?= $form->field($model, 'description')->textarea(['rows' => 6])?>
 	<br>
 	<div class="form-group">
 		<?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['class' => 'btn btn-success']) ?>
-		<?= Html::a('Назад', ['/admin/articles/'], ['class'=>'btn btn-primary']) ?>
+		<?= Html::a('Назад', ['/admin/productions/'], ['class'=>'btn btn-primary']) ?>
 	</div>
     <?php ActiveForm::end(); ?>
 </div>

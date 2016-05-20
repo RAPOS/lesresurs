@@ -3,8 +3,6 @@ use kartik\alert\Alert;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-Yii::$app->assetManager->forceCopy = true;
-
 $this->title = 'Вход в панель управления';
 
 if (!is_null($error_login)) print $this->render('_alert', ['error' => $error_login]);

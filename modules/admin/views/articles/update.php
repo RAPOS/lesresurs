@@ -1,7 +1,6 @@
 <?php
 use yii\helpers\Html;
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\BActions */
+
 $this->title = 'Статьи - Редактировать';
 ?>
 <div class="page text-center">
