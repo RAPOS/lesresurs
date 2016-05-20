@@ -8,8 +8,11 @@ use Yii;
  * This is the model class for table "l_productionspage".
  *
  * @property integer $site
+ * @property string $text_header
  * @property string $text_block
  * @property string $images
+ * @property string $keywords
+ * @property string $description
  */
 class LProductionspage extends \yii\db\ActiveRecord
 {
@@ -28,7 +31,7 @@ class LProductionspage extends \yii\db\ActiveRecord
     {
         return [
             [['site'], 'integer'],
-            [['text_block', 'images'], 'string'],
+            [['text_header', 'text_block', 'images', 'keywords', 'description'], 'string'],
             [['site'], 'unique'],
         ];
     }
@@ -40,8 +43,11 @@ class LProductionspage extends \yii\db\ActiveRecord
     {
         return [
             'site' => 'Site',
-            'text_block' => 'Text Block',
+            'text_header' => 'Заголовок',
+            'text_block' => 'Описание',
             'images' => 'Images',
+            'keywords' => 'Ключевые слова, через запятую',
+            'description' => 'Описание',
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\LActions;
 use app\models\LArticles;
+use app\models\LProductionspage;
 use Yii;
 use yii\web\Controller;
 use app\models\LGallery;
@@ -214,6 +215,19 @@ class DefaultController extends Controller
 			if ($_POST['page'] == 'gallery') {
 				$model = LGallery::findOne(['id_image' => $_POST['delete_id_img']]);
 				if ($model->delete()) {
+					$save = true;
+				}
+			} else if ($_POST['page'] == 'productions_page') {
+				$new_array_images = array();
+				for($i=0;$i<count($_POST['id_images']);$i++){
+					if($_POST['delete_id_img'] != $_POST['id_images'][$i]){
+						$new_array_images[] = $_POST['id_images'][$i];
+					}
+				}
+
+				$model = LProductionspage::find()->where(['site' => 1])->one();
+				$model->images = json_encode($new_array_images);
+				if ($model->save()) {
 					$save = true;
 				}
 			} else if ($_POST['page'] == 'articles') {

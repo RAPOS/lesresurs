@@ -7,7 +7,7 @@ $this->title = 'Сообщение от - '.$model->name;
 ?>
 <div class="page text-center">
 	<div class="page-head">
-		<h2>Информация на странице</h2>
+		<h2>Контакты</h2>
 		<div></div>
 	</div>
 	<div class="row" style="margin-top: 5px;">

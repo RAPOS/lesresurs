@@ -42,8 +42,32 @@ class ProductionsController extends Controller
             ],
         ]);
 
+        $create = null;
+        if (Yii::$app->getSession()->has('delete')) {
+            if(Yii::$app->getSession()->getFlash('delete')){
+                $create = true;
+            }
+        }
+        
+        $save = null;
+        if (Yii::$app->getSession()->has('delete')) {
+            if(Yii::$app->getSession()->getFlash('delete')){
+                $save = true;
+            }
+        }
+        
+        $delete = null;
+        if (Yii::$app->getSession()->has('delete')) {
+            if(Yii::$app->getSession()->getFlash('delete')){
+                $delete = true;
+            }
+        }
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'create' => $create,
+            'save' => $save,
+            'delete' => $delete,
         ]);
     }
 
@@ -63,6 +87,7 @@ class ProductionsController extends Controller
             $LImages->status = 1;
             $LImages->save();
             
+            Yii::$app->getSession()->setFlash('create', 'true');
             return $this->redirect(['/admin/productions/']);
         }
 
@@ -87,7 +112,8 @@ class ProductionsController extends Controller
             $LImages = LImages::findOne(['id_image' => $model->id_image]);
             $LImages->status = 1;
             $LImages->save();
-            
+
+            Yii::$app->getSession()->setFlash('save', 'true');
             return $this->redirect(['/admin/productions/']);
         }
 
@@ -106,9 +132,11 @@ class ProductionsController extends Controller
     {
         if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 
-        $this->findModel($id)->delete();
+        if( $this->findModel($id)->delete()){
+            Yii::$app->getSession()->setFlash('delete', 'true');
+        }
 
-        return $this->redirect(['index']);
+        return $this->redirect('/admin/productions/');
     }
 
     /**
@@ -132,12 +160,25 @@ class ProductionsController extends Controller
 
         $model = LProductionspage::find()->where(['site' => 1])->one();
 
-        if(!$model){
+        if (!$model) {
             $model = new LProductionspage();
             $model->site = 1;
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if($_POST['id_images']){
+                $array_id_img = json_decode($_POST['id_images']);
+                if(is_array($array_id_img)){
+                    $new_pre_images = array_merge($array_id_img, $_POST['id_images']);
+                    $model->images = json_encode(array_unique($new_pre_images));
+                    $model->save();
+                } else {
+                    $model->images = json_encode($_POST['id_images']);
+                    $model->save();
+                }
+            }
+            $model->save();
+
             Yii::$app->getSession()->setFlash('save', 'true');
             return $this->redirect(['description']);
         }

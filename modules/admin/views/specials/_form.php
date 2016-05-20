@@ -11,7 +11,7 @@ $array_image = array();
 $array_image_cfg = array();
 if (!$model->isNewRecord && $model->id_image) {
 	$LImages = LImages::findOne($model->id_image);
-	$array_image[] = Html::img('/'.$LImages->path, ['class'=>'file-preview-image', 'alt'=>$LImages->name, 'title'=>$LImages->name, 'style'=>'width:auto;height:210px;']);
+	$array_image[] = Html::img('/'.$LImages->path, ['class'=>'file-preview-image', 'alt'=>$LImages->name, 'title'=>$LImages->name, 'style'=>'width: auto;height: 200px;']);
 	$array_image_cfg[] = [
 		'caption' => $LImages->name,
 		'url' => '/admin/deleteimages/',
@@ -77,7 +77,7 @@ if (!$array_image && !$array_image_cfg) {
 		'pluginOptions' => [
 			'previewFileType' => 'image',
 			'previewSettings' => [
-				'image' => ['width' => 'auto', 'height' => '210px'],
+				'image' => ['width' => 'auto', 'height' => '200px'],
 			],
 			'maxFileCount' => 1,
 			'validateInitialCount' => true,

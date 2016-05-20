@@ -109,7 +109,7 @@ class FeedbackController extends Controller
 			Yii::$app->getSession()->setFlash('delete', 'true');
 		}
 
-        return $this->redirect(['index']);
+        return $this->redirect('/admin/feedback/');
     }
 
     /**

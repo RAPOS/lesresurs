@@ -3,13 +3,13 @@ use dosamigos\tinymce\TinyMce;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Информация на странице';
+$this->title = 'Контакты - Информация на странице';
 
 if (!is_null($save)) print $this->render('_alert', ['save' => $save]);
 ?>
 <div class="page text-center">
 	<div class="page-head">
-		<h2>Информация на странице</h2>
+		<h2>Контакты</h2>
 		<div></div>
 	</div>
 	<div class="row" style="margin-top: 5px;">
