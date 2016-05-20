@@ -99,6 +99,7 @@ class SiteController extends Controller
     {
         $LContacts = LContacts::find()->where(['site' => 1])->one();
         $LFeedback = new LFeedback();
+
         if (Yii::$app->request->post()) {
             $validator = new CaptchaValidator();
             if (!$validator->validate($_POST['LFeedback']['verifyCode'])) {

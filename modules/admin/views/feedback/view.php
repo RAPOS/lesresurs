@@ -16,20 +16,20 @@ $this->title = 'Сообщение от - '.$model->name;
 			<ul class="breadcrumb">
 				<li><?=Html::a('Панель управления', '/admin/')?></li>
 				<li><?=Html::a('Контакты', '/admin/feedback/')?></li>
-				<li class="active">$this->title</li>
+				<li class="active"><?=$this->title?></li>
 			</ul>
 			<?php $form = ActiveForm::begin(); ?>
-			<div class="row">
-				<div class="col-xs-12 col-sm-6">
-					<div class="bg-info">Тема: <span><?=$model->subject?></span></div>
+			<div class="clearfix">
+				<div style="padding-left: 0;padding-right: 0;" class="col-xs-12 col-sm-7">
+					<p style="padding: 10px;" class="bg-info">Тема: <span><?=$model->subject?></span></p>
 					<div class="bfeedback-view-name clearfix">
-						<img src="/images/panel/user.png" width="48"/>
+						<img src="/images/panel/user.png" width="64"/>
 						<span><?=$model->name?></span>
 					</div>
 					<div class="bfeedback-view-baloon"><?=$model->text?></div>
 					<?if($model->response){?>
 						<div class="bfeedback-view-admin clearfix">
-							<img src="/images/panel/admin.png" width="48"/>
+							<img src="/images/panel/admin.png" width="64"/>
 							<span>Администратор</span>
 						</div>
 						<div class="bfeedback-view-baloon-admin">
@@ -37,7 +37,8 @@ $this->title = 'Сообщение от - '.$model->name;
 						</div>
 					<?}?>
 				</div>
-				<div class="col-xs-12 col-sm-6">
+				<div class="col-sm-1 hidden-xs"></div>
+				<div style="padding: 10px;padding-right: 0;" class="col-xs-12 col-sm-4 bg-info">
 					<p>
 						<span>Дата:</span>
 						<span><?=Yii::$app->formatter->asTime($model->date, 'php:d.m.Y');?></span>

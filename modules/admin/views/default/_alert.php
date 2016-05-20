@@ -24,7 +24,7 @@ if($save){
     echo Alert::widget([
         'type' => Alert::TYPE_SUCCESS,
         'icon' => 'glyphicon glyphicon-ok-sign',
-        'body' => 'Изменения успешно сохранены.',
+        'body' => $contact ? 'Сообщение отправлено' : 'Изменения успешно сохранены.',
         'showSeparator' => true,
         'delay' => 5000,
         'options' => [
@@ -35,7 +35,7 @@ if($save){
     echo Alert::widget([
         'type' => Alert::TYPE_DANGER,
         'icon' => 'glyphicon glyphicon-remove-sign',
-        'body' => 'Не удалось сохранить.',
+        'body' => $contact ? 'Не удалось отправить сообщение' : 'Не удалось сохранить.',
         'showSeparator' => true,
         'delay' => 5000,
         'options' => [

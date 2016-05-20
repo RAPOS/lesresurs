@@ -12,7 +12,7 @@ Yii::$app->assetManager->forceCopy = true;
 
 $this->title = 'Контакты';
 
-if (!is_null($save)) print $this->render('_alert', ['save' => $save, 'captcha' => $captcha]);
+if (!is_null($save) || !is_null($captcha)) print $this->render('@app/modules/admin/views/default/_alert', ['save' => $save, 'captcha' => $captcha, 'contact' => true]);
 ?>
 <div class="page text-center">
     <div class="page-head">
