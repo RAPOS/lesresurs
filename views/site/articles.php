@@ -26,9 +26,7 @@ $this->title = 'Статьи';
 					$image->save(Yii::getAlias('@webroot/assets/'.$LImages->name.'.'.$LImages->extension));
 					?>			
 					<img class="img-responsive" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
-				<?} else {?>
-					<img class="img-responsive" src="/images/0-2-4.png" alt="">
-				<?}?>	
+				<?}?>
                 <h3><?=$value->header?></h3>
                 <p>
                     <?=mb_truncate($value->text, 250)?>

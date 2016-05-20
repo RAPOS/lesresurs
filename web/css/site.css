@@ -571,6 +571,82 @@ a.desc:after {
 	position:relative;
 	z-index:999;
 }
+.order_form_wrapper {
+	display: none;
+	background: rgba(0, 0, 0, 0.7);
+	position:fixed;
+	z-index:10000;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+}
+.order_form .form-group{
+    padding-left: 30px;
+    padding-right: 30px;	
+}
+.order_form {
+	width: 370px;
+	height: 440px;
+	background: #0b9444;
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-left: -220px;
+	margin-top: -300px;
+	color:white;
+	border-radius:10px; 
+}
+.order_form_close {
+	background: url(/images/close.png) no-repeat;
+	width:30px;
+	position:absolute;
+	right:10px;
+	top:10px;
+	cursor:pointer;
+	height:30px;
+}
+.order_form .line {
+	width: 124px;
+    height: 20px;
+    margin: 0 auto;
+    margin-top: -12px;
+    border-bottom: 1px solid white;	
+}
+.order_form button {
+	border: 1px solid white;
+    margin-top: 20px;
+    margin-left: 20%;	
+}
+.order_form input {
+	height:40px;
+}
+.order_form_title {
+	text-align:center;
+	font-size:34px;
+	margin-top:30px;
+	text-transform: uppercase;
+}
+.order_form_text {
+	text-align:center;
+    font-size: 16px;
+    line-height: 16px;
+}
+.order_form .form-icon {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+.order_form .form-group {
+	position:relative;
+}
 /*Admins*/
 .icon_panel {
     text-decoration: none!important;

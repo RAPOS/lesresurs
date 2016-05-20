@@ -207,6 +207,28 @@ AppAsset::register($this);
 	</div>
 <?}?>
 
+<div class="order_form_wrapper">
+	<div class="order_form">
+		<div class="order_form_close"></div>
+		<p class="order_form_title">Заявка</p>
+		<p class="order_form_text">Заполните и отправьте заявку<br> и наш специалист свяжется с Вами <br> в ближайшее время.</p>
+		<div class="line"></div>
+		<div class="form-group field-name required">
+			<label class="control-label" for="name">Имя*</label>
+			<input type="text" id="name" class="form-control" name="LOrder[name]">
+			<span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>
+		</div>	
+		<div class="form-group field-name required">
+			<label class="control-label" for="phone">Телефон*</label>
+			<input type="text" id="phone" class="form-control" name="LOrder[phone]">
+			<span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>	
+		</div>				
+		<div class="form-group field-name required">
+			<button class="lbutton">Отправить заявку</button>				
+		</div>
+	</div>
+</div>
+
 <footer class="footer">
     <div class="container">
         <div class="row">
