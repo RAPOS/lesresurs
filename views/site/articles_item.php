@@ -18,7 +18,7 @@ $this->title = 'Статьи - ' . $articles->header;
         <img class="img-responsive" src="/images/articlesimage.jpeg" />
         <p><?=$articles->text?></p>
         <div class="share">
-            <button class="btn btn-primary" onclick="$('.bubble').css('display', ($('.bubble').css('display') == 'none') ? 'block' : 'none')">Поелиться статьей</button>
+            <button class="btn btn-primary" onclick="$('.bubble').css('display', ($('.bubble').css('display') == 'none') ? 'block' : 'none')">Поделиться статьей</button>
             <div class="bubble">
                 <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
                 <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
