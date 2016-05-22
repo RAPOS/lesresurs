@@ -366,7 +366,8 @@ a.desc:after {
 
 .page .actions .item-action .date p, .page .articles .item-article .date p {
     color: #f7941e;
-    margin-top: 8px;
+	margin:0;
+	line-height:38px;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -455,6 +456,7 @@ a.desc:after {
     padding-left: 10px;
     padding-right: 10px;
     outline: none;
+	white-space:nowrap;
 	border-radius:3px;
 }
 .lbutton:hover {
