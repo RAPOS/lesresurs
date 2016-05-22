@@ -220,7 +220,7 @@ class DefaultController extends Controller
 						//$image->watermark($mark, TRUE, TRUE);
 						$image->save(Yii::getAlias('@webroot/'.$LImages->path));
 						
-						unlink($_SERVER['DOCUMENT_ROOT'].'/files/uploads/'.$name.'.'.$path_info['extension']);
+						unlink(Yii::getAlias('@webroot').'/files/uploads/'.$name.'.'.$path_info['extension']);
 						print json_encode(array('id_image' => $LImages->id_image, 'name' => $_FILES['image']['name']));
 					}
 				} else {
