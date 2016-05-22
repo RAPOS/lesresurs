@@ -176,10 +176,10 @@ $LSettings = LSettings::find()->where(['site' => 1])->one();
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div style="text-align: center;" class="col-xs-12 col-md-2">
-                ООО &laquo;ЛЕСРЕСУРС&raquo; <?= date('Y') ?>
+            <div class="col-xs-12 col-md-3">
+                ООО &laquo;ЛЕС РЕСУРС&raquo; <?= date('Y') ?>
             </div>
-            <div class="col-xs-12 col-md-3 col-md-offset-7">
+            <div class="col-xs-12 col-md-3 col-md-offset-6">
                 <div style="width: 194px;margin: 0 auto;text-align: center;" class="clearfix">
                     <div style="float: left;margin-right: 10px;">МЫ В СОЦСЕТЯХ</div>
                     <a class="footer-icon icon-instagram" href="<?=$LSettings->link_instagram?>" onclick="return false;"></a>
