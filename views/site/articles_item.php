@@ -5,6 +5,7 @@
  * Date: 10.05.2016
  * Time: 16:26
  */
+use app\models\LImages;
 $this->title = 'Статьи - ' . $articles->header;
 ?>
 <div class="page text-center">
@@ -15,7 +16,15 @@ $this->title = 'Статьи - ' . $articles->header;
     </div>
     <div class="page-article">
         <h3><?=$articles->header?></h3>
-        <img class="img-responsive" src="/images/articlesimage.jpeg" />
+		<?
+		$model_images = json_decode($articles->id_image);
+		$LImages = LImages::findOne($model_images);
+		if($LImages->path && file_exists(Yii::getAlias('@webroot/'.$LImages->path))){
+			$image = Yii::$app->image->load(Yii::getAlias('@webroot/'.$LImages->path));
+			$image->save(Yii::getAlias('@webroot/assets/'.$LImages->name.'.'.$LImages->extension));
+			?>			
+			<img class="img-responsive" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
+		<?}?>		
         <p><?=$articles->text?></p>
         <div class="share">
             <button class="btn btn-primary" onclick="$('.bubble').css('display', ($('.bubble').css('display') == 'none') ? 'block' : 'none')">Поделиться статьей</button>
