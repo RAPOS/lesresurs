@@ -8,8 +8,11 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\LSettings;
 
 AppAsset::register($this);
+
+$LSettings = LSettings::find()->where(['site' => 1])->one();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -18,7 +21,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($LSettings->site_name . ' - ' . $this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -143,24 +146,30 @@ AppAsset::register($this);
 <?}?>
 
 <div class="order_form_wrapper">
-	<div class="order_form">
-		<div class="order_form_close"></div>
-		<p class="order_form_title">Заявка</p>
-		<p class="order_form_text">Заполните и отправьте заявку<br> и наш специалист свяжется с Вами <br> в ближайшее время.</p>
-		<div class="line"></div>
-		<div class="form-group field-name required">
-			<label class="control-label" for="name">Имя*</label>
-			<input type="text" id="name" class="form-control" name="LOrder[name]">
-			<span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>
-		</div>	
-		<div class="form-group field-name required">
-			<label class="control-label" for="phone">Телефон*</label>
-			<input type="text" id="phone" class="form-control" name="LOrder[phone]">
-			<span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>
-		</div>				
-		<div class="form-group field-name required">
-			<button class="lbutton">Отправить заявку</button>				
-		</div>
+    <div class="container">
+        <div class="col-sm-4 hidden-xs"></div>
+        <div style="padding-left: 0;" class="col-sm-4">
+            <div class="order_form block-center">
+                <div class="order_form_close"></div>
+                <p class="order_form_title">Заявка</p>
+                <p class="order_form_text">Заполните и отправьте заявку<br> и наш специалист свяжется с Вами <br> в ближайшее время.</p>
+                <div class="line"></div>
+                <div class="form-group field-name required">
+                    <label class="control-label" for="name">Имя*</label>
+                    <input type="text" id="name" class="form-control" name="LOrder[name]">
+                    <span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <div class="form-group field-name required">
+                    <label class="control-label" for="phone">Телефон*</label>
+                    <input type="text" id="phone" class="form-control" name="LOrder[phone]">
+                    <span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <div class="form-group field-name required">
+                    <button class="lbutton">Отправить заявку</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 hidden-xs"></div>
 	</div>
 </div>
 
@@ -173,9 +182,9 @@ AppAsset::register($this);
             <div class="col-xs-12 col-md-3 col-md-offset-7">
                 <div style="width: 194px;margin: 0 auto;text-align: center;" class="clearfix">
                     <div style="float: left;margin-right: 10px;">МЫ В СОЦСЕТЯХ</div>
-                    <a class="footer-icon icon-instagram" href="#" onclick="return false;"></a>
-                    <a class="footer-icon icon-vk" href="#" onclick="return false;"></a>
-                    <a class="footer-icon icon-twitter" href="#" onclick="return false;"></a>
+                    <a class="footer-icon icon-instagram" href="<?=$LSettings->link_instagram?>" onclick="return false;"></a>
+                    <a class="footer-icon icon-vk" href="<?=$LSettings->link_vk?>" onclick="return false;"></a>
+                    <a class="footer-icon icon-twitter" href="<?=$LSettings->link_twitter?>" onclick="return false;"></a>
                 </div>
             </div>
         </div>

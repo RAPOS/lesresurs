@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Хост:                         127.0.0.1
--- Версия сервера:               5.6.19-log - MySQL Community Server (GPL)
+-- Версия сервера:               5.5.38-log - MySQL Community Server (GPL)
 -- ОС Сервера:                   Win32
 -- HeidiSQL Версия:              8.3.0.4694
 -- --------------------------------------------------------
@@ -72,6 +72,21 @@ INSERT INTO `l_articles` (`id`, `id_image`, `header`, `text`, `date`, `keywords`
 /*!40000 ALTER TABLE `l_articles` ENABLE KEYS */;
 
 
+-- Дамп структуры для таблица lesresurs.l_banners
+DROP TABLE IF EXISTS `l_banners`;
+CREATE TABLE IF NOT EXISTS `l_banners` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_image` int(11) NOT NULL,
+  `header` varchar(64) NOT NULL,
+  `link_more` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы lesresurs.l_banners: ~0 rows (приблизительно)
+/*!40000 ALTER TABLE `l_banners` DISABLE KEYS */;
+/*!40000 ALTER TABLE `l_banners` ENABLE KEYS */;
+
+
 -- Дамп структуры для таблица lesresurs.l_contacts
 DROP TABLE IF EXISTS `l_contacts`;
 CREATE TABLE IF NOT EXISTS `l_contacts` (
@@ -84,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `l_contacts` (
   UNIQUE KEY `site` (`site`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы lesresurs.l_contacts: ~0 rows (приблизительно)
+-- Дамп данных таблицы lesresurs.l_contacts: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `l_contacts` DISABLE KEYS */;
 INSERT INTO `l_contacts` (`site`, `text_form`, `text_place`, `text_contact`, `keywords`, `description`) VALUES
 	(1, 'Компания «Лес Ресурс» предлагает поставки леса кругляка в больших объёмах на постоянной основе. Продажа кругляка из отборных хвойных пород древесины производится партиями любого объёма по выгодным ценам.', 'Свердловская область<br>\r\nгород Полевской<br>\r\nВосточно промышленный район<br>\r\nтерритория Северского завода ЖБИ', 'Продажа леса<br>\r\n8(34350)34590<br>\r\n<br>\r\nОтдел продажи пиломатериалов<br>\r\n(34350)35931<br>\r\n(34350)34535', NULL, NULL);
@@ -126,18 +141,6 @@ CREATE TABLE IF NOT EXISTS `l_gallery` (
 
 -- Дамп данных таблицы lesresurs.l_gallery: ~11 rows (приблизительно)
 /*!40000 ALTER TABLE `l_gallery` DISABLE KEYS */;
-INSERT INTO `l_gallery` (`id_photo`, `id_image`) VALUES
-	(6, 34),
-	(7, 91),
-	(8, 92),
-	(9, 93),
-	(10, 94),
-	(11, 95),
-	(12, 96),
-	(13, 97),
-	(14, 98),
-	(15, 99),
-	(16, 100);
 /*!40000 ALTER TABLE `l_gallery` ENABLE KEYS */;
 
 
@@ -150,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `l_images` (
   `extension` varchar(5) NOT NULL,
   `status` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id_image`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы lesresurs.l_images: ~95 rows (приблизительно)
 /*!40000 ALTER TABLE `l_images` DISABLE KEYS */;
@@ -249,7 +252,8 @@ INSERT INTO `l_images` (`id_image`, `name`, `path`, `extension`, `status`) VALUE
 	(97, '5d606062f3753fc28cd108d45af2d44e', 'files/images/97/5d606062f3753fc28cd108d45af2d44e.jpg', 'jpg', b'1'),
 	(98, 'bf25a720ef7aaa711e81030aec2a80bd', 'files/images/98/bf25a720ef7aaa711e81030aec2a80bd.jpg', 'jpg', b'1'),
 	(99, 'c89a592289cbf730efb384056e0f3bd7', 'files/images/99/c89a592289cbf730efb384056e0f3bd7.jpg', 'jpg', b'1'),
-	(100, 'b40b8cf0f8b65ab74c0c93029395b44b', 'files/images/100/b40b8cf0f8b65ab74c0c93029395b44b.jpg', 'jpg', b'1');
+	(100, 'b40b8cf0f8b65ab74c0c93029395b44b', 'files/images/100/b40b8cf0f8b65ab74c0c93029395b44b.jpg', 'jpg', b'1'),
+	(101, '81b96c6f0c5e3861da3240c1cf7627f7', 'files/images/101/81b96c6f0c5e3861da3240c1cf7627f7.jpg', 'jpg', b'0');
 /*!40000 ALTER TABLE `l_images` ENABLE KEYS */;
 
 
@@ -308,6 +312,24 @@ CREATE TABLE IF NOT EXISTS `l_productionspage` (
 INSERT INTO `l_productionspage` (`site`, `text_header`, `text_block`, `images`, `keywords`, `description`) VALUES
 	(1, 'Предложение', '<p>Компания &laquo;Лес Ресурс&raquo; предлагает поставки леса кругляка в больших объёмах на постоянной основе. Продажа кругляка из отборных хвойных пород древесины производится партиями любого объёма по привлекательным ценам. Заготовка и продажа леса высокого качества ведётся квалифицированными специалистами на базе современного оборудования. Производственный комплекс с мощной лесозаготовительной техникой позволяет компания &laquo;Лес Ресурс&raquo; качественно и быстро заготавливать лес строевой и пиловочник с высокой точностью обработки.</p>', 'null', '', '');
 /*!40000 ALTER TABLE `l_productionspage` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица lesresurs.l_settings
+DROP TABLE IF EXISTS `l_settings`;
+CREATE TABLE IF NOT EXISTS `l_settings` (
+  `site` int(2) NOT NULL,
+  `site_name` text NOT NULL,
+  `link_vk` text NOT NULL,
+  `link_instagram` text NOT NULL,
+  `link_twitter` text NOT NULL,
+  UNIQUE KEY `site` (`site`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы lesresurs.l_settings: ~1 rows (приблизительно)
+/*!40000 ALTER TABLE `l_settings` DISABLE KEYS */;
+INSERT INTO `l_settings` (`site`, `site_name`, `link_vk`, `link_instagram`, `link_twitter`) VALUES
+	(1, 'ООО «ЛЕС РЕСУРС»', '#', '#', '#');
+/*!40000 ALTER TABLE `l_settings` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

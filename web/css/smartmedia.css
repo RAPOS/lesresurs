@@ -59,6 +59,11 @@
     .item-action .date, .item-action button {
         font-size: 12px!important;
     }
+    .order_form {
+        margin-top: 50px;
+        margin-left: -15px;
+        width: 332px;
+    }
 }
 
 @media (min-width: 767px) and (max-width: 991px) {

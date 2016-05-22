@@ -5,6 +5,7 @@ namespace app\modules\admin\controllers;
 use app\models\LActions;
 use app\models\LArticles;
 use app\models\LProductionspage;
+use app\models\LSettings;
 use Yii;
 use yii\web\Controller;
 use app\models\LGallery;
@@ -90,7 +91,8 @@ class DefaultController extends Controller
 		]);
 	}
 
-	public function actionGallery(){
+	public function actionGallery()
+	{
 		if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 
 		if (Yii::$app->request->post()) {
@@ -123,9 +125,33 @@ class DefaultController extends Controller
 		]);
 	}
 	
-	public function actionFeedback()
+	public function actionSettings()
 	{
-		$this->redirect('/admin/feedback/');
+		if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
+
+		$model = LSettings::find()->where(['site' => 1])->one();
+		if(!$model){
+			$model = new LSettings();
+			$model->site = 1;
+		}
+		if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			Yii::$app->getSession()->setFlash('save', true);
+			return $this->redirect(['settings']);
+		}
+
+		$save = null;
+		if (Yii::$app->getSession()->has('save')) {
+			if (Yii::$app->getSession()->getFlash('save')) {
+				$save = true;
+			} else {
+				$save = false;
+			}
+		}
+
+		return $this->render('settings', [
+			'model' => $model,
+			'save' => $save,
+		]);
 	}
 	
 	public function actionUserchange()

@@ -15,7 +15,6 @@ $config = [
             'driver' => 'GD',  //GD or Imagick
         ],
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'ahsd721yuhd7832hdujgh87gf23g8732fghjgf',
             'baseUrl' => '',
         ],
@@ -65,6 +64,8 @@ $config = [
                 'admin/feedback'=>'admin/feedback/index',
                 'admin/productions/<action:\w+>'=>'admin/productions/<action>',
                 'admin/productions'=>'admin/productions/index',
+                'admin/banners/<action:\w+>'=>'admin/banners/<action>',
+                'admin/banners'=>'admin/banners/index',
                 'admin/<action:\w+>'=>'admin/default/<action>',
                 'admin' => 'admin/default/index',
                 '<action:\w+>'=>'site/<action>',

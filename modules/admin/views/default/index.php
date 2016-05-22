@@ -63,6 +63,20 @@ $this->title = 'Панель управления';
 					</a>
 				</div>
 				<div class="col-xs-6 col-sm-4 col-md-3 text-center">
+					<a class="icon_panel" href="/admin/banners/">
+						<img src="/images/panel/monitor.png"/>
+						<h3>Баннеры</h3>
+						<div></div>
+					</a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3 text-center">
+					<a class="icon_panel" href="/admin/settings/">
+						<img src="/images/panel/gear.png"/>
+						<h3>Настройки сайта</h3>
+						<div></div>
+					</a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3 text-center">
 					<a class="icon_panel" href="/admin/logout/">
 						<img src="/images/panel/next.png"/>
 						<h3>Выход</h3>

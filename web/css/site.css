@@ -63,7 +63,7 @@ h3 {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: #FFFFFF;
+    color: #fff;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
@@ -73,7 +73,7 @@ h3 {
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
     background-color: #056839;
-    color: #FFFFFF;
+    color: #fff;
 }
 
 .banner-main {
@@ -547,7 +547,7 @@ a.desc:after {
 }
 
 .map {
-	margin-top: -140px; 
+	margin-top: -100px;
 	height:400px;
 }
 
@@ -590,15 +590,12 @@ a.desc:after {
 	height: 440px;
 	background: #0b9444;
 	position: absolute;
-	left:50%;
-	top:50%;
-	margin-left: -220px;
-	margin-top: -300px;
+	margin-top: 100px;
 	color:white;
 	border-radius:10px; 
 }
 .order_form_close {
-	background: url(/images/close.png) no-repeat;
+	background: url(../images/close.png) no-repeat;
 	width:30px;
 	position:absolute;
 	right:10px;

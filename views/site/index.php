@@ -2,7 +2,6 @@
 
 /* @var $this yii\web\View */
 use app\models\LImages;
-$this->title = 'ООО «ЛЕС РЕСУРС»';
 ?>
 <div style="margin-top: -23px;" class="page text-center">
     <div class="page-head">
@@ -27,11 +26,7 @@ $this->title = 'ООО «ЛЕС РЕСУРС»';
 						<?}?>
 						<h3><?=$value->header?></h3>
 						<p><?=$value->text?></p>
-						<button class="lbutton"
-							onmouseover="this.style.background = '#12b154'"
-							onmouseout="this.style.background = '#0b9444'"
-							onmousedown="this.style.background = '#067333'"
-							onmouseup="this.style.background = '#12b154'">Подробнее</button>
+						<button class="lbutton">Подробнее</button>
 					</div>
 				</div>
 			<?}?>

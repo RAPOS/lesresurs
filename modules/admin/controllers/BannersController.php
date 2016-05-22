@@ -1,18 +1,18 @@
 <?php
 namespace app\modules\admin\controllers;
 
-use app\models\LImages;
 use Yii;
-use app\models\LArticles;
+use app\models\LBanners;
+use app\models\LImages;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ActionsController implements the CRUD articles for LArticles model.
+ * ActionsController implements the CRUD articles for LBanners model.
  */
-class ArticlesController extends Controller
+class BannersController extends Controller
 {
     public function behaviors()
     {
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Lists all LArticles models.
+     * Lists all LBanners models.
      * @return mixed
      */
     public function actionIndex()
@@ -35,7 +35,7 @@ class ArticlesController extends Controller
         if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 
         $dataProvider = new ActiveDataProvider([
-            'query' => LArticles::find(),
+            'query' => LBanners::find(),
             'sort' => [
                 'defaultOrder' => ['id' => SORT_DESC],
             ],
@@ -71,7 +71,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Creates a new LArticles model.
+     * Creates a new LBanners model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -79,7 +79,7 @@ class ArticlesController extends Controller
     {
         if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
 
-        $model = new LArticles();
+        $model = new LBanners();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $LImages = LImages::findOne(['id_image' => $model->id_image]);
@@ -87,7 +87,7 @@ class ArticlesController extends Controller
             $LImages->save();
 
             Yii::$app->getSession()->setFlash('create', 'true');
-            return $this->redirect(['/admin/articles/']);
+            return $this->redirect(['/admin/banners/']);
         }
 
         return $this->render('create', [
@@ -96,7 +96,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Updates an existing LArticles model.
+     * Updates an existing LBanners model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -113,7 +113,7 @@ class ArticlesController extends Controller
             $LImages->save();
 
             Yii::$app->getSession()->setFlash('save', 'true');
-            return $this->redirect(['/admin/articles/']);
+            return $this->redirect(['/admin/banners/']);
         }
 
         return $this->render('update', [
@@ -122,7 +122,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Deletes an existing LArticles model.
+     * Deletes an existing LBanners model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -135,19 +135,19 @@ class ArticlesController extends Controller
             Yii::$app->getSession()->setFlash('delete', 'true');
         }
 
-        return $this->redirect(['/admin/articles/']);
+        return $this->redirect(['/admin/banners/']);
     }
 
     /**
-     * Finds the LArticles model based on its primary key value.
+     * Finds the LBanners model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return LArticles the loaded model
+     * @return LBanners the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = LArticles::findOne($id)) !== null) {
+        if (($model = LBanners::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
