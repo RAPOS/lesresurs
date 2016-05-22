@@ -345,9 +345,9 @@
         '</div>';
     tFooter = '<div class="file-thumbnail-footer">\n' +
         '    <div class="file-footer-caption" title="{caption}">{caption}</div>\n' +
-        '    {progress} {specials}\n' +
+        '    {progress} {actions}\n' +
         '</div>';
-    tActions = '<div class="file-specials">\n' +
+    tActions = '<div class="file-actions">\n' +
         '    <div class="file-footer-buttons">\n' +
         '        {upload}{delete}{other}' +
         '    </div>\n' +
