@@ -209,11 +209,11 @@ class DefaultController extends Controller
 					$LImages->save();
 					
 					$path = $dir.'/'.$LImages->id_image;
-					mkdir($_SERVER['DOCUMENT_ROOT'].'/'.$path, 0777, true);
-					if (!file_exists($_SERVER['DOCUMENT_ROOT'].'/files/uploads/')) {
-						mkdir($_SERVER['DOCUMENT_ROOT'].'/files/uploads/');
+					mkdir(Yii::getAlias('@webroot').'/'.$path, 0777, true);
+					if (!file_exists(Yii::getAlias('@webroot').'/files/uploads/')) {
+						mkdir(Yii::getAlias('@webroot').'/files/uploads/');
 					}
-					if (move_uploaded_file($_FILES['image']['tmp_name'][$i], $_SERVER['DOCUMENT_ROOT'].'/files/uploads/'.$name.'.'.$path_info['extension'])) {
+					if (move_uploaded_file($_FILES['image']['tmp_name'][$i], Yii::getAlias('@webroot').'/files/uploads/'.$name.'.'.$path_info['extension'])) {
 						$image = Yii::$app->image->load(Yii::getAlias('@webroot/files/uploads/'.$name.'.'.$path_info['extension']));
 						$image->resize(800, NULL, \yii\image\drivers\Image::AUTO);
 						//$mark = Yii::$app->image->load(Yii::getAlias('@webroot/images/label.png'));
