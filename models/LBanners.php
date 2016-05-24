@@ -47,4 +47,16 @@ class LBanners extends \yii\db\ActiveRecord
             'link_more' => 'Ссылка на «Подробнее»',
         ];
     }
+    
+    public function lastID()
+    {
+        $this->find()->orderBy('id DESC')->one();
+    }
+    
+    public function imagePath()
+    {
+        $LImages = LImages::findOne(['id_image' => $this->id_image]);
+        
+        return $LImages->path;
+    }
 }

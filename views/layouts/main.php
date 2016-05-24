@@ -3,16 +3,19 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use app\models\LImages;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\models\LSettings;
+use app\models\LBanners;
 
 AppAsset::register($this);
 
 $LSettings = LSettings::find()->where(['site' => 1])->one();
+$LBanners = LBanners::find()->all();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -72,27 +75,21 @@ $LSettings = LSettings::find()->where(['site' => 1])->one();
                     <span class="icon-arrow icon-left-arrow" onclick="prevBanner();"></span>
                 </div>
                 <div class="col-xs-9 col-sm-10">
-                    <div class="row active" data-id="1" data-prev="3" data-next="2">
-                        <div class="col-sm-6 hidden-xs"></div>
-                        <div class="col-sm-6 banner-text">
-                            <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
-                            <button class="order">Оставить заявку</button> <a href="#">Подробнее</a>
+                    <?$count = 1;
+                    for ($i = 0; $i < count($LBanners); $i++) {?>
+                        <div class="row banner-item <?=$count == 1 ? 'active' : ''?>"
+                             data-path="<?=$LBanners[$i]->imagePath()?>"
+                             data-id="<?=$count?>"
+                             data-prev="<?=$count == 1 ? count($LBanners) : $count - 1?>"
+                             data-next="<?=$count == count($LBanners) ? 1 : $count + 1?>">
+                            <div class="col-sm-6 hidden-xs"></div>
+                            <div class="col-sm-6 banner-text">
+                                <h1><?=$LBanners[$i]->header?></h1>
+                                <button class="order">Оставить заявку</button> <a href="<?=$LBanners[$i]->link_more?>">Подробнее</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row" data-id="2" data-prev="1" data-next="3">
-                        <div class="col-sm-6 hidden-xs"></div>
-                        <div class="col-sm-6 banner-text">
-                            <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
-                            <button class="order">Оставить заявку</button> <a href="#">Подробнее</a>
-                        </div>
-                    </div>
-                    <div class="row" data-id="3" data-prev="2" data-next="1">
-                        <div class="col-sm-6 hidden-xs"></div>
-                        <div class="col-sm-6 banner-text">
-                            <h1>Лес гругляк. Пиловочник. Пиломатериалы. Срубы.</h1>
-                            <button class="order">Оставить заявку</button> <a href="#">Подробнее</a>
-                        </div>
-                    </div>
+                    <?$count++;
+                    }?>
                 </div>
                 <div class="col-xs-1 col-sm-1 text-right" style="padding-right: 0;">
                     <span class="icon-arrow icon-right-arrow" onclick="nextBanner();"></span>
@@ -107,7 +104,7 @@ $LSettings = LSettings::find()->where(['site' => 1])->one();
         </div>
         <div class="banner-contact" id="banner-contact">
             <div class="col-sm-6 hidden-xs text-right">
-                <img style="margin-top: 99px;" src="/images/Man.png"/>
+                <img src="/images/Man.png"/>
             </div>
             <div class="col-sm-6">
                 <div class="contact-form">
@@ -176,12 +173,12 @@ $LSettings = LSettings::find()->where(['site' => 1])->one();
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-3">
-                ООО &laquo;ЛЕС РЕСУРС&raquo; <?= date('Y') ?>
+            <div class="col-xs-12 col-md-2">
+                ООО &laquo;ЛЕСРЕСУРС&raquo; <?= date('Y') ?>
             </div>
-            <div class="col-xs-12 col-md-3 col-md-offset-6">
-                <div style="width: 194px;margin: 0 auto;text-align: center;" class="clearfix">
-                    <div style="float: left;margin-right: 10px;">МЫ В СОЦСЕТЯХ</div>
+            <div class="col-xs-12 col-md-3 col-md-offset-7">
+                <div class="clearfix">
+                    <div>МЫ В СОЦСЕТЯХ</div>
                     <a class="footer-icon icon-instagram" href="<?=$LSettings->link_instagram?>" onclick="return false;"></a>
                     <a class="footer-icon icon-vk" href="<?=$LSettings->link_vk?>" onclick="return false;"></a>
                     <a class="footer-icon icon-twitter" href="<?=$LSettings->link_twitter?>" onclick="return false;"></a>

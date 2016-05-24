@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\LActions;
 use app\models\LArticles;
+use app\models\LBanners;
 use app\models\LProductionspage;
 use app\models\LSettings;
 use Yii;
@@ -191,8 +192,10 @@ class DefaultController extends Controller
 	public function actionUpload()
 	{
 		if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
-		
+
 		if ($_FILES)  {
+			$referrer = explode('/', $_SERVER['HTTP_REFERER']);
+
 			for ($i=0;$i<count($_FILES);$i++) {
 				if(!in_array(exif_imagetype($_FILES['image']['tmp_name'][$i]), array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG))){
 					return false;
@@ -215,7 +218,9 @@ class DefaultController extends Controller
 					}
 					if (move_uploaded_file($_FILES['image']['tmp_name'][$i], Yii::getAlias('@webroot').'/files/uploads/'.$name.'.'.$path_info['extension'])) {
 						$image = Yii::$app->image->load(Yii::getAlias('@webroot/files/uploads/'.$name.'.'.$path_info['extension']));
-						$image->resize(800, NULL, \yii\image\drivers\Image::AUTO);
+						if (!in_array('banners', $referrer)) {
+							$image->resize(800, NULL, \yii\image\drivers\Image::AUTO);
+						}
 						//$mark = Yii::$app->image->load(Yii::getAlias('@webroot/images/label.png'));
 						//$image->watermark($mark, TRUE, TRUE);
 						$image->save(Yii::getAlias('@webroot/'.$LImages->path));
@@ -228,6 +233,8 @@ class DefaultController extends Controller
 				}
 			}
 		}
+		
+		return false;
 	}
 	
 	public function actionDeleteimages()
@@ -251,6 +258,12 @@ class DefaultController extends Controller
 				}
 			} else if ($_POST['page'] == 'specials') {
 				$model = LActions::findOne(['id_image' => $_POST['delete_id_img']]);
+				$model->id_image = 0;
+				if ($model->save()) {
+					$save = true;
+				}
+			} else if ($_POST['page'] == 'banners') {
+				$model = LBanners::findOne(['id_image' => $_POST['delete_id_img']]);
 				$model->id_image = 0;
 				if ($model->save()) {
 					$save = true;

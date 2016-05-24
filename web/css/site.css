@@ -83,10 +83,22 @@ h3 {
     min-height: 700px;
 }
 
+.banner-main .banner-item {
+    display: none;
+}
+
+.banner-main .active {
+    display: block;
+}
+
 .banner-contact {
     background: url("../images/Contact-us-background.jpg") no-repeat top center;
     background-size: cover;
     min-height: 700px;
+}
+
+.banner-contact > div > img {
+    margin-top: 99px;
 }
 
 .banner-text {
@@ -125,17 +137,28 @@ h3 {
     text-transform: uppercase;
 }
 
-.banner-main > div > div:nth-child(2) > div {
-    display: none;
-}
-.banner-main > div > div:nth-child(2) > .active {
-    display: block;
-}
-
 .footer {
-    background-color: #009444!important;
+    background-color: #009444;
     border: none;
     color: #fff;
+    min-height: 60px;
+    padding-top: 20px;
+}
+
+
+.footer > div > div > div:nth-child(1) {
+    text-align: center;
+}
+
+.footer > div > div > div:nth-child(2) > div {
+    width: 194px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer > div > div > div:nth-child(2) > div > div {
+    float: left;
+    margin-right: 10px;
 }
 
 .wrap {
@@ -147,12 +170,6 @@ h3 {
 
 .wrap > .container {
     padding: 70px 15px 20px;
-}
-
-.footer {
-    min-height: 60px;
-    background-color: #f5f5f5;
-    padding-top: 20px;
 }
 
 .not-set {
