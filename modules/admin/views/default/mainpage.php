@@ -8,13 +8,12 @@ $this->title = 'Редактирование - Главная страница';
 if (!is_null($save)) print $this->render('_alert', ['save' => $save]);
 ?>
 <div class="page text-center">
-	<div class="page-head">
+	<div class="page-head hidden-md hidden-lg">
 		<h2>Главная страница</h2>
 		<div></div>
 	</div>
 	<div class="row" style="margin-top: 5px;">
-		<div class="col-sm-1 hidden-xs"></div>
-		<div class="col-sm-10 text-left">
+		<div class="col-sm-12 text-left">
 			<ul class="breadcrumb">
 				<li><?=Html::a('Панель управления', '/admin/')?></li>
 				<li class="active">Главная страница</li>

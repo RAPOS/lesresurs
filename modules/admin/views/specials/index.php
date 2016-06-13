@@ -7,13 +7,12 @@ $this->title = 'Спецпредложения';
 if (!is_null($create) || !is_null($save) || !is_null($delete)) print $this->render('@app/modules/admin/views/default/_alert', ['create' => $create, 'save' => $save, 'delete' => $delete]);
 ?>
 <div class="page text-center">
-	<div class="page-head">
+	<div class="page-head hidden-md hidden-lg">
 		<h2>Спецпредложения</h2>
 		<div></div>
 	</div>
 	<div class="row" style="margin-top: 5px;">
-		<div class="col-sm-1 hidden-xs"></div>
-		<div class="col-sm-10 text-left">
+		<div class="col-sm-12 text-left">
 			<ul class="breadcrumb">
 				<li><?=Html::a('Панель управления', '/admin/')?></li>
 				<li class="active">Спецпредложения</li>

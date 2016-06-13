@@ -6,13 +6,12 @@ use yii\widgets\ActiveForm;
 $this->title = 'Сообщение от - '.$model->name;
 ?>
 <div class="page text-center">
-	<div class="page-head">
+	<div class="page-head hidden-md hidden-lg">
 		<h2>Контакты</h2>
 		<div></div>
 	</div>
 	<div class="row" style="margin-top: 5px;">
-		<div class="col-sm-1 hidden-xs"></div>
-		<div class="col-sm-10 text-left">
+		<div class="col-sm-12 text-left">
 			<ul class="breadcrumb">
 				<li><?=Html::a('Панель управления', '/admin/')?></li>
 				<li><?=Html::a('Контакты', '/admin/feedback/')?></li>

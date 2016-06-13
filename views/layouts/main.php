@@ -126,12 +126,77 @@ $LBanners = LBanners::find()->all();
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                     'homeLink'=>['label' => 'Панель управления', 'url' => '/admin/'],
                 ]) ?>
+                <div class="row">
+                    <?if (!Yii::$app->user->isGuest) {?>
+                        <div class="col-md-2 hidden-xs hidden-sm" style="padding-left: 0;">
+                            <?echo Nav::widget([
+                                'options' => ['class' => 'navbar-right nav-menu'],
+                                'items' => [
+                                    [
+                                        'label' => 'Главная страница',
+                                        'url' => ['/admin/mainpage'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Спецпредложения',
+                                        'url' => ['/admin/specials'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Продукция',
+                                        'url' => ['/admin/productions'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Галерея',
+                                        'url' => ['/admin/gallery'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Статьи',
+                                        'url' => ['/admin/articles'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Контакты',
+                                        'url' => ['/admin/feedback'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Личные данные',
+                                        'url' => ['/admin/userchange'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Баннеры',
+                                        'url' => ['/admin/banners'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Настройки сайта',
+                                        'url' => ['/admin/settings'],
+                                    ],
+                                    '<li class="divider"></li>',
+                                    [
+                                        'label' => 'Выход',
+                                        'url' => ['/admin/logout'],
+                                    ],
+                                ],
+                            ]);?>
+                        </div>
+                    <?} else {?>
+                        <div class="col-md-1"></div>
+                    <?}?>
+                    <div class="col-md-10">
+                        <?= $content ?>
+                    </div>
+                </div>
             <?} else {?>
                 <?= Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
+                <?= $content ?>
             <?}?>
-            <?= $content ?>
         </div>
     <?}?>
 </div>

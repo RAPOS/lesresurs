@@ -689,3 +689,24 @@ a.desc:after {
     margin-bottom: 30px;
     border-bottom: 1px solid #000;
 }
+
+.nav-menu {
+    width: 100%;
+    margin-top: -60px;
+    padding-top: 5px;
+}
+.nav-menu a {
+    color: #FFFFFF;
+}
+.nav-menu a:hover {
+    color: #000;
+}
+.nav-menu a:focus {
+    color: #000;
+}
+.nav-menu a:active {
+    color: #000;
+}
+.divider {
+    border-bottom: 1px solid #8ec7a8;
+}
