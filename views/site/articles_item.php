@@ -6,26 +6,37 @@
  * Time: 16:26
  */
 use app\models\LImages;
-$this->title = 'Статьи - ' . $articles->header;
+if ($type == 2) {
+    $this->title = 'Акции - ' . $model->header;
+} else if ($type == 1) {
+    $this->title = 'Продукция - ' . $model->header;
+} else if ($type == 3) {
+    $this->title = 'Статьи - ' . $model->header;
+}
 ?>
 <div class="page text-center">
-    <div class="page-head">
-        <h2>Статьи</h2>
-        <span>Описание деятельности нашей компании</span>
-        <div></div>
-    </div>
     <div class="page-article">
-        <h3><?=$articles->header?></h3>
+        <h3><?=$model->header?></h3>
 		<?
-		$model_images = json_decode($articles->id_image);
+		$model_images = json_decode($model->id_image);
 		$LImages = LImages::findOne($model_images);
 		if($LImages->path && file_exists(Yii::getAlias('@webroot/'.$LImages->path))){
 			$image = Yii::$app->image->load(Yii::getAlias('@webroot/'.$LImages->path));
 			$image->save(Yii::getAlias('@webroot/assets/'.$LImages->name.'.'.$LImages->extension));
 			?>			
 			<img class="img-responsive" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
-		<?}?>		
-        <p><?=$articles->text?></p>
+		<?}?>
+        <p><?=$model->text?></p>
+        <?if ($type == 2) {
+            if ($model->status) {?>
+                <p>Действует до <?=$model->date?></p>
+            <?} else {?>
+                <p style="color: red;">Акция закончена</p>
+            <?}
+        }?>
+        <?if ($type == 1) {?>
+            <button class="lbutton order">Оставить заявку</button>
+        <?}?>
         <div class="share">
             <button class="btn btn-primary" onclick="$('.bubble').css('display', ($('.bubble').css('display') == 'none') ? 'block' : 'none')">Поделиться статьей</button>
             <div class="bubble">

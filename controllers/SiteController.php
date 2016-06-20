@@ -66,13 +66,23 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionLumbering()
+    public function actionLumbering($id = null)
     {
+        if ($id) {
+            $LProductions = LProductions::find()->where(['id' => $id])->one();
+            return $this->render('articles_item', ['model' => $LProductions, 'type' => 1]);
+        }
+        
         return $this->render('lumbering', ['modelproductions' => LProductions::find()->all(), 'modelpage' => LProductionspage::find(['site' => 1])->all()]);
     }
 
-    public function actionSpecials()
+    public function actionSpecials($id = null)
     {
+        if ($id) {
+            $LActions = LActions::find()->where(['id' => $id])->one();
+            return $this->render('articles_item', ['model' => $LActions, 'type' => 2]);
+        }
+        
         return $this->render('specials', ['model' => LActions::find()->all()]);
     }
 
@@ -85,7 +95,7 @@ class SiteController extends Controller
     {
         if ($id) {
             $LArticles = LArticles::find()->where(['id' => $id])->one();
-            return $this->render('articles_item', ['articles' => $LArticles]);
+            return $this->render('articles_item', ['model' => $LArticles, 'type' => 3]);
         }
 
         $LArticles = LArticles::find()->orderBy('id DESC')->all();

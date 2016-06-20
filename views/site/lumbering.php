@@ -60,7 +60,7 @@ $this->title = "Продажа леса";
 					<img class="img-responsive left" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
 				<?}?>
 					<div class="item-desc left">
-						<h3><?=$value->header?></h3>
+						<h3><a href="/lumbering/<?=$value->id?>/"><?=$value->header?></a></h3>
 						<p><?=$value->text?></p>
 						<button class="lbutton order">Оставить заявку</button>
 					</div>

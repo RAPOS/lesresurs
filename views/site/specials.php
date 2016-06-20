@@ -34,7 +34,7 @@ $this->title = 'Спецпредложения';
 						<img class="img-responsive" src="<?='/assets/'.$LImages->name.'.'.$LImages->extension?>" alt="">		
 					<?}?>				
 					
-					<h3><?=$value->header?></h3>
+					<h3><a href="/specials/<?=$value->id?>/"><?=$value->header?></a></h3>
 					<p>
 						<?=$value->text?>
 					</p>
