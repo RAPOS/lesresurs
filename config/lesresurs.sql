@@ -25,13 +25,15 @@ CREATE TABLE IF NOT EXISTS `l_actions` (
   `date` varchar(64) NOT NULL,
   `id_image` int(11) NOT NULL,
   `status` int(1) NOT NULL,
+  `keywords` text,
+  `description` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы lesresurs.l_actions: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `l_actions` DISABLE KEYS */;
-INSERT INTO `l_actions` (`id`, `header`, `text`, `date`, `id_image`, `status`) VALUES
-	(1, '1 куб доска 50', '<p>Срочно продаём</p>', '17-05-2016', 37, 0);
+INSERT INTO `l_actions` (`id`, `header`, `text`, `date`, `id_image`, `status`, `keywords`, `description`) VALUES
+	(1, '1 куб доска 50', '<p>Срочно продаём</p>', '17-05-2016', 37, 0, NULL, NULL);
 /*!40000 ALTER TABLE `l_actions` ENABLE KEYS */;
 
 
@@ -137,9 +139,9 @@ CREATE TABLE IF NOT EXISTS `l_gallery` (
   `id_photo` int(11) NOT NULL AUTO_INCREMENT,
   `id_image` int(11) NOT NULL,
   PRIMARY KEY (`id_photo`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы lesresurs.l_gallery: ~11 rows (приблизительно)
+-- Дамп данных таблицы lesresurs.l_gallery: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `l_gallery` DISABLE KEYS */;
 /*!40000 ALTER TABLE `l_gallery` ENABLE KEYS */;
 
@@ -155,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `l_images` (
   PRIMARY KEY (`id_image`)
 ) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы lesresurs.l_images: ~95 rows (приблизительно)
+-- Дамп данных таблицы lesresurs.l_images: ~96 rows (приблизительно)
 /*!40000 ALTER TABLE `l_images` DISABLE KEYS */;
 INSERT INTO `l_images` (`id_image`, `name`, `path`, `extension`, `status`) VALUES
 	(1, '97f9218c10810b108a6f93b5b4d5d395', 'files/images/1/97f9218c10810b108a6f93b5b4d5d395.jpg', 'jpg', b'0'),
