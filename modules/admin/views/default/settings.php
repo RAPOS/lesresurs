@@ -37,6 +37,12 @@ if (!is_null($save)) print $this->render('_alert', ['save' => $save]);
                 <div class="col-xs-12 col-sm-6">
                     <?= $form->field($model, 'link_twitter') ?>
                 </div>
+                <div class="col-xs-12 col-sm-6">
+                    <?= $form->field($model, 'email_order') ?>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <?= $form->field($model, 'email_contact') ?>
+                </div>
             </div>
             <div class="form-group">
                 <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>

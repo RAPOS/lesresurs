@@ -166,6 +166,11 @@ $LBanners = LBanners::find()->all();
                                         'label' => 'Личные данные',
                                         'url' => ['/admin/userchange'],
                                     ],
+									'<li class="divider"></li>',
+                                    [
+                                        'label' => 'Заявки',
+                                        'url' => ['/admin/orders'],
+                                    ],
                                     '<li class="divider"></li>',
                                     [
                                         'label' => 'Баннеры',
@@ -227,7 +232,7 @@ $LBanners = LBanners::find()->all();
                     <span class="form-icon form-icon-user form-control-feedback" aria-hidden="true"></span>
                 </div>
                 <div class="form-group field-name required">
-                    <button class="lbutton">Отправить заявку</button>
+                    <button class="lbutton" onclick="sendMail()">Отправить заявку</button>
                 </div>
             </div>
         </div>

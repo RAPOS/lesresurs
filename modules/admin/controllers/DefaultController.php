@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\LActions;
 use app\models\LArticles;
+use app\models\LOrders;
 use app\models\LBanners;
 use app\models\LProductionspage;
 use app\models\LSettings;
@@ -299,5 +300,23 @@ class DefaultController extends Controller
 		} else {
 			return 'Не пришли данные для удаления';
 		}
+	}
+	
+	
+	public function actionOrders()
+	{
+		if (Yii::$app->user->isGuest)  $this->redirect(Yii::$app->user->loginUrl);
+
+		$dataProvider = new ActiveDataProvider([
+			'query' => LOrders::find(),
+			'sort' => [
+				'defaultOrder' => ['id' => SORT_DESC],
+			],
+		]);
+
+
+		return $this->render('orders', [
+			'dataProvider' => $dataProvider,
+		]);
 	}
 }

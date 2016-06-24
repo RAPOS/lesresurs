@@ -3,12 +3,13 @@
 namespace app\controllers;
 
 use app\models\LActions;
+use app\models\LOrders;
+use app\models\LSettings;
 use Yii;
 use yii\captcha\CaptchaValidator;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
 use app\models\LArticles;
 use app\models\LContacts;
 use app\models\LGallery;
@@ -155,5 +156,24 @@ class SiteController extends Controller
             'captcha' => $captcha,
             'save' => $save,
         ]);
+    }
+
+    public function actionSendmail()
+    {
+        if ($_POST) {
+            $LOrders = new LOrders;
+            $LOrders->name = $_POST['name'];
+            $LOrders->phone = $_POST['phone'];
+            $LOrders->date = date('d.m.Y H:i:s');
+            $LOrders->save();
+
+            $model = LSettings::find()->where(['site' => 1])->one();
+            Yii::$app->mailer->compose()
+                ->setTo($model->email_order)
+                ->setFrom(['mann_aiv@mail.ru' => 'Apoly'])
+                ->setSubject('Заявка на покупку')
+                ->setHtmlBody('<b>Новая заявка!</b><br>Имя: '.$_POST['name'].'<br>Телефон: '.$_POST['phone'])
+                ->send();
+        }
     }
 }
